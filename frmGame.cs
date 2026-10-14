@@ -53,7 +53,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-
+            if(e.KeyCode == Keys.Left && !directionPressed)
+            {
+                MovePlayerAnimation("left");
+            }
+            if (e.KeyCode == Keys.Right && !directionPressed)
+            {
+                MovePlayerAnimation("right");
+            }
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
@@ -74,6 +81,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 drumX = 450;
             }
 
+            if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
+            {
+                goLeft = false;
+                goRight = false;
+                directionPressed = false;
+                ResetPlayer();
+            }
         }
 
         private void FormPaintEvent(object sender, PaintEventArgs e)
@@ -89,6 +103,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             this.Invalidate();
             ImageAnimator.UpdateFrames();
+            MovePlayerAndBackground();
         }
 
         private void frmGame_Load(object sender, EventArgs e)
@@ -120,16 +135,49 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void MovePlayerAndBackground()
         {
+            if (goLeft)
+            {
+                if (playerX > 0)
+                {
+                    playerX -= 6;
+                }
+            }
+            if (goRight)
+            {
+                if(playerX + player.Width < this.ClientSize.Width)
+                {
+                    playerX += 6;
+                }
+            }
 
         }
 
         private void MovePlayerAnimation(string direction)
         {
+            if(direction == "left")
+            {
+                goLeft = true;
+                
+                player = Image.FromFile(@"../../Assets/backwards.gif");
+            }
+            else if (direction == "right")
+            {
+                goRight = true;
+                
+                player = Image.FromFile(@"../../Assets/forwards.gif");
+            }
+
+            directionPressed = true;
+            playerAction = false;
+            SetUpAnimation();
         }
 
         private void ResetPlayer()
         {
-
+            player = Image.FromFile(@"../../Assets/standing.gif");
+            SetUpAnimation();
+            num = 0;
+            playerAction = false;
         }
 
         private void SetPlayerAction(string animation, int strength)

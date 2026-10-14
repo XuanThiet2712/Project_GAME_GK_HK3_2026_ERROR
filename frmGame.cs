@@ -87,7 +87,18 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             drum = Image.FromFile("drum.png");
             SetUpAnimation();
         }
-        private void SetUpAnimation() { }
+        private void SetUpAnimation() 
+        { 
+            ImageAnimator.Animate(player, this.OnFrameChangeHandler);
+            FrameDimension dimension = new FrameDimension(player.FrameDimensionsList[0]);
+            totalFrame = player.GetFrameCount(dimension);
+            endFrame = totalFrame - 3; 
+        }
+
+        private void OnFrameChangeHandler(object sender, EventArgs e)
+        {
+            this.Invalidate();
+        }
 
         private void MovePlayerAndBackground()
         {

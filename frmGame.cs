@@ -141,12 +141,22 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     playerX -= 6;
                 }
+                if(backgroundPosition < 0 && playerX < 50)
+                {
+                    backgroundPosition += 5;
+                    drumX += 5;
+                }
             }
             if (goRight)
             {
                 if(playerX + player.Width < this.ClientSize.Width)
                 {
                     playerX += 6;
+                }
+                if (backgroundPosition + background.Width > this.ClientSize.Width && playerX > 200)
+                {
+                    backgroundPosition -= 5;
+                    drumX -= 5;
                 }
             }
 

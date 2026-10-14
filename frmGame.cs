@@ -58,6 +58,21 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
+            if(e.KeyCode == Keys.X)
+            {
+                if(bg_number < background_images.Count - 1)
+                {
+                    bg_number++;
+                }
+                else
+                {
+                    bg_number = 0;
+                }
+                background = Image.FromFile(background_images[bg_number]);
+                backgroundPosition = 0;
+                drumMoveTimer = 0;
+                drumX = 450;
+            }
 
         }
 
@@ -72,7 +87,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void GameTimerEvent(object sender, EventArgs e)
         {
-
+            this.Invalidate();
+            ImageAnimator.UpdateFrames();
         }
 
         private void frmGame_Load(object sender, EventArgs e)
@@ -83,10 +99,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         private void SetUpForm() 
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
-            background_images = Directory.GetFiles("background", "*.jpg").ToList();
+            background_images = Directory.GetFiles(@"../../Assets/background").ToList();
             background = Image.FromFile(background_images[bg_number]);
-            player = Image.FromFile("player.png");
-            drum = Image.FromFile("drum.png");
+            player = Image.FromFile(@"../../Assets/standing.gif");
+            drum = Image.FromFile(@"../../Assets/drum.png");
             SetUpAnimation();
         }
         private void SetUpAnimation() 
@@ -134,7 +150,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private bool DetectCollision()
         {
-            return false;
+            return true;
         }
     }
 }

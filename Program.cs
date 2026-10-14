@@ -16,7 +16,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmMenu());
         }
     }
 }

@@ -63,7 +63,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void FormPaintEvent(object sender, PaintEventArgs e)
         {
-
+            e.Graphics.DrawImage(background, new Point(backgroundPosition , 0));
+            e.Graphics.DrawImage(player, new Point(playerX, playerY));
+            e.Graphics.DrawImage(drum, new Point(drumX, drumY));
         }
 
 

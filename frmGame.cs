@@ -88,6 +88,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 directionPressed = false;
                 ResetPlayer();
             }
+
+            if (e.KeyCode == Keys.J && goLeft == false && goRight == false)
+            {
+               
+                SetPlayerAction("`12",2);
+
+             
+            }
         }
 
         private void FormPaintEvent(object sender, PaintEventArgs e)
@@ -192,6 +200,22 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void SetPlayerAction(string animation, int strength)
         {
+            if (num == 0)
+            {
+                player = Image.FromFile(@"../../Assets/punch1.gif");
+                SetUpAnimation();
+                playerAction = true;
+                num++;
+                
+            }
+            else if (num == 1)
+            {
+                player = Image.FromFile(@"../../Assets/punch2.gif");
+                SetUpAnimation();
+                playerAction = true;
+                num = 0;
+
+            }
         }
 
         private void ShootFireBall()

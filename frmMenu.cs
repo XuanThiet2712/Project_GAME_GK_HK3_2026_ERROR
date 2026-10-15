@@ -16,5 +16,15 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

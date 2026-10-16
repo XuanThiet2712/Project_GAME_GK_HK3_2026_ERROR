@@ -89,12 +89,17 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 ResetPlayer();
             }
 
-            if (e.KeyCode == Keys.J && goLeft == false && goRight == false)
+            if (e.KeyCode == Keys.J && goLeft == false && goRight == false && !playerAction)
+            {               
+                SetPlayerAction("punch2.gif",2);             
+            }
+            if (e.KeyCode == Keys.K && goLeft == false && goRight == false && !playerAction)
             {
-               
-                SetPlayerAction("`12",2);
-
-             
+                SetPlayerAction("punch1.gif", 5);
+            }
+            if (e.KeyCode == Keys.U && goLeft == false && goRight == false && !playerAction)
+            {
+                SetPlayerAction("fireball.gif", 30);
             }
         }
 
@@ -103,6 +108,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             e.Graphics.DrawImage(background, new Point(backgroundPosition , 0));
             e.Graphics.DrawImage(player, new Point(playerX, playerY));
             e.Graphics.DrawImage(drum, new Point(drumX, drumY));
+            
+            if(shotFireBall)
+            {
+                e.Graphics.DrawImage(fireball, new Point(fireballX, fireballY));
+            }
         }
 
 
@@ -112,6 +122,33 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             this.Invalidate();
             ImageAnimator.UpdateFrames();
             MovePlayerAndBackground();
+
+            if (playerAction)
+            {
+                if (num < totalFrame)
+                {
+                    num += 0.5f;
+                }
+                
+            }
+            if(num == totalFrame)
+            {
+                ResetPlayer();
+            }
+
+            if (shotFireBall)
+            {
+                fireballX += 10;
+                if (fireballX > this.ClientSize.Width)
+                {
+                    shotFireBall = false;
+                }
+            }
+            if(!shotFireBall && num > endFrame && drumMoveTimer == 0 && actionStrength == 30)
+            {
+                ShootFireBall();
+            }
+
         }
 
         private void frmGame_Load(object sender, EventArgs e)
@@ -200,26 +237,20 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void SetPlayerAction(string animation, int strength)
         {
-            if (num == 0)
-            {
-                player = Image.FromFile(@"../../Assets/punch1.gif");
-                SetUpAnimation();
-                playerAction = true;
-                num++;
-                
-            }
-            else if (num == 1)
-            {
-                player = Image.FromFile(@"../../Assets/punch2.gif");
-                SetUpAnimation();
-                playerAction = true;
-                num = 0;
-
-            }
+            player = Image.FromFile(@"../../Assets/" + animation);
+            actionStrength = strength;
+            SetUpAnimation();
+            playerAction = true;
         }
 
         private void ShootFireBall()
         {
+            fireball = Image.FromFile(@"../../Assets/FireBallFinal.gif");
+            ImageAnimator.Animate(fireball, this.OnFrameChangeHandler);
+            fireballX = playerX + player.Width -50;
+            fireballY = playerY - 33 ;
+            shotFireBall = true;
+
         }
 
         private void CheckPunchHit()

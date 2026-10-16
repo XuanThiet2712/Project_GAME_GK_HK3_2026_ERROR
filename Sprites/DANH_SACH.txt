@@ -1,0 +1,64 @@
+
+== 01_Dung_yen ==
+Goku_SSJ_dung_yen_tho.gif  |  Goku SSJ: Đứng yên (tư thế chờ)  (4 frame)
+Goku_thuong_dung_yen_tho.gif  |  Goku thuong: Đứng yên (tư thế chờ)  (4 frame)
+
+== 02_Bi_danh_nga ==
+Goku_SSJ_bi_danh_nga_dung_day.gif  |  Goku SSJ: Bị đánh trúng → ngã → nằm → đứng dậy  (9 frame)
+Goku_SSJ_bi_hat_tung_lan_dung_day.gif  |  Goku SSJ: Bị hất tung / lăn / đứng dậy  (6 frame)
+Goku_thuong_bi_danh_nga_dung_day.gif  |  Goku thuong: Bị đánh trúng → ngã → nằm → đứng dậy  (9 frame)
+Goku_thuong_bi_hat_tung_lan_dung_day.gif  |  Goku thuong: Bị hất tung / lăn / đứng dậy  (6 frame)
+
+== 03_Thu_do_don ==
+Goku_SSJ_thu_do_don.gif  |  Goku SSJ: Thủ / đỡ đòn  (3 frame)
+Goku_thuong_thu_do_don.gif  |  Goku thuong: Thủ / đỡ đòn  (3 frame)
+
+== 04_Nhay ==
+Goku_SSJ_nhay_len_ha_xuong.gif  |  Goku SSJ: Nhảy lên - hạ xuống  (4 frame)
+Goku_thuong_nhay_len_ha_xuong.gif  |  Goku thuong: Nhảy lên - hạ xuống  (4 frame)
+
+== 05_Chay_luot ==
+Goku_SSJ_chay_luot_bay_ngang.gif  |  Goku SSJ: Chạy / lướt bay ngang  (4 frame)
+Goku_thuong_chay_luot_bay_ngang.gif  |  Goku thuong: Chạy / lướt bay ngang  (4 frame)
+
+== 06_Dam ==
+Goku_SSJ_dam_thang.gif  |  Goku SSJ: Đấm thẳng  (6 frame)
+Goku_SSJ_dam_tay_lay_da.gif  |  Goku SSJ: Đấm tay lấy đà  (7 frame)
+Goku_SSJ_dam_lien_hoan.gif  |  Goku SSJ: Đấm liên hoàn  (9 frame)
+Goku_SSJ_dam_lao_toi_1.gif  |  Goku SSJ: Đấm lao tới (có hiệu ứng lửa) - 1  (7 frame)
+Goku_SSJ_dam_lao_toi_2.gif  |  Goku SSJ: Đấm lao tới (có hiệu ứng lửa) - 2  (5 frame)
+Goku_thuong_dam_thang.gif  |  Goku thuong: Đấm thẳng  (6 frame)
+Goku_thuong_dam_tay_lay_da.gif  |  Goku thuong: Đấm tay lấy đà  (7 frame)
+Goku_thuong_dam_lien_hoan.gif  |  Goku thuong: Đấm liên hoàn  (9 frame)
+Goku_thuong_dam_lao_toi_1.gif  |  Goku thuong: Đấm lao tới (có hiệu ứng lửa) - 1  (7 frame)
+Goku_thuong_dam_lao_toi_2.gif  |  Goku thuong: Đấm lao tới (có hiệu ứng lửa) - 2  (5 frame)
+
+== 07_Da ==
+Goku_SSJ_da_luot_combo_dam_da.gif  |  Goku SSJ: Combo đấm + đá lướt (đá bay)  (10 frame)
+Goku_SSJ_da_xoay_quet.gif  |  Goku SSJ: Đá xoay / quét chân  (8 frame)
+Goku_thuong_da_luot_combo_dam_da.gif  |  Goku thuong: Combo đấm + đá lướt (đá bay)  (10 frame)
+Goku_thuong_da_xoay_quet.gif  |  Goku thuong: Đá xoay / quét chân  (8 frame)
+
+== 08_Danh_tren_khong ==
+Goku_SSJ_da_lon_nhao_tren_khong.gif  |  Goku SSJ: Đòn trên không: đá lộn nhào  (6 frame)
+Goku_SSJ_nhay_da_xuong.gif  |  Goku SSJ: Nhảy đạp từ trên xuống  (5 frame)
+Goku_thuong_da_lon_nhao_tren_khong.gif  |  Goku thuong: Đòn trên không: đá lộn nhào  (6 frame)
+Goku_thuong_nhay_da_xuong.gif  |  Goku thuong: Nhảy đạp từ trên xuống  (5 frame)
+
+== 09_Tung_skill ==
+Goku_SSJ_tung_skill_luot_quet_xanh.gif  |  Goku SSJ: Tung skill: lướt quét (hiệu ứng xanh)  (9 frame)
+Goku_thuong_tung_skill_luot_quet_xanh.gif  |  Goku thuong: Tung skill: lướt quét (hiệu ứng xanh)  (9 frame)
+
+== 10_Chieu_cuoi_cat_canh ==
+Goku_SSJ_chieu_cuoi_canh_02.gif  |  Goku SSJ: SSJ combo đá lướt + lộn nhào (cảnh 3-a)  (14 frame)
+Goku_SSJ_chieu_cuoi_canh_03.gif  |  Goku SSJ: SSJ nhảy/lướt/quét xanh (cảnh 3-b)  (14 frame)
+Goku_SSJ_chieu_cuoi_canh_06.gif  |  Goku SSJ: SSJ lao tới đấm (cảnh 5-a)  (11 frame)
+Goku_SSJ_chieu_cuoi_canh_07.gif  |  Goku SSJ: SSJ combo đá lướt + lộn nhào (cảnh 5-b)  (14 frame)
+Goku_SSJ_chieu_cuoi_canh_08.gif  |  Goku SSJ: SSJ nhảy/lướt/quét xanh (cảnh 5-c)  (14 frame)
+Goku_SSJ_chieu_cuoi_canh_09.gif  |  Goku SSJ: SSJ → SSJ3 biến hình + đấm lao tới (cảnh 6-a)  (14 frame)
+Goku_SSJ_chieu_cuoi_canh_11.gif  |  Goku SSJ: SSJ → SSJ3 biến hình (cảnh 7-a)  (11 frame)
+Goku_SSJ_chieu_cuoi_canh_12.gif  |  Goku SSJ: Hợp thể Vegito (cảnh 7-b)  (11 frame)
+Goku_thuong_chieu_cuoi_canh_01.gif  |  Goku thuong: Goku thường lao tới đấm liên hoàn (cảnh 2)  (11 frame)
+Goku_thuong_chieu_cuoi_canh_04.gif  |  Goku thuong: Goku thường lao tới đấm (cảnh 4-a)  (12 frame)
+Goku_thuong_chieu_cuoi_canh_05.gif  |  Goku thuong: Goku thường chuyển động (cảnh 4-b)  (8 frame)
+Goku_thuong_chieu_cuoi_canh_10.gif  |  Goku thuong: Goku giơ tay / hiệu ứng bóng trắng (cảnh 6-b)  (14 frame)

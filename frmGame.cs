@@ -29,7 +29,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         int fireballX, fireballY;
 
-        int drumMoveTimer = 0;
+        int drumMoveTime = 0;
         int actionStrength = 0;
         int endFrame = 0;
         int backgroundPosition = 0;
@@ -56,10 +56,12 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             if(e.KeyCode == Keys.Left && !directionPressed)
             {
                 MovePlayerAnimation("left");
+                btnLeft.BackColor = Color.LightGray;
             }
             if (e.KeyCode == Keys.Right && !directionPressed)
             {
                 MovePlayerAnimation("right");
+                btnRight.BackColor = Color.LightGray;
             }
         }
 
@@ -77,7 +79,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 }
                 background = Image.FromFile(background_images[bg_number]);
                 backgroundPosition = 0;
-                drumMoveTimer = 0;
+                drumMoveTime = 0;
                 drumX = 450;
             }
 
@@ -86,6 +88,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 goLeft = false;
                 goRight = false;
                 directionPressed = false;
+                btnLeft.BackColor = Color.Transparent;
+                btnRight.BackColor = Color.Transparent;
                 ResetPlayer();
             }
 
@@ -141,33 +145,34 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             if (shotFireBall)
             {
                 fireballX += 10;
+                CheckFireBallHit();
                 if (fireballX > this.ClientSize.Width)
                 {
                     shotFireBall = false;
                 }
             }
-            if(!shotFireBall && num > endFrame && drumMoveTimer == 0 && actionStrength == 30)
+            if(!shotFireBall && num > endFrame && drumMoveTime == 0 && actionStrength == 30)
             {
                 ShootFireBall();
             }
 
 
-            if (drumMoveTimer > 0)
+            if (drumMoveTime > 0)
             {
                 drumX += 10;
-                drumMoveTimer--;
+                drumMoveTime--;
                 drum = Image.FromFile(@"../../Assets/hitdrum.png");
             }
             else
             {
                 drum = Image.FromFile(@"../../Assets/drum.png");
-                drumMoveTimer = 0;
+                drumMoveTime = 0;
             }
 
             if (drumX > this.ClientSize.Width)
             {
-                drumMoveTimer = 0;
-                drumX = 450;
+                drumMoveTime = 0;
+                drumX = 300;
             }
             
         }
@@ -279,12 +284,23 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             bool collison = DetectCollision(playerX, playerY, player.Width, player.Height, drumX, drumY, drum.Width, drum.Height);
             if (collison && playerAction && num > endFrame)
             {
-                drumMoveTimer = actionStrength;
+                drumMoveTime = actionStrength;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void CheckFireBallHit()
         {
+            bool collision = DetectCollision(fireballX, fireballY, fireball.Width, fireball.Height, drumX, drumY, drum.Width, drum.Height);
+            if (collision)
+            {
+                drumMoveTime = actionStrength;
+                shotFireBall = false;
+            }
         }
 
         private bool DetectCollision(int object1X, int object1Y, int object1Width, int object1Height, int object2X, int object2Y, int object2Width, int object2Height)

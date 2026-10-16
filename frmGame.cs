@@ -122,6 +122,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             this.Invalidate();
             ImageAnimator.UpdateFrames();
             MovePlayerAndBackground();
+            CheckPunchHit();
+
 
             if (playerAction)
             {
@@ -149,6 +151,25 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 ShootFireBall();
             }
 
+
+            if (drumMoveTimer > 0)
+            {
+                drumX += 10;
+                drumMoveTimer--;
+                drum = Image.FromFile(@"../../Assets/hitdrum.png");
+            }
+            else
+            {
+                drum = Image.FromFile(@"../../Assets/drum.png");
+                drumMoveTimer = 0;
+            }
+
+            if (drumX > this.ClientSize.Width)
+            {
+                drumMoveTimer = 0;
+                drumX = 450;
+            }
+            
         }
 
         private void frmGame_Load(object sender, EventArgs e)
@@ -255,15 +276,27 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void CheckPunchHit()
         {
+            bool collison = DetectCollision(playerX, playerY, player.Width, player.Height, drumX, drumY, drum.Width, drum.Height);
+            if (collison && playerAction && num > endFrame)
+            {
+                drumMoveTimer = actionStrength;
+            }
         }
 
         private void CheckFireBallHit()
         {
         }
 
-        private bool DetectCollision()
+        private bool DetectCollision(int object1X, int object1Y, int object1Width, int object1Height, int object2X, int object2Y, int object2Width, int object2Height)
         {
-            return true;
+            if (object1X + object1Width <= object2X || object1X >= object2X + object2Width || object1Y + object1Height <= object2Y || object1Y >= object2Y + object2Height)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

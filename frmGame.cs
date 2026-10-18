@@ -20,6 +20,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         Point? selected = null;   // x hang , y cot, null ch chon o nao
         PieceColor turn = PieceColor.White;
+        int moveNumber = 1; // so nuoc dang di
 
         public frmGame()
         {
@@ -117,6 +118,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     if (from.X != row || from.Y != col)
                     {
+                        //lich su di chuyen
+                        string moveText = $"{moveNumber}. {SquareName(from.X, from.Y)}-{SquareName(row, col)}";
+                        string who = (turn == PieceColor.White) ? "White" : "Black";
+                        lstHistory.Items.Add($"{who}: {moveText}");
+                        lstHistory.TopIndex = lstHistory.Items.Count - 1; // scroll to bottom
                         board[row, col] = movingPiece;
                         board[from.X, from.Y] = null;
 
@@ -127,6 +133,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                         else
                         {
                             turn = PieceColor.White;
+                            moveNumber++;
                         }
                     }
                     selected = null;
@@ -138,6 +145,12 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 ShowPieces();
             
         }
+
+            private string SquareName(int row, int col)
+            {
+                return ((char)('a' + col)).ToString() + (row + 1);
+            }
+
         // Tô màu so le bàn cờ 
         private void ColorBoard()
         {

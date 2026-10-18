@@ -42,7 +42,16 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private static bool IsValidKingMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)
         {
-            throw new NotImplementedException();
+            int[] dX = new int[8] { 1, 1, 0, -1, -1, -1, 0, 1 };
+            int[] dY = new int[8] { 0, 1, 1, 1, 0, -1, -1, -1 };
+            for (int i = 0; i < 8; i++)
+            {
+                int newRow = fromRow + dX[i];
+                int newCol = fromCol + dY[i];
+                if (newRow == toRow && newCol == toCol)
+                    return true;
+            }
+            return false;
         }
 
         private static bool IsValidQueenMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)

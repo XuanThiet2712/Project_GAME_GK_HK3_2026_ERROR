@@ -19,6 +19,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         Dictionary<string, Image> images = new Dictionary<string, Image>();   // khai bao anh co
 
         Point? selected = null;   // x hang , y cot, null ch chon o nao
+        PieceColor turn = PieceColor.White;
 
         public frmGame()
         {
@@ -97,7 +98,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             int col = position.Y;
             if (selected == null)
             {
-                if (board[row, col] != null)
+                if (board[row, col] != null && board[row, col].Color == turn)
                 {
                     selected = new Point(row, col);
                 }
@@ -118,6 +119,15 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     {
                         board[row, col] = movingPiece;
                         board[from.X, from.Y] = null;
+
+                        if(turn == PieceColor.White)
+                        {
+                            turn = PieceColor.Black;
+                        }
+                        else
+                        {
+                            turn = PieceColor.White;
+                        }
                     }
                     selected = null;
 
@@ -169,11 +179,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             for(int c = 0; c < 8; c++)
             {
         
-                board[0, c] = new Piece(backRank[c], PieceColor.White); // hafng sau quan trang
-                board[1, c] = new Piece(PieceType.Pawn, PieceColor.White); // hang dau quan trang
+                board[7, c] = new Piece(backRank[c], PieceColor.White); // hafng sau quan trang
+                board[6, c] = new Piece(PieceType.Pawn, PieceColor.White); // hang dau quan trang
    
-                board[7, c] = new Piece(backRank[c], PieceColor.Black);  // hang sau quan den
-                board[6, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
+                board[0, c] = new Piece(backRank[c], PieceColor.Black);  // hang sau quan den
+                board[1, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
             }
         }
     }

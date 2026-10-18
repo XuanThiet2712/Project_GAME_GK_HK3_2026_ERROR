@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity.cs" />
     <Compile Include="frmEnterName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +100,8 @@
     <Compile Include="frmShop.Designer.cs">
       <DependentUpon>frmShop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Pieces.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmGame.resx">
@@ -139,5 +140,11 @@
     <None Update="Assets\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
+    <Folder Include="Logic\" />
+    <Folder Include="Pieces\" />
+    <Folder Include="UI\" />
   </ItemGroup>
 </Project>

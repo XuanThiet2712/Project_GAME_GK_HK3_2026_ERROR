@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,77 +11,55 @@ using System.Windows.Forms;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
-    public partial class frmGame: Form
+    public partial class frmGame : Form
     {
-        //khai bao animation
-        Image player;
-        Image background;
-
-
-        //vector player drum fireball
-        int playerX = 0;
-        int playerY = 250;
-
-        int actionStrength = 0;
-        int endFrame = 0;
-        int backgroundPosition = 0;
-        int totalFrame = 0;
-        int bg_number = 0;
-
-        float num;
+        PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
 
         public frmGame()
         {
             InitializeComponent();
-            SetUpForm();
+            CreateCells();
+            ColorBoard();
         }
 
+        // Tạo 64 PictureBox và đặt vào pnlBoard
+        private void CreateCells()
+        {
+            int size = pnlBoard.ClientSize.Width / 8;  // cạnh ô cờ
+
+            for (int r = 0; r < 8; r++)                 // r = hàng
+            {
+                for (int c = 0; c < 8; c++)             // c = cột
+                {
+                    PictureBox pb = new PictureBox();
+                    pb.Size = new Size(size, size);
+                    pb.Location = new Point(c * size, r * size);
+                    pb.SizeMode = PictureBoxSizeMode.Zoom;
+
+                    pnlBoard.Controls.Add(pb);
+                    cells[r, c] = pb;
+                }
+            }
+        }
+
+        // Tô màu so le bàn cờ 
+        private void ColorBoard()
+        {
+            for (int r = 0; r < 8; r++)
+            {
+                for (int c = 0; c < 8; c++)
+                {
+                    if ((r + c) % 2 == 0)
+                        //mốt thêm ảnh
+                        cells[r, c].BackColor = Color.FromArgb(240, 217, 181);   // ô sáng
+                    else
+                        //mot them anh
+                        cells[r, c].BackColor = Color.FromArgb(181, 136, 99);    // ô tối
+                }
+            }
+        }
         private void frmGame_Load(object sender, EventArgs e)
         {
-
         }
-
-        private void KeyIsDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void KeyIsUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void FormPaintEvent(object sender, PaintEventArgs e)
-        {
-            e.Graphics.DrawImage(player, new Point(playerX, playerY));
-        }
-
-        private void GameTimerEvent(object sender, EventArgs e)
-        {
-            this.Invalidate();
-            ImageAnimator.UpdateFrames();
-        }
-
-        private void SetUpForm()
-        {
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
-            player = Image.FromFile(@"../../Sprites/Nor/Idle_v1.gif");
-            SetUpAnimation();
-        }
-
-        private void SetUpAnimation()
-        {
-            ImageAnimator.Animate(player, this.OnFrameChangeHandler);
-            FrameDimension dimension = new FrameDimension(player.FrameDimensionsList[0]);
-            totalFrame = player.GetFrameCount(dimension);
-            endFrame = totalFrame - 3;
-        }
-
-        private void OnFrameChangeHandler(object sender, EventArgs e)
-        {
-            this.Invalidate();
-        }
-
-      
     }
 }

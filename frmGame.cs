@@ -95,17 +95,38 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             Point position = (Point)cell.Tag;
             int row = position.X;
             int col = position.Y;
-
-            if(board[row, col] != null)
+            if (selected == null)
             {
-                selected = new Point(row, col);
-            }
-            else if (selected.HasValue)
-            {
-                selected = null;
-            }
-            ColorBoard();
+                if (board[row, col] != null)
+                {
+                    selected = new Point(row, col);
+                }
 
+            }
+            else
+            {
+                Point from = selected.Value;
+                Piece movingPiece = board[from.X, from.Y];
+                Piece target = board[row, col];
+                if (target != null && target.Color == movingPiece.Color)
+                {
+                    selected = new Point(row, col);
+                }
+                else
+                {
+                    if (from.X != row || from.Y != col)
+                    {
+                        board[row, col] = movingPiece;
+                        board[from.X, from.Y] = null;
+                    }
+                    selected = null;
+
+                }
+            }
+
+                ColorBoard();
+                ShowPieces();
+            
         }
         // Tô màu so le bàn cờ 
         private void ColorBoard()

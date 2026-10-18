@@ -8,36 +8,79 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
     public partial class frmGame : Form
     {
         PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
+        Piece[,] board = new Piece[8, 8]; // khai bao quan co 
+        Dictionary<string, Image> images = new Dictionary<string, Image>();   // khai bao anh co
 
         public frmGame()
         {
             InitializeComponent();
             CreateCells();
             ColorBoard();
+            SetUpBoard();
+            ShowPieces(); // hiện quân
         }
 
-        // Tạo 64 PictureBox và đặt vào pnlBoard
+        private void ShowPieces()
+        {
+            for (int r = 0; r < 8; r++)
+            {
+                for (int c = 0; c < 8; c++)
+                {
+                    Piece piece = board[r, c];
+                    if (piece == null)
+                    {
+                        cells[r, c].Image = null;
+
+                    }
+                    else
+                    {
+                        cells[r, c].Image = GetImage(piece);
+                    }
+                }
+            }
+        }
+
+        private Image GetImage(Piece piece)
+        {
+            string name = piece.Color.ToString().ToUpper() + piece.Type.ToString().ToUpper();
+            if (!images.ContainsKey(name))
+            {
+                //string path = Path.Combine(Application.StartupPath, "Images", name + ".png");
+                try
+                {
+                    images[name] = Image.FromFile(@"../../images/" + name + ".png");
+                }
+
+                catch (FileNotFoundException)
+                {
+                    MessageBox.Show("Image file not found: " + name + ".png");
+                    return null;
+                }
+            }
+            return images[name];
+        }
+
+        // tajo 64 oo vuong
         private void CreateCells()
         {
-            int size = pnlBoard.ClientSize.Width / 8;  // cạnh ô cờ
-
-            for (int r = 0; r < 8; r++)                 // r = hàng
+            int size = pnlBoard.Width / 8; // kích thước ô vuông
+            for (int r = 0; r < 8; r++)
             {
-                for (int c = 0; c < 8; c++)             // c = cột
+                for (int c = 0; c < 8; c++)
                 {
-                    PictureBox pb = new PictureBox();
-                    pb.Size = new Size(size, size);
-                    pb.Location = new Point(c * size, r * size);
-                    pb.SizeMode = PictureBoxSizeMode.Zoom;
-
-                    pnlBoard.Controls.Add(pb);
-                    cells[r, c] = pb;
+                    PictureBox cell = new PictureBox();
+                    cell.Size = new Size(size, size);
+                    cell.Location = new Point(c * size, r * size);
+                    cell.SizeMode = PictureBoxSizeMode.Zoom;
+                    pnlBoard.Controls.Add(cell);
+                    cells[r, c] = cell;
                 }
             }
         }
@@ -50,16 +93,39 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 for (int c = 0; c < 8; c++)
                 {
                     if ((r + c) % 2 == 0)
-                        //mốt thêm ảnh
-                        cells[r, c].BackColor = Color.FromArgb(240, 217, 181);   // ô sáng
+                    {
+                        cells[r, c].BackColor = Color.White;
+                    }
                     else
-                        //mot them anh
-                        cells[r, c].BackColor = Color.FromArgb(181, 136, 99);    // ô tối
+                    {
+                        cells[r, c].BackColor = Color.Gray;
+                    }
                 }
             }
         }
         private void frmGame_Load(object sender, EventArgs e)
         {
+
+        }
+
+        //set up ban co
+        private void SetUpBoard()
+        {
+            PieceType[] backRank = new PieceType[]
+            {
+                PieceType.Rook, PieceType.Knight, PieceType.Bishop, PieceType.Queen,
+                PieceType.King, PieceType.Bishop, PieceType.Knight, PieceType.Rook
+            };
+
+            for(int c = 0; c < 8; c++)
+            {
+        
+                board[0, c] = new Piece(backRank[c], PieceColor.White); // hafng sau quan trang
+                board[1, c] = new Piece(PieceType.Pawn, PieceColor.White); // hang dau quan trang
+   
+                board[7, c] = new Piece(backRank[c], PieceColor.Black);  // hang sau quan den
+                board[6, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
+            }
         }
     }
 }

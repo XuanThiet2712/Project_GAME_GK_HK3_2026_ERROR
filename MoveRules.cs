@@ -112,32 +112,21 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private static bool IsValidRookMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)
         {
-            // Truong hop 1 : di ngang , cung hang khac cot
-            if (fromRow == toRow)
+            int[] dX = new int[4] { 1, -1, 0, 0 };
+            int[] dY = new int[4] { 0, 0, 1, -1 };
+            for (int i = 0; i < 4; i++)
             {
-                int start = Math.Min(fromCol, toCol) + 1;   
-                int end = Math.Max(fromCol, toCol);         
-
-                for (int c = start; c < end; c++)
+                int newRow = fromRow + dX[i];
+                int newCol = fromCol + dY[i];
+                while (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8)
                 {
-                    if (board[fromRow, c] != null)
-                        return false;                        // có quân chắn đường
+                    if (newRow == toRow && newCol == toCol)
+                        return true;
+                    if (board[newRow, newCol] != null)
+                        break; // có quân chắn đường
+                    newRow += dX[i];
+                    newCol += dY[i];
                 }
-                return true;
-            }
-
-            //  truong hop 2 : di doc , cung cot khac hang
-            if (fromCol == toCol)
-            {
-                int start = Math.Min(fromRow, toRow) + 1;   
-                int end = Math.Max(fromRow, toRow);         
-
-                for (int r = start; r < end; r++)
-                {
-                    if (board[r, fromCol] != null)
-                        return false;                        // có quân chắn đường
-                }
-                return true;
             }
 
 

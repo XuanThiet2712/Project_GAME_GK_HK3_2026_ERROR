@@ -83,6 +83,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     cell.Size = new Size(size, size);
                     cell.Location = new Point(c * size, r * size);
                     cell.Tag = new Point(r, c); // lưu trữ vị trí ô trong Tag
+                    cell.BorderStyle = BorderStyle.FixedSingle;
                     cell.Click += Cell_Click;
                     cell.SizeMode = PictureBoxSizeMode.Zoom;
                     pnlBoard.Controls.Add(cell);

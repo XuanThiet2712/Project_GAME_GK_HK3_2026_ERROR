@@ -33,6 +33,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lstHistory = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlBoard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,11 +79,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Player 1 : ";
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(637, 343);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(171, 133);
+            this.panel1.TabIndex = 3;
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 645);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstHistory);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -104,5 +113,6 @@
         private System.Windows.Forms.ListBox lstHistory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

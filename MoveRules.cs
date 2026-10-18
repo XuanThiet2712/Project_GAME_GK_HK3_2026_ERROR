@@ -47,17 +47,58 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private static bool IsValidQueenMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)
         {
-            throw new NotImplementedException();
+            int[] dX = new int[8] { 1, 1, -1, -1, 0, 0, 1, -1 };
+            int[] dY = new int[8] { 1, -1, 1, -1, 1, -1, 0, 0 };
+            for (int i = 0; i < 8; i++)
+            {
+                int newRow = fromRow + dX[i];
+                int newCol = fromCol + dY[i];
+                while (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8)
+                {
+                    if (newRow == toRow && newCol == toCol)
+                        return true;
+                    if (board[newRow, newCol] != null)
+                        break; // có quân chắn đường
+                    newRow += dX[i];
+                    newCol += dY[i];
+                }
+            }
+            return false;
         }
 
         private static bool IsValidBishopMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)
         {
-            throw new NotImplementedException();
+            int[] dX = new int[4] { 1, 1, -1, -1 };
+            int[] dY = new int[4] { 1, -1, 1, -1 };
+            for (int i = 0; i < 4; i++)
+            {
+                int newRow = fromRow + dX[i];
+                int newCol = fromCol + dY[i];
+                while (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8)
+                {
+                    if (newRow == toRow && newCol == toCol)
+                        return true;
+                    if (board[newRow, newCol] != null)
+                        break; // có quân chắn đường
+                    newRow += dX[i];
+                    newCol += dY[i];
+                }
+            }
+            return false;
         }
 
         private static bool IsValidKnightMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)
         {
-            throw new NotImplementedException();
+            int[] dX = new int[8] { 2, 1, -1, -2, -2, -1, 1, 2 };
+            int[] dY = new int[8] { 1, 2, 2, 1, -1, -2, -2, -1 };
+            for (int i = 0; i < 8; i++)
+            {
+                int newRow = fromRow + dX[i];
+                int newCol = fromCol + dY[i];
+                if (newRow == toRow && newCol == toCol)
+                    return true;
+            }
+            return false;
         }
 
         private static bool IsValidRookMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)

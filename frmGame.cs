@@ -18,6 +18,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
         Dictionary<string, Image> images = new Dictionary<string, Image>();   // khai bao anh co
 
+        Point? selected = null;   // x hang , y cot, null ch chon o nao
+
         public frmGame()
         {
             InitializeComponent();
@@ -78,6 +80,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     PictureBox cell = new PictureBox();
                     cell.Size = new Size(size, size);
                     cell.Location = new Point(c * size, r * size);
+                    cell.Tag = new Point(r, c); // lưu trữ vị trí ô trong Tag
+                    cell.Click += Cell_Click;
                     cell.SizeMode = PictureBoxSizeMode.Zoom;
                     pnlBoard.Controls.Add(cell);
                     cells[r, c] = cell;
@@ -85,6 +89,24 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
         }
 
+        private void Cell_Click(object sender, EventArgs e)
+        {
+            PictureBox cell = (PictureBox)sender;
+            Point position = (Point)cell.Tag;
+            int row = position.X;
+            int col = position.Y;
+
+            if(board[row, col] != null)
+            {
+                selected = new Point(row, col);
+            }
+            else if (selected.HasValue)
+            {
+                selected = null;
+            }
+            ColorBoard();
+
+        }
         // Tô màu so le bàn cờ 
         private void ColorBoard()
         {
@@ -101,6 +123,12 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                         cells[r, c].BackColor = Color.Gray;
                     }
                 }
+            }
+            if (selected.HasValue)
+            {
+                int r = selected.Value.X;
+                int c = selected.Value.Y;
+                cells[r, c].BackColor = Color.Yellow; // tô màu ô được chọn
             }
         }
         private void frmGame_Load(object sender, EventArgs e)

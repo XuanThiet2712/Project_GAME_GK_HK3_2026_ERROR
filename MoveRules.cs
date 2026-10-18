@@ -62,8 +62,36 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private static bool IsValidRookMove(Piece[,] board, Piece piece, int fromRow, int fromCol, int toRow, int toCol)
         {
-            throw new NotImplementedException();
-            
+            // Truong hop 1 : di ngang , cung hang khac cot
+            if (fromRow == toRow)
+            {
+                int start = Math.Min(fromCol, toCol) + 1;   
+                int end = Math.Max(fromCol, toCol);         
+
+                for (int c = start; c < end; c++)
+                {
+                    if (board[fromRow, c] != null)
+                        return false;                        // có quân chắn đường
+                }
+                return true;
+            }
+
+            //  truong hop 2 : di doc , cung cot khac hang
+            if (fromCol == toCol)
+            {
+                int start = Math.Min(fromRow, toRow) + 1;   
+                int end = Math.Max(fromRow, toRow);         
+
+                for (int r = start; r < end; r++)
+                {
+                    if (board[r, fromCol] != null)
+                        return false;                        // có quân chắn đường
+                }
+                return true;
+            }
+
+
+            return false;
         }
 
 

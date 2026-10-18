@@ -118,26 +118,28 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     if (from.X != row || from.Y != col)
                     {
-                        //lich su di chuyen
-                        string moveText = $"{moveNumber}. {SquareName(from.X, from.Y)}-{SquareName(row, col)}";
-                        string who = (turn == PieceColor.White) ? "White" : "Black";
-                        lstHistory.Items.Add($"{who}: {moveText}");
-                        lstHistory.TopIndex = lstHistory.Items.Count - 1; // scroll to bottom
-                        board[row, col] = movingPiece;
-                        board[from.X, from.Y] = null;
+                        if (MoveRules.IsValidMove(board, from.X, from.Y, row, col))
+                        {
+                            //lich su di chuyen
+                            string moveText = $"{moveNumber}. {SquareName(from.X, from.Y)}-{SquareName(row, col)}";
+                            string who = (turn == PieceColor.White) ? "White" : "Black";
+                            lstHistory.Items.Add($"{who}: {moveText}");
+                            lstHistory.TopIndex = lstHistory.Items.Count - 1; // scroll to bottom
+                            board[row, col] = movingPiece;
+                            board[from.X, from.Y] = null;
 
-                        if(turn == PieceColor.White)
-                        {
-                            turn = PieceColor.Black;
+                            if (turn == PieceColor.White)
+                            {
+                                turn = PieceColor.Black;
+                            }
+                            else
+                            {
+                                turn = PieceColor.White;
+                                moveNumber++;
+                            }
                         }
-                        else
-                        {
-                            turn = PieceColor.White;
-                            moveNumber++;
-                        }
+                        selected = null;
                     }
-                    selected = null;
-
                 }
             }
 
@@ -148,7 +150,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             private string SquareName(int row, int col)
             {
-                return ((char)('a' + col)).ToString() + (row + 1);
+                return ((char)('a' + col)).ToString() + (8 - row);
             }
 
         // Tô màu so le bàn cờ 
@@ -172,8 +174,25 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             {
                 int r = selected.Value.X;
                 int c = selected.Value.Y;
-                cells[r, c].BackColor = Color.Yellow; // tô màu ô được chọn
-            }
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if(MoveRules.IsValidMove(board, r, c, i, j))
+                        {
+                            if(board[i, j] == null)
+                            {
+                                cells[i, j].BackColor = Color.LightGreen; // tô màu ô có thể đi
+                            }
+                            else
+                            {
+                                cells[i, j].BackColor = Color.Red; // tô màu ô có thể ăn
+                            }
+                        }
+                    }
+                }
+                    cells[r, c].BackColor = Color.Yellow; // tô màu ô được chọn
+                }
         }
         private void frmGame_Load(object sender, EventArgs e)
         {

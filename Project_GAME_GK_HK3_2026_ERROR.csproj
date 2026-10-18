@@ -100,6 +100,7 @@
     <Compile Include="frmShop.Designer.cs">
       <DependentUpon>frmShop.cs</DependentUpon>
     </Compile>
+    <Compile Include="MoveRules.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Program.cs" />
@@ -143,8 +144,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="Logic\" />
-    <Folder Include="Pieces\" />
-    <Folder Include="UI\" />
   </ItemGroup>
 </Project>

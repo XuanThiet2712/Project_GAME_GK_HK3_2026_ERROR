@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using Project_GAME_GK_HK3_2026_ERROR.Logic;
+using System.Text.RegularExpressions;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -21,6 +23,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         Point? selected = null;   // x hang , y cot, null ch chon o nao
         PieceColor turn = PieceColor.White;
         int moveNumber = 1; // so nuoc dang di
+        bool gameOver = false; // kiem tra game ket thuc
 
         public frmGame()
         {
@@ -29,7 +32,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             ColorBoard();
             SetUpBoard();
             ShowPieces(); // hiện quân
+            UpdateTitle();
         }
+
 
         private void ShowPieces()
         {
@@ -94,6 +99,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void Cell_Click(object sender, EventArgs e)
         {
+            if(gameOver)
+            {
+                MessageBox.Show("Game over! Ban co muon lam game moi ko");
+                return;
+            }
             PictureBox cell = (PictureBox)sender;
             Point position = (Point)cell.Tag;
             int row = position.X;
@@ -121,23 +131,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     {
                         if (MoveRules.IsValidMove(board, from.X, from.Y, row, col))
                         {
-                            //lich su di chuyen
-                            string moveText = $"{moveNumber}. {SquareName(from.X, from.Y)}-{SquareName(row, col)}";
-                            string who = (turn == PieceColor.White) ? "White" : "Black";
-                            lstHistory.Items.Add($"{who}: {moveText}");
-                            lstHistory.TopIndex = lstHistory.Items.Count - 1; // scroll to bottom
-                            board[row, col] = movingPiece;
-                            board[from.X, from.Y] = null;
-
-                            if (turn == PieceColor.White)
-                            {
-                                turn = PieceColor.Black;
-                            }
-                            else
-                            {
-                                turn = PieceColor.White;
-                                moveNumber++;
-                            }
+                            DoMove(from.X, from.Y, row, col);
                         }
                         selected = null;
                     }
@@ -148,12 +142,114 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 ShowPieces();
             
         }
+        // thuc hien nuoc di hop le 
+        private void DoMove(int fromRow, int fromCol, int ToRow, int ToCol)
+        {
+            Piece movingPiece = board[fromRow, fromCol]; // quan se di 
+            Piece targetPiece = board[ToRow, ToCol]; // quan bi an
+            string moveText = "";
 
-            private string SquareName(int row, int col)
+            // nhap thanh
+            bool isCastle = movingPiece.Type == PieceType.King && Math.Abs(ToCol - fromCol) == 2;
+            if (isCastle)
+            {
+                //vi tri con xe 
+                int rookFromCol = (ToCol > fromCol) ? 7 : 0;
+                int rookToCol = (ToCol > fromCol) ? 5 : 3;
+
+                Piece rook = board[fromRow, rookFromCol];
+                board[fromRow, rookFromCol] = null;
+                rook.HasMoved = true;
+                board[fromRow, rookToCol] = rook;
+
+                moveText = (ToCol > fromCol) ? "O-O" : "O-O-O";
+            }
+
+            // thuc hien nuoc di
+            movingPiece.HasMoved = true;
+            board[ToRow, ToCol] = movingPiece;
+            board[fromRow, fromCol] = null;
+
+            //phong quan tot
+            string promoText = "";
+            if (movingPiece.Type == PieceType.Pawn && (ToRow == 0 || ToRow == 7))
+            {
+                ShowPieces();
+                frmPromotion f = new frmPromotion();
+                f.ShowDialog();
+                board[ToRow, ToCol] = new Piece(f.Selected, movingPiece.Color);
+                promoText = "=" + f.Selected.ToString().ToUpper();
+            }
+            //ghi lich su
+            if (!isCastle)
+            {
+                string sep = (targetPiece != null) ? "x" : "-";
+                moveText = SquareName(fromRow, fromCol) + sep + SquareName(ToRow, ToCol) + promoText;
+            }
+            string who = (turn == PieceColor.White) ? "White" : "Black";
+            lstHistory.Items.Add($"{who}: {moveNumber}. {moveText}");
+            lstHistory.TopIndex = lstHistory.Items.Count - 1;
+
+            // doi luot
+            if (turn == PieceColor.White)
+            {
+                turn = PieceColor.Black;
+            }
+            else
+            {
+                turn = PieceColor.White;
+                moveNumber++;
+            }
+            //check trang thai game
+            CheckGameState();
+        }
+
+        private void CheckGameState()
+        {
+            GameStatus status = GameRules.GetStatus(board, turn);
+            if (status == GameStatus.Checkmate || status == GameStatus.Stalemate)
+            {
+                gameOver = true;
+                selected = null;
+                ColorBoard();
+                ShowPieces();       // vẽ trước để thấy nước đi cuối cùng
+
+                if (status == GameStatus.Checkmate)
+                {
+                    string winner = (turn == PieceColor.White) ? "Đen" : "Trắng";
+                    MessageBox.Show("Chiếu hết! " + winner + " thắng.");
+                }
+                else
+                {
+                    MessageBox.Show("Hòa cờ! Bên đi không còn nước hợp lệ.");
+                }
+            }
+        }
+
+        private string SquareName(int row, int col)
             {
                 return ((char)('a' + col)).ToString() + (8 - row);
             }
 
+        private void UpdateTitle()
+        {
+            string name = (turn == PieceColor.White) ? "Trắng" : "Đen";
+            Text = "Cờ vua - Lượt: " + name;
+            if (GameRules.IsInCheck(board, turn))
+                Text = Text + " - CHIẾU!";
+        }
+
+        private string PieceLetter(PieceType type)
+        {
+            switch (type)
+            {
+                case PieceType.Queen: return "Q";
+                case PieceType.Rook: return "R";
+                case PieceType.Bishop: return "B";
+                case PieceType.Knight: return "N";
+                default: return "";
+            }
+        }
         // Tô màu so le bàn cờ 
         private void ColorBoard()
         {
@@ -179,7 +275,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if(MoveRules.IsValidMove(board, r, c, i, j))
+                        if(GameRules.IsLegalMove(board, r, c, i, j))
                         {
                             if(board[i, j] == null)
                             {

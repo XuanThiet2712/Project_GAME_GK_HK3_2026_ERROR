@@ -27,10 +27,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     {
         public PieceType Type { get; set; }
         public PieceColor Color { get; set; }
+
+        public bool HasMoved { get; set; } = false;
         public Piece(PieceType type, PieceColor color)
         {
             Type = type;
             Color = color;
         }
+        
     }
 }

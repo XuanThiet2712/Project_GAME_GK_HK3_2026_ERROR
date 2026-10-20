@@ -51,7 +51,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
             return false; // vua khong bi chieu
         }
 
-        private static bool LeavesKingInCheck(Piece[,] board, int fromRow, int fromCol, int toRow, int toCol)
+        //phep thu 
+        public static bool LeavesKingInCheck(Piece[,] board, int fromRow, int fromCol, int toRow, int toCol)
         {
             Piece movingPiece = board[fromRow, fromCol];
             Piece targetPiece = board[toRow, toCol];

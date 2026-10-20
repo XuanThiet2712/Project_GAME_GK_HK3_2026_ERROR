@@ -148,6 +148,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             Piece movingPiece = board[fromRow, fromCol]; // quan se di 
             Piece targetPiece = board[ToRow, ToCol]; // quan bi an
             string moveText = "";
+            if(GameRules.LeavesKingInCheck(board, fromRow, fromCol, ToRow, ToCol))
+            {
+                MessageBox.Show("Nước đi này sẽ để vua của bạn bị chiếu. Vui lòng chọn nước đi khác.");
+                return;
+            }
             // nhap thanh
             bool isCastle = movingPiece.Type == PieceType.King && Math.Abs(ToCol - fromCol) == 2;
             if (isCastle)

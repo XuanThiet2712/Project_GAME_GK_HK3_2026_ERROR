@@ -48,7 +48,7 @@
             // 
             // btnKnight
             // 
-            this.btnKnight.Location = new System.Drawing.Point(0, 116);
+            this.btnKnight.Location = new System.Drawing.Point(0, 98);
             this.btnKnight.Name = "btnKnight";
             this.btnKnight.Size = new System.Drawing.Size(161, 65);
             this.btnKnight.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             // btnBishop
             // 
-            this.btnBishop.Location = new System.Drawing.Point(-10, 187);
+            this.btnBishop.Location = new System.Drawing.Point(0, 191);
             this.btnBishop.Name = "btnBishop";
             this.btnBishop.Size = new System.Drawing.Size(161, 71);
             this.btnBishop.TabIndex = 3;

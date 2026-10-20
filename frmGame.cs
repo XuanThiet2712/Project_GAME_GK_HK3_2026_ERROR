@@ -148,7 +148,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             Piece movingPiece = board[fromRow, fromCol]; // quan se di 
             Piece targetPiece = board[ToRow, ToCol]; // quan bi an
             string moveText = "";
-
             // nhap thanh
             bool isCastle = movingPiece.Type == PieceType.King && Math.Abs(ToCol - fromCol) == 2;
             if (isCastle)
@@ -315,5 +314,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 board[1, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
             }
         }
+
+
     }
 }

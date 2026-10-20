@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project_GAME_GK_HK3_2026_ERROR
+namespace Project_GAME_GK_HK3_2026_ERROR.Models
 {
-    public partial class frmInventory: Form
+    public partial class frmLogin: Form
     {
-        public frmInventory()
+        public frmLogin()
         {
             InitializeComponent();
         }

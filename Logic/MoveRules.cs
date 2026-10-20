@@ -155,8 +155,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             //an cheo
             if (Math.Abs(dCol) == 1 && dRow == dir && target != null && target.Color != pawn.Color)
                 return true;
-            //ăn qua đường
-            
             return false;
         }
     }

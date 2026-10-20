@@ -8,7 +8,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 {
     public enum PieceType
     {
-        None,
         Pawn,
         Rook,
         Knight,
@@ -18,7 +17,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     }
     public enum PieceColor
     {
-        None,
         White,
         Black
     }

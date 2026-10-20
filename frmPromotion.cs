@@ -41,5 +41,17 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             Selected = PieceType.Rook;
             Close();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void frmPromotion_Load(object sender, EventArgs e)
+        {
+            // check con tot den hay trang
+            picQueen.Image = Image.FromFile(@"../../images/WHITEQUEEN.png");
+            picQueen.SizeMode = PictureBoxSizeMode.Zoom;
+        }
     }
 }

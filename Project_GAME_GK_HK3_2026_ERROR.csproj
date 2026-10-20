@@ -70,12 +70,6 @@
     <Compile Include="frmHelp.Designer.cs">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmInventory.Designer.cs">
-      <DependentUpon>frmInventory.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,12 +94,6 @@
     <Compile Include="frmScores.Designer.cs">
       <DependentUpon>frmScores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmShop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmShop.Designer.cs">
-      <DependentUpon>frmShop.cs</DependentUpon>
-    </Compile>
     <Compile Include="Logic\GameRules.cs" />
     <Compile Include="Logic\MoveRules.cs" />
     <Compile Include="Piece.cs" />
@@ -116,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGameDM.resx">
       <DependentUpon>frmGameDM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

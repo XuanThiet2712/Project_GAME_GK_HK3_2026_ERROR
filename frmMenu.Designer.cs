@@ -36,27 +36,30 @@
             // 
             // btnplay
             // 
-            this.btnplay.Location = new System.Drawing.Point(282, 67);
+            this.btnplay.Location = new System.Drawing.Point(452, 127);
+            this.btnplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnplay.Name = "btnplay";
-            this.btnplay.Size = new System.Drawing.Size(112, 58);
+            this.btnplay.Size = new System.Drawing.Size(149, 71);
             this.btnplay.TabIndex = 0;
             this.btnplay.Text = "Play";
             this.btnplay.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(282, 153);
+            this.button2.Location = new System.Drawing.Point(452, 235);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 60);
+            this.button2.Size = new System.Drawing.Size(149, 74);
             this.button2.TabIndex = 1;
             this.button2.Text = "Setiings";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(282, 241);
+            this.button3.Location = new System.Drawing.Point(452, 340);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 64);
+            this.button3.Size = new System.Drawing.Size(149, 79);
             this.button3.TabIndex = 2;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
@@ -64,22 +67,24 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(485, 12);
+            this.button1.Location = new System.Drawing.Point(661, 67);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 3;
             this.button1.Text = "How to play ";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 739);
+            this.ClientSize = new System.Drawing.Size(1045, 910);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnplay);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMenu";
             this.Text = "frmMenu";
             this.Load += new System.EventHandler(this.frmMenu_Load);

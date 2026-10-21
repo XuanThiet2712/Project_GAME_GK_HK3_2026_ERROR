@@ -18,6 +18,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     {
         PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
+       
         Dictionary<string, Image> images = new Dictionary<string, Image>();   // khai bao anh co
 
         Point? selected = null;   // x hang , y cot, null ch chon o nao
@@ -50,31 +51,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     }
                     else
                     {
-                        cells[r, c].Image = GetImage(piece);
+                        cells[r, c].Image = ImageManager.GetImage(piece.Type , piece.Color);
                     }
                 }
             }
         }
 
-        private Image GetImage(Piece piece)
-        {
-            string name = piece.Color.ToString().ToUpper() + piece.Type.ToString().ToUpper();
-            if (!images.ContainsKey(name))
-            {
-                //string path = Path.Combine(Application.StartupPath, "Images", name + ".png");
-                try
-                {
-                    images[name] = Image.FromFile(@"../../images/" + name + ".png");
-                }
 
-                catch (FileNotFoundException)
-                {
-                    MessageBox.Show("Image file not found: " + name + ".png");
-                    return null;
-                }
-            }
-            return images[name];
-        }
 
         // tajo 64 oo vuong
         private void CreateCells()

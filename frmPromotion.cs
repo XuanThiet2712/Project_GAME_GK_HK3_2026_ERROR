@@ -50,7 +50,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         private void frmPromotion_Load(object sender, EventArgs e)
         {
             // check con tot den hay trang
-            picQueen.Image = Image.FromFile(@"../../images/WHITEQUEEN.png");
+            
+            //picQueen.Image = Image.FromFile(@"../../images/WHITEQUEEN.png");
+            picQueen.Image = ImageManager.GetImage(PieceType.Queen, PieceColor.White);
             picQueen.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }

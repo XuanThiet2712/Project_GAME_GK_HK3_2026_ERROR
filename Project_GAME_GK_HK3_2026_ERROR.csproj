@@ -94,6 +94,7 @@
     <Compile Include="frmScores.Designer.cs">
       <DependentUpon>frmScores.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageManager.cs" />
     <Compile Include="Logic\GameRules.cs" />
     <Compile Include="Logic\MoveRules.cs" />
     <Compile Include="Models\frmLogin.cs">

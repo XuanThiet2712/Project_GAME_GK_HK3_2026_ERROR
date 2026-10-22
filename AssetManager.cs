@@ -10,12 +10,12 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     public class AssetManager
     {
         private static Dictionary<string, Image> images = new Dictionary<string, Image>();
-        //private static Dictionary<string, SoundPlayer> sound = new Dictionary<string, SoundPlayer>();
+        //private static Dictionary<string, SoundPlayer> sounds = new Dictionary<string, SoundPlayer>();
 
         public static string ImageFolder { get; set; } = @"../../images/";
 
         //public static string SoundFolder { get; set; } = @"../../sounds/";
-        public static bool SoundEnabled { get; set; } = true;
+        //public static bool SoundEnabled { get; set; } = true;
 
         public static Image GetImage(PieceType ptype, PieceColor pcolor)
         {

@@ -28,61 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.btnplay = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnHowToPlay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnplay
             // 
-            this.btnplay.Location = new System.Drawing.Point(362, 179);
+            this.btnplay.BackColor = System.Drawing.Color.Peru;
+            this.btnplay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnplay.FlatAppearance.BorderSize = 0;
+            this.btnplay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tan;
+            this.btnplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnplay.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnplay.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnplay.Location = new System.Drawing.Point(161, 225);
             this.btnplay.Margin = new System.Windows.Forms.Padding(4);
             this.btnplay.Name = "btnplay";
             this.btnplay.Size = new System.Drawing.Size(149, 71);
             this.btnplay.TabIndex = 0;
             this.btnplay.Text = "Play";
-            this.btnplay.UseVisualStyleBackColor = true;
+            this.btnplay.UseVisualStyleBackColor = false;
+            this.btnplay.Click += new System.EventHandler(this.btnplay_Click);
             // 
-            // button2
+            // btnSettings
             // 
-            this.button2.Location = new System.Drawing.Point(362, 295);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 74);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Setiings";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSettings.BackColor = System.Drawing.Color.Peru;
+            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tan;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSettings.Location = new System.Drawing.Point(161, 335);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(149, 74);
+            this.btnSettings.TabIndex = 1;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // button3
+            // btnExit
             // 
-            this.button3.Location = new System.Drawing.Point(362, 398);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 79);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnExit.BackColor = System.Drawing.Color.Peru;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tan;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.Location = new System.Drawing.Point(161, 451);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(149, 79);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // button1
+            // btnHowToPlay
             // 
-            this.button1.Location = new System.Drawing.Point(784, 45);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "How to play ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnHowToPlay.FlatAppearance.BorderSize = 0;
+            this.btnHowToPlay.Location = new System.Drawing.Point(368, 13);
+            this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHowToPlay.Name = "btnHowToPlay";
+            this.btnHowToPlay.Size = new System.Drawing.Size(100, 28);
+            this.btnHowToPlay.TabIndex = 3;
+            this.btnHowToPlay.Text = "How to play ";
+            this.btnHowToPlay.UseVisualStyleBackColor = true;
+            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 910);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(481, 543);
+            this.Controls.Add(this.btnHowToPlay);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnplay);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMenu";
@@ -95,8 +123,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnplay;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnHowToPlay;
     }
 }

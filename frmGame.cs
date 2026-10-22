@@ -112,8 +112,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     if (from.X != row || from.Y != col)
                     {
-                        if (MoveRules.IsValidMove(board, from.X, from.Y, row, col))
+                        if (GameRules.IsLegalMove(board, from.X, from.Y, row, col))
                         {
+                            //MessageBox.Show(from.X + " " + from.Y + " " + row + " " + col);
                             DoMove(from.X, from.Y, row, col);
                         }
                         selected = null;
@@ -128,6 +129,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         // thuc hien nuoc di hop le 
         private void DoMove(int fromRow, int fromCol, int ToRow, int ToCol)
         {
+
             Piece movingPiece = board[fromRow, fromCol]; // quan se di 
             Piece targetPiece = board[ToRow, ToCol]; // quan bi an
             string moveText = "";
@@ -137,7 +139,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 return;
             }
             // nhap thanh
-            bool isCastle = movingPiece.Type == PieceType.King && Math.Abs(ToCol - fromCol) == 2;
+            bool isCastle = GameRules.CanCastle(board, fromRow, fromCol, ToCol);
             if (isCastle)
             {
                 //vi tri con xe 
@@ -150,6 +152,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 board[fromRow, rookToCol] = rook;
 
                 moveText = (ToCol > fromCol) ? "O-O" : "O-O-O";
+                MessageBox.Show("Nhập thành!");
             }
 
             // thuc hien nuoc di
@@ -262,9 +265,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if(GameRules.IsLegalMove(board, r, c, i, j))
+                        if (GameRules.IsLegalMove(board, r, c, i, j))
                         {
-                            if(board[i, j] == null)
+                            if (board[i, j] == null)
                             {
                                 cells[i, j].BackColor = Color.LightGreen; // tô màu ô có thể đi
                             }

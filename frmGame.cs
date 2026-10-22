@@ -11,7 +11,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
 
-        Dictionary<string, Image> images = new Dictionary<string, Image>();   // khai bao anh co
+        //Dictionary<string, Image> images = new Dictionary<string, Image>();   // khai bao anh co
 
         Point? selected = null;   // x hang , y cot, null ch chon o nao
         PieceColor turn = PieceColor.White;

@@ -58,9 +58,9 @@
             // 
             // btnRook
             // 
-            this.btnRook.Location = new System.Drawing.Point(0, 291);
+            this.btnRook.Location = new System.Drawing.Point(0, 289);
             this.btnRook.Name = "btnRook";
-            this.btnRook.Size = new System.Drawing.Size(138, 76);
+            this.btnRook.Size = new System.Drawing.Size(161, 76);
             this.btnRook.TabIndex = 2;
             this.btnRook.Text = "ROOK";
             this.btnRook.UseVisualStyleBackColor = true;

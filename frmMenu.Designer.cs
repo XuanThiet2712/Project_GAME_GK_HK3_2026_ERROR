@@ -32,12 +32,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnplay
             // 
-            this.btnplay.Location = new System.Drawing.Point(443, 46);
+            this.btnplay.Location = new System.Drawing.Point(362, 179);
             this.btnplay.Margin = new System.Windows.Forms.Padding(4);
             this.btnplay.Name = "btnplay";
             this.btnplay.Size = new System.Drawing.Size(149, 71);
@@ -47,7 +46,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(443, 157);
+            this.button2.Location = new System.Drawing.Point(362, 295);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 74);
@@ -57,7 +56,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(443, 398);
+            this.button3.Location = new System.Drawing.Point(362, 398);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(149, 79);
@@ -68,7 +67,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(661, 67);
+            this.button1.Location = new System.Drawing.Point(784, 45);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
@@ -76,22 +75,11 @@
             this.button1.Text = "How to play ";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(443, 266);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 74);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Setiings";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 910);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -110,6 +98,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
     }
 }

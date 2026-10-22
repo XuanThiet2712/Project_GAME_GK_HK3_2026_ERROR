@@ -172,7 +172,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             lstHistory.Items.Add($"{who}: {moveNumber}. {moveText}");
             lstHistory.TopIndex = lstHistory.Items.Count - 1;
             //am thanh
-            AssetManager.PlayMove();
+            AssetManager.GetSound("Move")?.Play();
 
             // doi luot
             if (turn == PieceColor.White)

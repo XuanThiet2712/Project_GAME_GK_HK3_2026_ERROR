@@ -52,7 +52,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             // check con tot den hay trang
             
             //picQueen.Image = Image.FromFile(@"../../images/WHITEQUEEN.png");
-            picQueen.Image = ImageManager.GetImage(PieceType.Queen, PieceColor.White);
+            picQueen.Image = Manager.GetImage(PieceType.Queen, PieceColor.White);
             picQueen.SizeMode = PictureBoxSizeMode.Zoom;
         }
     }

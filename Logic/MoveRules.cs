@@ -58,6 +58,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             int[] dX = new int[8] { 1, 1, -1, -1, 0, 0, 1, -1 };
             int[] dY = new int[8] { 1, -1, 1, -1, 1, -1, 0, 0 };
+
+            
             for (int i = 0; i < 8; i++)
             {
                 int newRow = fromRow + dX[i];

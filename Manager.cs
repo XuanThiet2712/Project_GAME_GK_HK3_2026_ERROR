@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
-    public class ImageManager
+    public class Manager
     {
         private static Dictionary<string, Image> images = new Dictionary<string, Image>();
 
@@ -32,6 +32,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
             return images[name];
         }
+
+        // 1 ham lay am thanh
 
 
     }

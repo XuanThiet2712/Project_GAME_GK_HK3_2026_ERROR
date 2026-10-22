@@ -15,7 +15,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
     }
     public static class GameRules
     {
-        public static bool IsInCheck(Piece[,] board , PieceColor color)
+        // Kiem tra vua co dang bi chieu ko
+        public static bool IsInCheck(Piece[,] board , PieceColor color) 
         {
             // tim vua
             int kingRow = -1, kingCol = -1;
@@ -51,7 +52,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
             return false; // vua khong bi chieu
         }
 
-        //phep thu 
+        // kiem tra con vua bi chieu ko ,
+        // vi du di chuyen con  xe, thi con vua co bi chieu ko
         public static bool LeavesKingInCheck(Piece[,] board, int fromRow, int fromCol, int toRow, int toCol)
         {
             Piece movingPiece = board[fromRow, fromCol];
@@ -66,6 +68,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
             return isInCheck;
         }
 
+        // Kiem tra nuoc di hop le , vua nhap thanh , vua bi chieu , nuoc di hop le
         public static bool IsLegalMove(Piece[,] board, int fromRow, int fromCol, int toRow, int toCol)
         {
             Piece piece = board[fromRow, fromCol];
@@ -113,7 +116,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
 
         }
 
-        //
+        // kiem tra xem co con nuoc di nao hop le
         public static bool HasAnyLegalMoves(Piece[,] board, PieceColor color)
         {
             for (int fromRow = 0; fromRow < 8; fromRow++)

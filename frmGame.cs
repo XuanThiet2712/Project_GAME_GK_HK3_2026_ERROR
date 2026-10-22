@@ -51,7 +51,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     }
                     else
                     {
-                        cells[r, c].Image = ImageManager.GetImage(piece.Type , piece.Color);
+                        cells[r, c].Image = Manager.GetImage(piece.Type , piece.Color);
                     }
                 }
             }
@@ -133,7 +133,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             string moveText = "";
             if(GameRules.LeavesKingInCheck(board, fromRow, fromCol, ToRow, ToCol))
             {
-                MessageBox.Show("Nước đi này sẽ để vua của bạn bị chiếu. Vui lòng chọn nước đi khác.");
+                MessageBox.Show("Nước đi này sẽ khiến vị Vua của bạn bị tiêu diệt, vui lòng chọn nước khác !");
                 return;
             }
             // nhap thanh

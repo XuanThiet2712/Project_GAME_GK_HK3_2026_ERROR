@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
-    public class AssetManager
+    public static class AssetManager
     {
         private static Dictionary<string, Image> images = new Dictionary<string, Image>();
         //private static Dictionary<string, SoundPlayer> sounds = new Dictionary<string, SoundPlayer>();

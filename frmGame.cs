@@ -171,6 +171,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             string who = (turn == PieceColor.White) ? "White" : "Black";
             lstHistory.Items.Add($"{who}: {moveNumber}. {moveText}");
             lstHistory.TopIndex = lstHistory.Items.Count - 1;
+            //am thanh
+            AssetManager.PlayMove();
 
             // doi luot
             if (turn == PieceColor.White)
@@ -297,7 +299,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 board[1, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
             }
         }
-
+        
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_GAME_GK_HK3_2026_ERROR.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -10,46 +11,49 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     public static class AssetManager
     {
         private static Dictionary<string, Image> images = new Dictionary<string, Image>();
-        //private static Dictionary<string, SoundPlayer> sounds = new Dictionary<string, SoundPlayer>();
+        private static SoundPlayer soundMove = new SoundPlayer(Resources.Move);
 
-        public static string ImageFolder { get; set; } = @"../../images/";
-
-        //public static string SoundFolder { get; set; } = @"../../sounds/";
-        //public static bool SoundEnabled { get; set; } = true;
+        public static string ImageFolder { get; set; } = Path.Combine(Application.StartupPath, "images");
 
         public static Image GetImage(PieceType ptype, PieceColor pcolor)
         {
             string name = pcolor.ToString().ToUpper() + ptype.ToString().ToUpper();
+
             if (!images.ContainsKey(name))
             {
-                //string path = Path.Combine(Application.StartupPath, "Images", name + ".png");
-                try
-                {
-                    images[name] = Image.FromFile(ImageFolder + name + ".png");
-                }
+                string fileName = name + ".png";
+                string primaryPath = Path.Combine(ImageFolder, fileName);
+                string fallbackPath = Path.Combine(Application.StartupPath, @"../../images/", fileName);
 
-                catch (Exception)
+                string finalPath = File.Exists(primaryPath) ? primaryPath : (File.Exists(fallbackPath) ? fallbackPath : null);
+
+                if (finalPath != null)
                 {
-                    MessageBox.Show("Image file not found: " + name + ".png");
+                    try
+                    {
+                        images[name] = Image.FromFile(finalPath);
+                    }
+                    catch
+                    {
+                        images[name] = null;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Khong tim thấy file ảnh: " + fileName, "Lỗi hình ảnh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     images[name] = null;
                 }
             }
             return images[name];
         }
 
-        // 1 ham lay am thanh
-        public static SoundPlayer GetSound(string soundName)
+        public static void PlayMove()
         {
-            throw new NotImplementedException("Sound functionality is not implemented yet.");
-            //string path = Path.Combine(Application.StartupPath, "sounds", soundName + ".wav");
-            //if (!File.Exists(path))
-            //{
-            //    MessageBox.Show("Sound file not found: " + soundName + ".wav");
-            //    return null;
-            //}
-            //return new SoundPlayer(path);
+            try
+            {
+                soundMove.Play();
+            }
+            catch { }
         }
-
-
     }
 }

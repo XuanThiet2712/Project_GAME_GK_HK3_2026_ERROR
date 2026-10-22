@@ -1,16 +1,8 @@
-﻿using System;
+﻿using Project_GAME_GK_HK3_2026_ERROR.Logic;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Imaging;
-using Project_GAME_GK_HK3_2026_ERROR.Logic;
-using System.Text.RegularExpressions;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -18,7 +10,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     {
         PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
-       
+
         Dictionary<string, Image> images = new Dictionary<string, Image>();   // khai bao anh co
 
         Point? selected = null;   // x hang , y cot, null ch chon o nao
@@ -51,7 +43,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     }
                     else
                     {
-                        cells[r, c].Image = Manager.GetImage(piece.Type , piece.Color);
+                        cells[r, c].Image = AssetManager.GetImage(piece.Type, piece.Color);
                     }
                 }
             }
@@ -82,7 +74,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void Cell_Click(object sender, EventArgs e)
         {
-            if(gameOver)
+            if (gameOver)
             {
                 MessageBox.Show("Game over! Ban co muon lam game moi ko");
                 return;
@@ -122,9 +114,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 }
             }
 
-                ColorBoard();
-                ShowPieces();
-            
+            ColorBoard();
+            ShowPieces();
+
         }
         // thuc hien nuoc di hop le 
         private void DoMove(int fromRow, int fromCol, int ToRow, int ToCol)
@@ -133,7 +125,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             Piece movingPiece = board[fromRow, fromCol]; // quan se di 
             Piece targetPiece = board[ToRow, ToCol]; // quan bi an
             string moveText = "";
-            if(GameRules.LeavesKingInCheck(board, fromRow, fromCol, ToRow, ToCol))
+            if (GameRules.LeavesKingInCheck(board, fromRow, fromCol, ToRow, ToCol))
             {
                 MessageBox.Show("Nước đi này sẽ khiến vị Vua của bạn bị tiêu diệt, vui lòng chọn nước khác !");
                 return;
@@ -217,9 +209,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
 
         private string SquareName(int row, int col)
-            {
-                return ((char)('a' + col)).ToString() + (8 - row);
-            }
+        {
+            return ((char)('a' + col)).ToString() + (8 - row);
+        }
 
         private void UpdateTitle()
         {
@@ -278,8 +270,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                         }
                     }
                 }
-                    cells[r, c].BackColor = Color.Yellow; // tô màu ô được chọn
-                }
+                cells[r, c].BackColor = Color.Yellow; // tô màu ô được chọn
+            }
         }
         private void frmGame_Load(object sender, EventArgs e)
         {
@@ -295,12 +287,12 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 PieceType.King, PieceType.Bishop, PieceType.Knight, PieceType.Rook
             };
 
-            for(int c = 0; c < 8; c++)
+            for (int c = 0; c < 8; c++)
             {
-        
+
                 board[7, c] = new Piece(backRank[c], PieceColor.White); // hafng sau quan trang
                 board[6, c] = new Piece(PieceType.Pawn, PieceColor.White); // hang dau quan trang
-   
+
                 board[0, c] = new Piece(backRank[c], PieceColor.Black);  // hang sau quan den
                 board[1, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
             }

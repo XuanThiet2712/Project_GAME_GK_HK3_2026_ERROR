@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Project_GAME_GK_HK3_2026_ERROR.Logic
 {
@@ -17,7 +12,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
     public static class GameRules
     {
         // Kiem tra vua co dang bi chieu ko
-        public static bool IsInCheck(Piece[,] board , PieceColor color) 
+        public static bool IsInCheck(Piece[,] board, PieceColor color)
         {
             // tim vua
             int kingRow = -1, kingCol = -1;
@@ -72,17 +67,17 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
         // Kiem tra nuoc di hop le , vua nhap thanh , vua bi chieu , nuoc di hop le
         public static bool IsLegalMove(Piece[,] board, int fromRow, int fromCol, int toRow, int toCol)
         {
-            
+
             Piece piece = board[fromRow, fromCol];
             if (piece == null) return false;
 
             // nhap thanh , function rieng , king di chuyen 2 o
-            if (piece.Type == PieceType.King && fromRow == toRow && Math.Abs(toCol - fromCol) == 2 )
+            if (piece.Type == PieceType.King && fromRow == toRow && Math.Abs(toCol - fromCol) == 2)
             {
-                
+
                 return CanCastle(board, fromRow, fromCol, toCol);
             }
-                
+
 
             // nuoc di thuong
             if (!MoveRules.IsValidMove(board, fromRow, fromCol, toRow, toCol))
@@ -101,26 +96,26 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
             int homeRow = (king.Color == PieceColor.White) ? 7 : 0;
             if (fromRow != homeRow || fromCol != 4 || king.HasMoved)
             {
-               
+
                 return false; // vua phai o cot e
-            }            
+            }
             //check xe di chuyen ch
             int dir = (toCol - fromCol) > 0 ? 1 : -1; // huong di chuyen cua vua, 1 la phai
             int rookCol = ((dir == 1) ? 7 : 0); // cot cua xe
             Piece rook = board[homeRow, rookCol];
             if (rook == null || rook.Type != PieceType.Rook || rook.HasMoved)
             {
-              
+
                 return false; // xe phai o cot a hoac h va chua di chuyen
             }
 
             // o giua vua xe phai trong
             for (int c = fromCol + dir; c != rookCol; c += dir)
             {
-                
+
                 if (board[homeRow, c] != null)
-                {                  
-                   
+                {
+
                     return false; // o giua vua va xe phai trong
                 }
             }
@@ -166,7 +161,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
             // xem vua co dnag bi chieu ko
             bool hasMove = HasAnyLegalMoves(board, sideToMove);
             //xem doi phuong con nuoc di hop le ko
-            if(!hasMove && inCheck) return GameStatus.Checkmate;
+            if (!hasMove && inCheck) return GameStatus.Checkmate;
             if (!hasMove && !inCheck) return GameStatus.Stalemate;
             if (hasMove && inCheck) return GameStatus.Check;
             return GameStatus.Playing;
@@ -174,4 +169,3 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
     }
 }
 
-    

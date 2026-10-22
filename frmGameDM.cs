@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -53,7 +49,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Left && !directionPressed)
+            if (e.KeyCode == Keys.Left && !directionPressed)
             {
                 MovePlayerAnimation("left");
                 btnLeft.BackColor = Color.LightGray;
@@ -67,9 +63,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.X)
+            if (e.KeyCode == Keys.X)
             {
-                if(bg_number < background_images.Count - 1)
+                if (bg_number < background_images.Count - 1)
                 {
                     bg_number++;
                 }
@@ -94,8 +90,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
 
             if (e.KeyCode == Keys.J && goLeft == false && goRight == false && !playerAction)
-            {               
-                SetPlayerAction("punch2.gif",2);             
+            {
+                SetPlayerAction("punch2.gif", 2);
             }
             if (e.KeyCode == Keys.K && goLeft == false && goRight == false && !playerAction)
             {
@@ -109,11 +105,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void FormPaintEvent(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(background, new Point(backgroundPosition , 0));
+            e.Graphics.DrawImage(background, new Point(backgroundPosition, 0));
             e.Graphics.DrawImage(player, new Point(playerX, playerY));
             e.Graphics.DrawImage(drum, new Point(drumX, drumY));
-            
-            if(shotFireBall)
+
+            if (shotFireBall)
             {
                 e.Graphics.DrawImage(fireball, new Point(fireballX, fireballY));
             }
@@ -135,9 +131,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     num += 0.5f;
                 }
-                
+
             }
-            if(num == totalFrame)
+            if (num == totalFrame)
             {
                 ResetPlayer();
             }
@@ -151,7 +147,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     shotFireBall = false;
                 }
             }
-            if(!shotFireBall && num > endFrame && drumMoveTime == 0 && actionStrength == 30)
+            if (!shotFireBall && num > endFrame && drumMoveTime == 0 && actionStrength == 30)
             {
                 ShootFireBall();
             }
@@ -174,7 +170,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 drumMoveTime = 0;
                 drumX = 300;
             }
-            
+
         }
 
         private void frmGame_Load(object sender, EventArgs e)
@@ -182,7 +178,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         }
 
-        private void SetUpForm() 
+        private void SetUpForm()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint, true);
             background_images = Directory.GetFiles(@"../../Assets/background").ToList();
@@ -191,12 +187,12 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             drum = Image.FromFile(@"../../Assets/drum.png");
             SetUpAnimation();
         }
-        private void SetUpAnimation() 
-        { 
+        private void SetUpAnimation()
+        {
             ImageAnimator.Animate(player, this.OnFrameChangeHandler);
             FrameDimension dimension = new FrameDimension(player.FrameDimensionsList[0]);
             totalFrame = player.GetFrameCount(dimension);
-            endFrame = totalFrame - 3; 
+            endFrame = totalFrame - 3;
         }
 
         private void OnFrameChangeHandler(object sender, EventArgs e)
@@ -212,7 +208,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     playerX -= 6;
                 }
-                if(backgroundPosition < 0 && playerX < 50)
+                if (backgroundPosition < 0 && playerX < 50)
                 {
                     backgroundPosition += 5;
                     drumX += 5;
@@ -220,7 +216,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
             if (goRight)
             {
-                if(playerX + player.Width < this.ClientSize.Width)
+                if (playerX + player.Width < this.ClientSize.Width)
                 {
                     playerX += 6;
                 }
@@ -235,16 +231,16 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void MovePlayerAnimation(string direction)
         {
-            if(direction == "left")
+            if (direction == "left")
             {
                 goLeft = true;
-                
+
                 player = Image.FromFile(@"../../Assets/backwards.gif");
             }
             else if (direction == "right")
             {
                 goRight = true;
-                
+
                 player = Image.FromFile(@"../../Assets/forwards.gif");
             }
 
@@ -273,8 +269,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             fireball = Image.FromFile(@"../../Assets/FireBallFinal.gif");
             ImageAnimator.Animate(fireball, this.OnFrameChangeHandler);
-            fireballX = playerX + player.Width -50;
-            fireballY = playerY - 33 ;
+            fireballX = playerX + player.Width - 50;
+            fireballY = playerY - 33;
             shotFireBall = true;
 
         }
@@ -290,7 +286,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CheckFireBallHit()

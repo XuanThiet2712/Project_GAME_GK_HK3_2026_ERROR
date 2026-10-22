@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -59,7 +55,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             int[] dX = new int[8] { 1, 1, -1, -1, 0, 0, 1, -1 };
             int[] dY = new int[8] { 1, -1, 1, -1, 1, -1, 0, 0 };
 
-            
+
             for (int i = 0; i < 8; i++)
             {
                 int newRow = fromRow + dX[i];
@@ -139,7 +135,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         // luat di chuyen con tot
         private static bool IsValidPawnMove(Piece[,] board, Piece pawn, int fromRow, int fromCol, int toRow, int toCol)
         {
-            int dir = pawn.Color == PieceColor.White ? -1 : 1; 
+            int dir = pawn.Color == PieceColor.White ? -1 : 1;
             // xem con tot trang hay den de xet huong di chuyen
             int startRow = pawn.Color == PieceColor.White ? 6 : 1;
             // xet tot trang hay den de xet hang xuat phat cua tot

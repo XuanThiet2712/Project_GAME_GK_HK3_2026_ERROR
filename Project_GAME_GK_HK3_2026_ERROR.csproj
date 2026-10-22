@@ -54,12 +54,6 @@
     <Compile Include="frmGame.Designer.cs">
       <DependentUpon>frmGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGameDM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmGameDM.Designer.cs">
-      <DependentUpon>frmGameDM.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmGameMode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,9 +104,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmGame.resx">
       <DependentUpon>frmGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmGameDM.resx">
-      <DependentUpon>frmGameDM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGameMode.resx">
       <DependentUpon>frmGameMode.cs</DependentUpon>

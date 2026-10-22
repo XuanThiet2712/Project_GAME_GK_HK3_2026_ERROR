@@ -30,21 +30,22 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             {
                 game.ShowDialog(); //khi game dung lai
             }
-            this.Show();// Quay lai
+            this.Show();
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tính năng Cài đặt (âm thanh, giao diện) đang được phát triển!","Thông báo",
+            MessageBox.Show("Đang phát triển!!! Chờ nhiều chút nha","Thông báo",
             MessageBoxButtons.OK,
             MessageBoxIcon.Information);
         }
         private void btnHowToPlay_Click(object sender, EventArgs e)
         {
             string guide = "HƯỚNG DẪN CHƠI CỜ VUA:\n\n" + 
-                           "1. Lượt chơi: Quân Trắng đi trước, Đen đi sau.\n" +
-                           "2. Cách đi: Bấm vào quân cờ của bạn, các ô màu xanh gợi ý các nước đi, ô đỏ ăn quân của đối thủ\n" +
+                           "1. Lượt chơi: Quân Trắng đi trước, Đen đi sau. Và người kia đi xong mới tới lượt mình và ngược lại\n" +
+                           "2. Cách đi: Bấm vào quân cờ của bạn, các ô màu xanh gợi ý các nước đi của từng quân, ô đỏ ăn quân của đối thủ\n" +
                            "3. Nhập thành: Chọn Vua và di chuyển 2 ô về phía quân Xe.\n" +
-                           "4. Phong Tốt: Đưa quân Tốt chạm tới hàng cuối cùng của đối thủ để phong cấp.";
+                           "4. Phong Tốt: Đưa quân Tốt chạm tới hàng cuối cùng của đối thủ để phong cấp con Tốt.\n"+
+                           "5. Hãy xem thật kĩ các nước đi của quân cờ rồi ra quyết định thật kĩ càng nhé!!!!";
 
             MessageBox.Show(guide, "Hướng Dẫn", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

@@ -1,4 +1,4 @@
-﻿using Project_GAME_GK_HK3_2026_ERROR.Properties;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,9 +11,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     public static class AssetManager
     {
         private static Dictionary<string, Image> images = new Dictionary<string, Image>();
-        private static SoundPlayer soundMove = new SoundPlayer(Resources.Move);
+        //private static Dictionary<string, SoundPlayer> sounds = new Dictionary<string, SoundPlayer>();
 
-        public static string ImageFolder { get; set; } = Path.Combine(Application.StartupPath, "images");
+        public static string ImageFolder { get; set; } = @"../../images/";
+        public static string SoundFolder { get; set; } = @"../../sound/";
+        public static bool SoundEnabled { get; set; } = true;
 
         public static Image GetImage(PieceType ptype, PieceColor pcolor)
         {
@@ -21,39 +23,55 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             if (!images.ContainsKey(name))
             {
-                string fileName = name + ".png";
-                string primaryPath = Path.Combine(ImageFolder, fileName);
-                string fallbackPath = Path.Combine(Application.StartupPath, @"../../images/", fileName);
-
-                string finalPath = File.Exists(primaryPath) ? primaryPath : (File.Exists(fallbackPath) ? fallbackPath : null);
-
-                if (finalPath != null)
+                //string path = Path.Combine(Application.StartupPath, "Images", name + ".png");
+                try
                 {
-                    try
-                    {
-                        images[name] = Image.FromFile(finalPath);
-                    }
-                    catch
-                    {
-                        images[name] = null;
-                    }
+                    images[name] = Image.FromFile(ImageFolder + name + ".png");
                 }
-                else
+
+                catch (Exception)
                 {
-                    MessageBox.Show("Khong tim thấy file ảnh: " + fileName, "Lỗi hình ảnh", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Image file not found: " + name + ".png");
                     images[name] = null;
                 }
             }
+
             return images[name];
         }
 
-        public static void PlayMove()
+        // 1 ham lay am thanh
+        private static Dictionary<string, SoundPlayer> sounds = new Dictionary<string, SoundPlayer>();
+        public static SoundPlayer GetSound(string soundName)
         {
-            try
+            if (!sounds.ContainsKey(soundName))
             {
-                soundMove.Play();
+                try
+                {
+                    string path = SoundFolder + soundName + ".wav";
+                    if (!File.Exists(path))
+                    {
+                        // Thử tìm theo đường dẫn StartupPath nếu không thấy ở đường dẫn tương đối
+                        path = Path.Combine(Application.StartupPath, "sounds", soundName + ".wav");
+                    }
+
+                    if (File.Exists(path))
+                    {
+                        sounds[soundName] = new SoundPlayer(path);
+                    }
+
+                    else{
+                        MessageBox.Show("Sound file not found: " + soundName + ".wav");
+                        sounds[soundName] = null;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Error loading sound file: " + soundName + ".wav");
+                    sounds[soundName] = null;
+                }
             }
-            catch { }
+            return sounds[soundName];
         }
+
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics; // bodemtime
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -17,6 +18,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         PieceColor turn = PieceColor.White;
         int moveNumber = 1; // so nuoc dang di
         bool gameOver = false; // kiem tra game ket thuc
+        Stopwatch stopwatch = new Stopwatch(); // đo thoi gian
+        Timer gameTimer = new Timer(); // cap nhat label
 
         public frmGame()
         {
@@ -26,6 +29,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             SetUpBoard();
             ShowPieces(); // hiện quân
             UpdateTitle();
+            StartGameTimer();
         }
 
 
@@ -199,7 +203,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 selected = null;
                 ColorBoard();
                 ShowPieces();       // vẽ trước để thấy nước đi cuối cùng
-
+                stopwatch.Stop();
+                gameTimer.Stop();
                 if (status == GameStatus.Checkmate)
                 {
                     string winner = (turn == PieceColor.White) ? "Đen" : "Trắng";
@@ -301,7 +306,29 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 board[1, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
             }
         }
-        
+
+        // bắt đầu đếm giờ
+        private void StartGameTimer()
+        {
+            stopwatch.Start();
+
+            gameTimer.Interval = 1000;
+            gameTimer.Tick += GameTimer_Tick;
+            gameTimer.Start();
+        }
+        // chạy mỗi giây
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan time = stopwatch.Elapsed; // tong thoi gian
+
+            lblTime.Text = string.Format(
+                "Thời gian: {0:00}:{1:00}:{2:00}",
+                (int)time.TotalHours,
+                time.Minutes,
+                time.Seconds
+            );
+        }
+
 
     }
 }

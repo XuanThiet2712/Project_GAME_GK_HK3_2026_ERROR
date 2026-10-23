@@ -80,6 +80,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             if (gameOver)
             {
+                AssetManager.GetSound("chienthang")?.Play();
                 MessageBox.Show("Game over! Ban co muon lam game moi ko");
                 return;
             }
@@ -209,7 +210,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 if (status == GameStatus.Checkmate)
                 {
                     string winner = (turn == PieceColor.White) ? "Đen" : "Trắng";
-                    if (MessageBox.Show($"Chiếu hết! Bên {winner} thắng.\n\nBạn có muốn chơi lại không?","Kết Thúc Ván Đấu",
+                    AssetManager.GetSound("chienthang")?.Play();
+                    if (MessageBox.Show($"Chiếu hết! Bên {winner} thắng.\n\nBạn có muốn chơi lại không?", "Kết Thúc Ván Đấu",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Information) == DialogResult.Yes)
                     {
@@ -227,7 +229,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 selected = null;
                 ColorBoard();
                 ShowPieces();
-
+                AssetManager.GetSound("chienthang")?.Play();
                 if (MessageBox.Show("Hòa cờ! Bên tới lượt không còn nước đi hợp lệ.\n\nBạn có muốn chơi lại không?","Kết Thúc Ván Đấu", 
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Information) == DialogResult.Yes)

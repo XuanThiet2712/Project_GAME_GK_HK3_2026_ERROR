@@ -152,6 +152,7 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="images\promotion.png" />
+    <Content Include="Sound\chienthang.wav" />
     <Content Include="Sound\Move.wav" />
   </ItemGroup>
 </Project>

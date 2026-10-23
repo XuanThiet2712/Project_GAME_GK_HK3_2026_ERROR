@@ -91,6 +91,12 @@
       <DependentUpon>frmScores.cs</DependentUpon>
     </Compile>
     <Compile Include="AssetManager.cs" />
+    <Compile Include="frmTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTime.Designer.cs">
+      <DependentUpon>frmTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\GameRules.cs" />
     <Compile Include="Logic\MoveRules.cs" />
     <Compile Include="Models\frmLogin.cs">
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPromotion.resx">
       <DependentUpon>frmPromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTime.resx">
+      <DependentUpon>frmTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

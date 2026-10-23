@@ -38,6 +38,8 @@
             this.colWhite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBlack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picSelectedPiece = new System.Windows.Forms.PictureBox();
+            this.lblBlackTime = new System.Windows.Forms.Label();
+            this.lblWhiteTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedPiece)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(24, 601);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Player 2: ";
             // 
@@ -73,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Player 1 : ";
             // 
@@ -82,7 +84,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(188, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 16);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "label3";
             // 
@@ -91,7 +93,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(282, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 16);
+            this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "label4";
             // 
@@ -141,11 +143,35 @@
             this.picSelectedPiece.TabIndex = 8;
             this.picSelectedPiece.TabStop = false;
             // 
+            // lblBlackTime
+            // 
+            this.lblBlackTime.AutoSize = true;
+            this.lblBlackTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBlackTime.Location = new System.Drawing.Point(497, 9);
+            this.lblBlackTime.Name = "lblBlackTime";
+            this.lblBlackTime.Size = new System.Drawing.Size(43, 16);
+            this.lblBlackTime.TabIndex = 9;
+            this.lblBlackTime.Text = "10:00";
+            this.lblBlackTime.Click += new System.EventHandler(this.lblBlackTime_Click);
+            // 
+            // lblWhiteTime
+            // 
+            this.lblWhiteTime.AutoSize = true;
+            this.lblWhiteTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblWhiteTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWhiteTime.Location = new System.Drawing.Point(497, 599);
+            this.lblWhiteTime.Name = "lblWhiteTime";
+            this.lblWhiteTime.Size = new System.Drawing.Size(43, 16);
+            this.lblWhiteTime.TabIndex = 10;
+            this.lblWhiteTime.Text = "10:00";
+            // 
             // frmGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 645);
+            this.Controls.Add(this.lblWhiteTime);
+            this.Controls.Add(this.lblBlackTime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.picSelectedPiece);
             this.Controls.Add(this.dgvHistory);
@@ -178,5 +204,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWhite;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBlack;
         private System.Windows.Forms.PictureBox picSelectedPiece;
+        private System.Windows.Forms.Label lblBlackTime;
+        private System.Windows.Forms.Label lblWhiteTime;
     }
 }

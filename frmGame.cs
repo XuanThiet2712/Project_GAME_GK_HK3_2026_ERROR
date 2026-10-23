@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -17,7 +18,15 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         PieceColor turn = PieceColor.White;
         int moveNumber = 1; // so nuoc dang di
         bool gameOver = false; // kiem tra game ket thuc
-        public frmGame()
+        TimeSpan timeLimit;  // Thời gian tối đa của mỗi bên
+
+        // đo thời gian đã dùng
+        Stopwatch whiteWatch = new Stopwatch();
+        Stopwatch blackWatch = new Stopwatch();
+
+        // Timer cập nhật
+        System.Windows.Forms.Timer chessTimer = new System.Windows.Forms.Timer();
+        public frmGame(int minutes)
         {
             InitializeComponent();
             CreateCells();
@@ -25,6 +34,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             SetUpBoard();
             ShowPieces(); // hiện quân
             UpdateTitle();
+            timeLimit = TimeSpan.FromMinutes(minutes);   // Thời gian được chọn từ frmTime
+
+            // Cập nhật timer
+            chessTimer.Interval = 100;
+            chessTimer.Tick += ChessTimer_Tick;
+            whiteWatch.Start();
+            chessTimer.Start();
+            UpdateClockDisplay();
         }
 
         private void ShowPieces()
@@ -127,6 +144,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         // thuc hien nuoc di hop le 
         private void DoMove(int fromRow, int fromCol, int ToRow, int ToCol)
         {
+            if (CheckTimeout())
+                return;
 
             Piece movingPiece = board[fromRow, fromCol]; // quan se di 
             Piece targetPiece = board[ToRow, ToCol]; // quan bi an
@@ -226,6 +245,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             //am thanh
 
             AssetManager.GetSound("Move")?.Play();
+            // dung dong ho
+            whiteWatch.Stop();
+            blackWatch.Stop();
 
             // doi luot
             if (turn == PieceColor.White)
@@ -237,8 +259,18 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 turn = PieceColor.White;
                 moveNumber++;
             }
+
+            // bat dau dong ho ben kia
+            if (turn == PieceColor.White)
+                whiteWatch.Start();
+            else
+                blackWatch.Start();
+
             //check trang thai game
             CheckGameState();
+
+            // cap nhat giao dien
+            UpdateClockDisplay();
             
         }
 
@@ -301,6 +333,17 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             ColorBoard();
             ShowPieces();
             UpdateTitle();
+            // Xóa lịch sử nước đi của ván trước
+            dgvHistory.Rows.Clear();
+            picSelectedPiece.Image = null;
+
+            // Reset thời gian về ban đầu
+            whiteWatch.Reset();
+            blackWatch.Reset();
+            whiteWatch.Start();
+            chessTimer.Start();
+
+            UpdateClockDisplay();
         }
 
         private string SquareName(int row, int col)
@@ -384,6 +427,112 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         private void pnlBoard_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void lblBlackTime_Click(object sender, EventArgs e)
+        {
+
+        }
+        private TimeSpan GetRemainingTime(Stopwatch watch) // time con lai
+        {
+            TimeSpan remaining = timeLimit - watch.Elapsed;
+
+            if (remaining < TimeSpan.Zero)
+                return TimeSpan.Zero;
+
+            return remaining;
+        }
+        private string FormatTime(TimeSpan time) // phut -> giay
+        {
+            int totalSeconds =
+                (int)Math.Ceiling(time.TotalSeconds);
+
+            return string.Format(
+                "{0:00}:{1:00}",
+                totalSeconds / 60,
+                totalSeconds % 60
+            );
+        }
+        private void UpdateClockDisplay() // mau
+        {
+            lblWhiteTime.Text = FormatTime(
+                GetRemainingTime(whiteWatch)
+            );
+
+            lblBlackTime.Text = FormatTime(
+                GetRemainingTime(blackWatch)
+            );
+
+            lblWhiteTime.ForeColor =
+                turn == PieceColor.White
+                ? Color.Green
+                : Color.Black;
+
+            lblBlackTime.ForeColor =
+                turn == PieceColor.Black
+                ? Color.Green
+                : Color.Black;
+        }
+        private void StopClocks()
+        {
+            whiteWatch.Stop();
+            blackWatch.Stop();
+            chessTimer.Stop();
+        }
+        private void EndGameByTime(string winner) // het gio = thua
+        {
+            if (gameOver)
+                return;
+
+            gameOver = true;
+            StopClocks();
+
+            selected = null;
+            picSelectedPiece.Image = null;
+
+            UpdateClockDisplay();
+            ColorBoard();
+
+            DialogResult result = MessageBox.Show(
+                $"Hết giờ! Bên {winner} thắng.\n\nBạn có muốn chơi lại không?",
+                "Kết thúc ván đấu",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information
+            );
+
+            if (result == DialogResult.Yes)
+                RestartGame();
+            else
+                this.Close();
+        }
+        private bool CheckTimeout() // ktra time
+        {
+            if (gameOver)
+                return true;
+
+            if (turn == PieceColor.White &&
+                GetRemainingTime(whiteWatch) == TimeSpan.Zero)
+            {
+                EndGameByTime("Đen");
+                return true;
+            }
+
+            if (turn == PieceColor.Black &&
+                GetRemainingTime(blackWatch) == TimeSpan.Zero)
+            {
+                EndGameByTime("Trắng");
+                return true;
+            }
+
+            return false;
+        }
+        private void ChessTimer_Tick(object sender, EventArgs e) // timer tick
+        {
+            if (gameOver)
+                return;
+
+            UpdateClockDisplay();
+            CheckTimeout();
         }
     }
 }

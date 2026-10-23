@@ -149,10 +149,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="images\promotion.png" />
     <Content Include="Sound\Move.wav" />
   </ItemGroup>
 </Project>

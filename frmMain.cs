@@ -8,5 +8,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             InitializeComponent();
         }
+
+        private void frmMain_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

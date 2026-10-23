@@ -161,7 +161,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             if (movingPiece.Type == PieceType.Pawn && (ToRow == 0 || ToRow == 7))
             {
                 ShowPieces();
-                frmPromotion f = new frmPromotion();
+                frmPromotion f = new frmPromotion(movingPiece.Color);
                 f.ShowDialog();
                 board[ToRow, ToCol] = new Piece(f.Selected, movingPiece.Color);
                 promoText = "=" + f.Selected.ToString().ToUpper();
@@ -329,6 +329,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             );
         }
 
+        private void pnlBoard_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

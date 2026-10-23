@@ -38,13 +38,16 @@
             // 
             // btnQueen
             // 
+            this.btnQueen.AllowDrop = true;
             this.btnQueen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQueen.Location = new System.Drawing.Point(0, 0);
+            this.btnQueen.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQueen.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnQueen.Location = new System.Drawing.Point(25, 12);
             this.btnQueen.Name = "btnQueen";
-            this.btnQueen.Size = new System.Drawing.Size(161, 76);
+            this.btnQueen.Size = new System.Drawing.Size(150, 60);
             this.btnQueen.TabIndex = 0;
             this.btnQueen.Text = "QUEEN";
-            this.btnQueen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnQueen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQueen.UseVisualStyleBackColor = true;
             this.btnQueen.Click += new System.EventHandler(this.btnQueen_Click);
             this.btnQueen.MouseEnter += new System.EventHandler(this.btnQueen_MouseEnter);
@@ -52,12 +55,14 @@
             // btnKnight
             // 
             this.btnKnight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKnight.Location = new System.Drawing.Point(0, 98);
+            this.btnKnight.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKnight.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnKnight.Location = new System.Drawing.Point(25, 89);
             this.btnKnight.Name = "btnKnight";
-            this.btnKnight.Size = new System.Drawing.Size(161, 65);
+            this.btnKnight.Size = new System.Drawing.Size(150, 60);
             this.btnKnight.TabIndex = 1;
             this.btnKnight.Text = "KNIGHT";
-            this.btnKnight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnKnight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnKnight.UseVisualStyleBackColor = true;
             this.btnKnight.Click += new System.EventHandler(this.btnKnight_Click);
             this.btnKnight.MouseEnter += new System.EventHandler(this.btnKnight_MouseEnter);
@@ -65,12 +70,14 @@
             // btnRook
             // 
             this.btnRook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRook.Location = new System.Drawing.Point(0, 289);
+            this.btnRook.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRook.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRook.Location = new System.Drawing.Point(25, 244);
             this.btnRook.Name = "btnRook";
-            this.btnRook.Size = new System.Drawing.Size(161, 76);
+            this.btnRook.Size = new System.Drawing.Size(150, 60);
             this.btnRook.TabIndex = 2;
             this.btnRook.Text = "ROOK";
-            this.btnRook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRook.UseVisualStyleBackColor = true;
             this.btnRook.Click += new System.EventHandler(this.btnRook_Click);
             this.btnRook.MouseEnter += new System.EventHandler(this.btnRook_MouseEnter);
@@ -78,21 +85,23 @@
             // btnBishop
             // 
             this.btnBishop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBishop.Location = new System.Drawing.Point(0, 191);
+            this.btnBishop.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBishop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBishop.Location = new System.Drawing.Point(25, 165);
             this.btnBishop.Name = "btnBishop";
-            this.btnBishop.Size = new System.Drawing.Size(161, 71);
+            this.btnBishop.Size = new System.Drawing.Size(150, 60);
             this.btnBishop.TabIndex = 3;
             this.btnBishop.Text = "BISHOP";
-            this.btnBishop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnBishop.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBishop.UseVisualStyleBackColor = true;
             this.btnBishop.Click += new System.EventHandler(this.btnBishop_Click);
             this.btnBishop.MouseEnter += new System.EventHandler(this.btnBishop_MouseEnter);
             // 
             // picQueen
             // 
-            this.picQueen.Location = new System.Drawing.Point(201, 24);
+            this.picQueen.Location = new System.Drawing.Point(263, 89);
             this.picQueen.Name = "picQueen";
-            this.picQueen.Size = new System.Drawing.Size(135, 169);
+            this.picQueen.Size = new System.Drawing.Size(135, 136);
             this.picQueen.TabIndex = 4;
             this.picQueen.TabStop = false;
             // 

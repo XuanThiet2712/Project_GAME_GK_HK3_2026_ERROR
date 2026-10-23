@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblWhite = new System.Windows.Forms.Label();
+            this.lblBlack = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.colWhite = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,19 +45,20 @@
             // 
             // pnlBoard
             // 
-            this.pnlBoard.Location = new System.Drawing.Point(27, 39);
+            this.pnlBoard.Location = new System.Drawing.Point(27, 56);
             this.pnlBoard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlBoard.Name = "pnlBoard";
-            this.pnlBoard.Size = new System.Drawing.Size(538, 540);
+            this.pnlBoard.Size = new System.Drawing.Size(528, 539);
             this.pnlBoard.TabIndex = 0;
             this.pnlBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBoard_Paint);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 601);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 615);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(90, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Player 2: ";
             // 
@@ -72,29 +73,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.Size = new System.Drawing.Size(90, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Player 1 : ";
+            this.label1.Text = "Player 1: ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label3
+            // lblWhite
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(188, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.lblWhite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWhite.AutoSize = true;
+            this.lblWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWhite.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblWhite.Location = new System.Drawing.Point(90, 0);
+            this.lblWhite.Margin = new System.Windows.Forms.Padding(0);
+            this.lblWhite.Name = "lblWhite";
+            this.lblWhite.Size = new System.Drawing.Size(0, 52);
+            this.lblWhite.TabIndex = 2;
             // 
-            // label4
+            // lblBlack
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(282, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
+            this.lblBlack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBlack.AutoSize = true;
+            this.lblBlack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBlack.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblBlack.Location = new System.Drawing.Point(90, 600);
+            this.lblBlack.Margin = new System.Windows.Forms.Padding(0);
+            this.lblBlack.Name = "lblBlack";
+            this.lblBlack.Size = new System.Drawing.Size(0, 52);
+            this.lblBlack.TabIndex = 2;
             // 
             // lblTime
             // 
@@ -159,13 +174,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 645);
+            this.ClientSize = new System.Drawing.Size(976, 653);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.picSelectedPiece);
             this.Controls.Add(this.dgvHistory);
             this.Controls.Add(this.lblTime);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblBlack);
+            this.Controls.Add(this.lblWhite);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnlBoard);
@@ -187,8 +202,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblWhite;
+        private System.Windows.Forms.Label lblBlack;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.DataGridView dgvHistory;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWhite;

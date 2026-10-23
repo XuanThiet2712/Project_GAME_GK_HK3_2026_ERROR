@@ -174,67 +174,54 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 board[ToRow, ToCol] = new Piece(f.Selected, movingPiece.Color);
                 promoText = "=" + f.Selected.ToString().ToUpper();
             }
-            //ghi lich su
-            string pieceIcon = ""; //chen icon theo PieceType
-            if (movingPiece.Color == PieceColor.White)
+            //hien thi icon quan bi an len lable
+            if (targetPiece != null)
             {
-                switch (movingPiece.Type)
-                {
-                    case PieceType.Pawn: pieceIcon = "♙"; break;
-                    case PieceType.Knight: pieceIcon = "♘"; break;
-                    case PieceType.Bishop: pieceIcon = "♗"; break;
-                    case PieceType.Rook: pieceIcon = "♖"; break;
-                    case PieceType.Queen: pieceIcon = "♕"; break;
-                    case PieceType.King: pieceIcon = "♔"; break;
-                }
+                string capturedIcon = GetPieceIcon(targetPiece.Type, targetPiece.Color); //lay ki hieu cua quan bi an
+
+                if (turn == PieceColor.White)
+                    lblWhite.Text += capturedIcon + " ";
+                else
+                    lblBlack.Text += capturedIcon + " ";
             }
-            else
-            {
-                switch (movingPiece.Type)
-                {
-                    case PieceType.Pawn: pieceIcon = "♟"; break;
-                    case PieceType.Knight: pieceIcon = "♞"; break;
-                    case PieceType.Bishop: pieceIcon = "♝"; break;
-                    case PieceType.Rook: pieceIcon = "♜"; break;
-                    case PieceType.Queen: pieceIcon = "♛"; break;
-                    case PieceType.King: pieceIcon = "♚"; break;
-                }
-            }
+
+            //lay ki hieu cua quan co dang di chuyen
+            string pieceIcon = GetPieceIcon(movingPiece.Type, movingPiece.Color);
+
             if (isCastle)
             {
-                moveText = "O-O"; //nhap thanh
+                moveText = "O-O";
             }
             else
             {
                 string sep = (targetPiece != null) ? "x" : "-";
                 moveText = pieceIcon + SquareName(fromRow, fromCol) + sep + SquareName(ToRow, ToCol) + promoText;
             }
-            // ghi nuoc di vao dvgHistory
+
+            //ghi nuoc di vao dgv
             if (turn == PieceColor.White)
             {
-                dgvHistory.Rows.Add(moveText, ""); //luot trang di, tao hang moi dien vao cot trang
+                dgvHistory.Rows.Add(moveText, ""); //luot trang di tao hang moi
             }
             else
             {
-                //luot den di
                 if (dgvHistory.Rows.Count > 0)
                 {
                     int lastRow = dgvHistory.Rows.Count - 1;
-                    dgvHistory.Rows[lastRow].Cells[1].Value = moveText;
+                    dgvHistory.Rows[lastRow].Cells[1].Value = moveText; //luot den di dien vao cot 2
                 }
             }
 
-            //Tu dong cuon xuong nuoc di moi nhat duoi cung
+            //cuon danh sach xuong
             if (dgvHistory.Rows.Count > 0)
             {
                 dgvHistory.FirstDisplayedScrollingRowIndex = dgvHistory.Rows.Count - 1;
             }
-            //am thanh
 
+            //am thanh
             AssetManager.GetSound("Move")?.Play();
 
-
-            // doi luot
+            //doi luot
             if (turn == PieceColor.White)
             {
                 turn = PieceColor.Black;
@@ -244,10 +231,40 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 turn = PieceColor.White;
                 moveNumber++;
             }
+
             //check trang thai game
             CheckGameState();
         }
+        private string GetPieceIcon(PieceType type, PieceColor color)
+        {
+            if (color == PieceColor.White)
+            {
+                switch (type)
+                {
+                    case PieceType.Pawn: return "♙";
+                    case PieceType.Knight: return "♘";
+                    case PieceType.Bishop: return "♗";
+                    case PieceType.Rook: return "♖";
+                    case PieceType.Queen: return "♕";
+                    case PieceType.King: return "♔";
+                    default: return "";
+                }
+            }
+            else
+            {
+                switch (type)
+                {
+                    case PieceType.Pawn: return "♟";
+                    case PieceType.Knight: return "♞";
+                    case PieceType.Bishop: return "♝";
+                    case PieceType.Rook: return "♜";
+                    case PieceType.Queen: return "♛";
+                    case PieceType.King: return "♚";
+                    default: return "";
+                }
+            }
 
+        }
         private void CheckGameState()
         {
             GameStatus status = GameRules.GetStatus(board, turn);
@@ -294,16 +311,21 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     this.Close();
                 }
             }
-            
         }
+
         private void RestartGame()
         {
+            ResetGameTimer();
             board = new Piece[8, 8];
             selected = null;
             turn = PieceColor.White;
             moveNumber = 1;
             gameOver = false;
-            //lstHistory.Items.Clear();
+            dgvHistory.Rows.Clear();           //xoa lich su nuoc di
+            lblWhite.Text = "";                 //xoa icon quan trang bi an
+            lblBlack.Text = "";                  //xoa icon quan den bi an
+            if (picSelectedPiece != null)        //xoa anh quan co dang hien thi
+                picSelectedPiece.Image = null;
 
             SetUpBoard();
             ColorBoard();
@@ -404,19 +426,38 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             TimeSpan time = stopwatch.Elapsed; // tong thoi gian
 
             lblTime.Text = string.Format(
-                "Thời gian: {0:00}:{1:00}:{2:00}",
+                "Time: {0:00}:{1:00}:{2:00}",
                 (int)time.TotalHours,
                 time.Minutes,
                 time.Seconds
             );
         }
+        //reset thoi gian khi qua van moi
+        private void ResetGameTimer()
+        {
+            stopwatch.Reset(); //xoa thoi gian ve khong
+            stopwatch.Start(); //bat dau ghi lai tu 0
 
+            //cap nhat Time: 00:00:00
+            lblTime.Text = "Time: 00:00:00";
+
+            //Neu gameTimer chua chay thi bat lai
+            if (!gameTimer.Enabled)
+            {
+                gameTimer.Start();
+            }
+        }
         private void pnlBoard_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void lblTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

@@ -32,16 +32,17 @@
             // 
             // frmHelp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(409, 253);
             this.Name = "frmHelp";
-            this.Text = "frmHelp";
-            this.Load += new System.EventHandler(this.frmHelp_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlBoard;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblHuongDan;
+        private System.Windows.Forms.Button btnBack;
     }
 }

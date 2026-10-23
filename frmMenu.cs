@@ -25,13 +25,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private void btnplay_Click(object sender, EventArgs e)
         {
-            this.Hide(); // an menu chuyen vao game
+            this.Hide();
             using (frmGame game = new frmGame())
             {
-                game.ShowDialog(); //khi game dung lai
+                game.ShowDialog();
             }
             this.Show();
         }
+
         private void btnSettings_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Đang phát triển!!! Chờ nhiều chút nha","Thông báo",

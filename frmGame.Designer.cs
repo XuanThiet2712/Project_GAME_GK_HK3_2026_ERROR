@@ -111,19 +111,6 @@
             this.lblBlack.Size = new System.Drawing.Size(0, 52);
             this.lblBlack.TabIndex = 2;
             // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.Black;
-            this.lblTime.Location = new System.Drawing.Point(704, 39);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(152, 28);
-            this.lblTime.TabIndex = 6;
-            this.lblTime.Text = "Time: 00:00:00";
-            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
-            // 
             // dgvHistory
             // 
             this.dgvHistory.AllowUserToAddRows = false;
@@ -181,6 +168,7 @@
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblBlack);
             this.Controls.Add(this.lblWhite);
+
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnlBoard);

@@ -38,43 +38,55 @@
             // 
             // btnQueen
             // 
+            this.btnQueen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQueen.Location = new System.Drawing.Point(0, 0);
             this.btnQueen.Name = "btnQueen";
             this.btnQueen.Size = new System.Drawing.Size(161, 76);
             this.btnQueen.TabIndex = 0;
             this.btnQueen.Text = "QUEEN";
+            this.btnQueen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnQueen.UseVisualStyleBackColor = true;
             this.btnQueen.Click += new System.EventHandler(this.btnQueen_Click);
+            this.btnQueen.MouseEnter += new System.EventHandler(this.btnQueen_Click);
             // 
             // btnKnight
             // 
+            this.btnKnight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKnight.Location = new System.Drawing.Point(0, 98);
             this.btnKnight.Name = "btnKnight";
             this.btnKnight.Size = new System.Drawing.Size(161, 65);
             this.btnKnight.TabIndex = 1;
             this.btnKnight.Text = "KNIGHT";
+            this.btnKnight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnKnight.UseVisualStyleBackColor = true;
             this.btnKnight.Click += new System.EventHandler(this.btnKnight_Click);
+            this.btnKnight.MouseEnter += new System.EventHandler(this.btnKnight_Click);
             // 
             // btnRook
             // 
+            this.btnRook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRook.Location = new System.Drawing.Point(0, 289);
             this.btnRook.Name = "btnRook";
             this.btnRook.Size = new System.Drawing.Size(161, 76);
             this.btnRook.TabIndex = 2;
             this.btnRook.Text = "ROOK";
+            this.btnRook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRook.UseVisualStyleBackColor = true;
             this.btnRook.Click += new System.EventHandler(this.btnRook_Click);
+            this.btnRook.MouseEnter += new System.EventHandler(this.btnRook_Click);
             // 
             // btnBishop
             // 
+            this.btnBishop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBishop.Location = new System.Drawing.Point(0, 191);
             this.btnBishop.Name = "btnBishop";
             this.btnBishop.Size = new System.Drawing.Size(161, 71);
             this.btnBishop.TabIndex = 3;
             this.btnBishop.Text = "BISHOP";
+            this.btnBishop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBishop.UseVisualStyleBackColor = true;
             this.btnBishop.Click += new System.EventHandler(this.btnBishop_Click);
+            this.btnBishop.MouseEnter += new System.EventHandler(this.btnBishop_Click);
             // 
             // picQueen
             // 

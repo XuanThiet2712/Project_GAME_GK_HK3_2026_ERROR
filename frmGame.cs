@@ -1,9 +1,9 @@
 ﻿using Project_GAME_GK_HK3_2026_ERROR.Logic;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics; // bodemtime
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics; // bodemtime
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -205,16 +205,55 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 ShowPieces();       // vẽ trước để thấy nước đi cuối cùng
                 stopwatch.Stop();
                 gameTimer.Stop();
+                string title = "KẾT THÚC VÁN ĐẤU";
                 if (status == GameStatus.Checkmate)
                 {
                     string winner = (turn == PieceColor.White) ? "Đen" : "Trắng";
-                    MessageBox.Show("Chiếu hết! " + winner + " thắng.");
+                    if (MessageBox.Show($"Chiếu hết! Bên {winner} thắng.\n\nBạn có muốn chơi lại không?","Kết Thúc Ván Đấu",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        RestartGame();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
+            }
+            else if(status == GameStatus.Checkmate)
+            {
+                gameOver = true;
+                selected = null;
+                ColorBoard();
+                ShowPieces();
+
+                if (MessageBox.Show("Hòa cờ! Bên tới lượt không còn nước đi hợp lệ.\n\nBạn có muốn chơi lại không?","Kết Thúc Ván Đấu", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    RestartGame();
                 }
                 else
                 {
-                    MessageBox.Show("Hòa cờ! Bên đi không còn nước hợp lệ.");
+                    this.Close();
                 }
             }
+            
+        }
+        private void RestartGame()
+        {
+            board = new Piece[8, 8];
+            selected = null;
+            turn = PieceColor.White;
+            moveNumber = 1;
+            gameOver = false;
+            lstHistory.Items.Clear();
+
+            SetUpBoard();
+            ColorBoard();
+            ShowPieces();
+            UpdateTitle();
         }
 
         private string SquareName(int row, int col)

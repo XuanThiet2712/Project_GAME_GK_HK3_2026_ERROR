@@ -18,10 +18,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         PieceColor turn = PieceColor.White;
         int moveNumber = 1; // so nuoc dang di
         bool gameOver = false; // kiem tra game ket thuc
-        Stopwatch stopwatch = new Stopwatch(); // đo thoi gian
-        Timer gameTimer = new Timer(); // cap nhat label
+        TimeSpan timeLimit;
 
-        public frmGame()
+        Stopwatch whiteWatch = new Stopwatch();
+        Stopwatch blackWatch = new Stopwatch();
+
+        System.Windows.Forms.Timer chessTimer = new System.Windows.Forms.Timer();
+        public frmGame(int minutes)
         {
             InitializeComponent();
             CreateCells();
@@ -29,7 +32,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             SetUpBoard();
             ShowPieces(); // hiện quân
             UpdateTitle();
-            StartGameTimer();
+            // Thời gian riêng cho mỗi người
+            timeLimit = TimeSpan.FromMinutes(minutes);
+            chessTimer.Interval = 100;
+            chessTimer.Tick += ChessTimer_Tick;
+            // Bên Trắng đi trước
+            whiteWatch.Start();
+            chessTimer.Start();
+            UpdateClockDisplay();
         }
 
 
@@ -180,6 +190,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             AssetManager.GetSound("Move")?.Play();
 
+            whiteWatch.Stop();
+            blackWatch.Stop();
 
             // doi luot
             if (turn == PieceColor.White)
@@ -193,6 +205,16 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
             //check trang thai game
             CheckGameState();
+            
+            if(!gameOver)
+{
+                if (turn == PieceColor.White)
+                    whiteWatch.Start();
+                else
+                    blackWatch.Start();
+            }
+
+            UpdateClockDisplay();
         }
 
         private void CheckGameState()
@@ -204,8 +226,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 selected = null;
                 ColorBoard();
                 ShowPieces();       // vẽ trước để thấy nước đi cuối cùng
-                stopwatch.Stop();
-                gameTimer.Stop();
+                whiteWatch.Stop();
+                blackWatch.Stop();
+                chessTimer.Stop();
                 string title = "KẾT THÚC VÁN ĐẤU";
                 if (status == GameStatus.Checkmate)
                 {
@@ -256,6 +279,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             ColorBoard();
             ShowPieces();
             UpdateTitle();
+            whiteWatch.Reset();
+            blackWatch.Reset();
+            whiteWatch.Start();
+            chessTimer.Start();
+            UpdateClockDisplay();
         }
 
         private string SquareName(int row, int col)
@@ -348,29 +376,74 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
         }
 
-        // bắt đầu đếm giờ
-        private void StartGameTimer()
+        private void pnlBoard_Paint(object sender, PaintEventArgs e)
         {
-            stopwatch.Start();
 
-            gameTimer.Interval = 1000;
-            gameTimer.Tick += GameTimer_Tick;
-            gameTimer.Start();
         }
-        // chạy mỗi giây
-        private void GameTimer_Tick(object sender, EventArgs e)
+        private TimeSpan GetRemainingTime(Stopwatch watch)
         {
-            TimeSpan time = stopwatch.Elapsed; // tong thoi gian
+            TimeSpan remaining = timeLimit - watch.Elapsed;
 
-            lblTime.Text = string.Format(
-                "Thời gian: {0:00}:{1:00}:{2:00}",
-                (int)time.TotalHours,
-                time.Minutes,
-                time.Seconds
+            return remaining < TimeSpan.Zero
+                ? TimeSpan.Zero
+                : remaining;
+        }
+
+        private void UpdateClockDisplay()
+        {
+            lblWhiteTime.Text = FormatTime(
+                GetRemainingTime(whiteWatch));
+
+            lblBlackTime.Text = FormatTime(
+                GetRemainingTime(blackWatch));
+
+            lblWhiteTime.ForeColor =
+                turn == PieceColor.White ? Color.Green : Color.Black;
+
+            lblBlackTime.ForeColor =
+                turn == PieceColor.Black ? Color.Green : Color.Black;
+        }
+
+        private string FormatTime(TimeSpan time)
+        {
+            int total = (int)Math.Ceiling(time.TotalSeconds);
+
+            return $"{total / 60:00}:{total % 60:00}";
+        }
+        private void ChessTimer_Tick(object sender, EventArgs e)
+        {
+            if (gameOver) return;
+
+            UpdateClockDisplay();
+
+            if (GetRemainingTime(whiteWatch) == TimeSpan.Zero)
+                EndGameByTime("Đen");
+            else if (GetRemainingTime(blackWatch) == TimeSpan.Zero)
+                EndGameByTime("Trắng");
+        }
+        private void EndGameByTime(string winner)
+        {
+            if (gameOver) return;
+
+            gameOver = true;
+
+            chessTimer.Stop();
+            whiteWatch.Stop();
+            blackWatch.Stop();
+
+            selected = null;
+            UpdateClockDisplay();
+            ColorBoard();
+
+            MessageBox.Show(
+                $"Hết thời gian! Bên {winner} thắng.",
+                "Kết thúc ván đấu",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
             );
         }
 
-        private void pnlBoard_Paint(object sender, PaintEventArgs e)
+        private void lblWhiteTime_Click(object sender, EventArgs e)
         {
 
         }

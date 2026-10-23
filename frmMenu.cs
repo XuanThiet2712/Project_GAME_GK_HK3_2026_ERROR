@@ -25,12 +25,26 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private void btnplay_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            using (frmGame game = new frmGame())
+            using (frmTime f = new frmTime())
             {
-                game.ShowDialog();
+                if (f.ShowDialog() != DialogResult.OK)
+                    return;
+
+                int minutes = f.SelectedMinutes;
+
+                this.Hide();
+                try
+                {
+                    using (frmGame game = new frmGame(minutes))
+                    {
+                        game.ShowDialog();
+                    }
+                }
+                finally
+                {
+                    this.Show();
+                }
             }
-            this.Show();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

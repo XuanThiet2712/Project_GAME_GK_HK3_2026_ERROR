@@ -39,6 +39,8 @@
             this.colWhite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBlack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picSelectedPiece = new System.Windows.Forms.PictureBox();
+            this.lblBlackTime = new System.Windows.Forms.Label();
+            this.lblWhiteTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedPiece)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +60,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(24, 615);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.Size = new System.Drawing.Size(78, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Player 2: ";
             // 
@@ -76,10 +78,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(24, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 20);
+            this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Player 1: ";
-            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblWhite
             // 
@@ -93,7 +94,7 @@
             this.lblWhite.Location = new System.Drawing.Point(90, 0);
             this.lblWhite.Margin = new System.Windows.Forms.Padding(0);
             this.lblWhite.Name = "lblWhite";
-            this.lblWhite.Size = new System.Drawing.Size(0, 52);
+            this.lblWhite.Size = new System.Drawing.Size(0, 39);
             this.lblWhite.TabIndex = 2;
             // 
             // lblBlack
@@ -108,8 +109,15 @@
             this.lblBlack.Location = new System.Drawing.Point(90, 600);
             this.lblBlack.Margin = new System.Windows.Forms.Padding(0);
             this.lblBlack.Name = "lblBlack";
-            this.lblBlack.Size = new System.Drawing.Size(0, 52);
+            this.lblBlack.Size = new System.Drawing.Size(0, 39);
             this.lblBlack.TabIndex = 2;
+            // 
+            // lblTime
+            // 
+            this.lblTime.Location = new System.Drawing.Point(0, 0);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(100, 23);
+            this.lblTime.TabIndex = 11;
             // 
             // dgvHistory
             // 
@@ -157,18 +165,41 @@
             this.picSelectedPiece.TabIndex = 8;
             this.picSelectedPiece.TabStop = false;
             // 
+            // lblBlackTime
+            // 
+            this.lblBlackTime.AutoSize = true;
+            this.lblBlackTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBlackTime.Location = new System.Drawing.Point(512, 22);
+            this.lblBlackTime.Name = "lblBlackTime";
+            this.lblBlackTime.Size = new System.Drawing.Size(43, 16);
+            this.lblBlackTime.TabIndex = 9;
+            this.lblBlackTime.Text = "10:00";
+            this.lblBlackTime.Click += new System.EventHandler(this.lblBlackTime_Click);
+            // 
+            // lblWhiteTime
+            // 
+            this.lblWhiteTime.AutoSize = true;
+            this.lblWhiteTime.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblWhiteTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWhiteTime.Location = new System.Drawing.Point(512, 616);
+            this.lblWhiteTime.Name = "lblWhiteTime";
+            this.lblWhiteTime.Size = new System.Drawing.Size(43, 16);
+            this.lblWhiteTime.TabIndex = 10;
+            this.lblWhiteTime.Text = "10:00";
+            // 
             // frmGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 653);
+            this.Controls.Add(this.lblWhiteTime);
+            this.Controls.Add(this.lblBlackTime);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.picSelectedPiece);
             this.Controls.Add(this.dgvHistory);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblBlack);
             this.Controls.Add(this.lblWhite);
-
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnlBoard);
@@ -197,5 +228,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWhite;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBlack;
         private System.Windows.Forms.PictureBox picSelectedPiece;
+        private System.Windows.Forms.Label lblBlackTime;
+        private System.Windows.Forms.Label lblWhiteTime;
     }
 }

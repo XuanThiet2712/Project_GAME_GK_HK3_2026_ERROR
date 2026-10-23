@@ -1,6 +1,7 @@
 ﻿using Project_GAME_GK_HK3_2026_ERROR.Logic;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 {
     public partial class frmGame : Form
     {
+        private Timer gameTimer = new Timer();
+        private Stopwatch stopwatch = new Stopwatch();
         PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
 
@@ -25,6 +28,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             SetUpBoard();
             ShowPieces(); // hiện quân
             UpdateTitle();
+            StartGameTimer();
         }
 
         private void ShowPieces()

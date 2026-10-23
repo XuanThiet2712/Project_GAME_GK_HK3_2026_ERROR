@@ -47,7 +47,7 @@
             this.btnQueen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnQueen.UseVisualStyleBackColor = true;
             this.btnQueen.Click += new System.EventHandler(this.btnQueen_Click);
-            this.btnQueen.MouseEnter += new System.EventHandler(this.btnQueen_Click);
+            this.btnQueen.MouseEnter += new System.EventHandler(this.btnQueen_MouseEnter);
             // 
             // btnKnight
             // 
@@ -60,7 +60,7 @@
             this.btnKnight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnKnight.UseVisualStyleBackColor = true;
             this.btnKnight.Click += new System.EventHandler(this.btnKnight_Click);
-            this.btnKnight.MouseEnter += new System.EventHandler(this.btnKnight_Click);
+            this.btnKnight.MouseEnter += new System.EventHandler(this.btnKnight_MouseEnter);
             // 
             // btnRook
             // 
@@ -73,7 +73,7 @@
             this.btnRook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnRook.UseVisualStyleBackColor = true;
             this.btnRook.Click += new System.EventHandler(this.btnRook_Click);
-            this.btnRook.MouseEnter += new System.EventHandler(this.btnRook_Click);
+            this.btnRook.MouseEnter += new System.EventHandler(this.btnRook_MouseEnter);
             // 
             // btnBishop
             // 
@@ -86,7 +86,7 @@
             this.btnBishop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBishop.UseVisualStyleBackColor = true;
             this.btnBishop.Click += new System.EventHandler(this.btnBishop_Click);
-            this.btnBishop.MouseEnter += new System.EventHandler(this.btnBishop_Click);
+            this.btnBishop.MouseEnter += new System.EventHandler(this.btnBishop_MouseEnter);
             // 
             // picQueen
             // 
@@ -95,7 +95,6 @@
             this.picQueen.Size = new System.Drawing.Size(135, 169);
             this.picQueen.TabIndex = 4;
             this.picQueen.TabStop = false;
-            this.picQueen.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // frmPromotion
             // 

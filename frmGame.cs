@@ -103,6 +103,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 if (board[row, col] != null && board[row, col].Color == turn)
                 {
                     selected = new Point(row, col);
+                    // hien thi quan co đang chon 
+                    Piece p = board[row, col];
+                    picSelectedPiece.Image = AssetManager.GetImage(p.Type, p.Color);
+
                 }
 
             }
@@ -114,6 +118,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 if (target != null && target.Color == movingPiece.Color)
                 {
                     selected = new Point(row, col);
+                    //hinh anh quan co
+                    picSelectedPiece.Image = AssetManager.GetImage(target.Type, target.Color);
                 }
                 else
                 {
@@ -125,6 +131,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                             DoMove(from.X, from.Y, row, col);
                         }
                         selected = null;
+                        picSelectedPiece.Image = null;
                     }
                 }
             }
@@ -178,14 +185,60 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 promoText = "=" + f.Selected.ToString().ToUpper();
             }
             //ghi lich su
-            if (!isCastle)
+            string pieceIcon = ""; //chen icon theo PieceType
+            if (movingPiece.Color == PieceColor.White)
+            {
+                switch (movingPiece.Type)
+                {
+                    case PieceType.Pawn: pieceIcon = "♙"; break;
+                    case PieceType.Knight: pieceIcon = "♘"; break;
+                    case PieceType.Bishop: pieceIcon = "♗"; break;
+                    case PieceType.Rook: pieceIcon = "♖"; break;
+                    case PieceType.Queen: pieceIcon = "♕"; break;
+                    case PieceType.King: pieceIcon = "♔"; break;
+                }
+            }
+            else
+            {
+                switch (movingPiece.Type)
+                {
+                    case PieceType.Pawn: pieceIcon = "♟"; break;
+                    case PieceType.Knight: pieceIcon = "♞"; break;
+                    case PieceType.Bishop: pieceIcon = "♝"; break;
+                    case PieceType.Rook: pieceIcon = "♜"; break;
+                    case PieceType.Queen: pieceIcon = "♛"; break;
+                    case PieceType.King: pieceIcon = "♚"; break;
+                }
+            }
+            if (isCastle)
+            {
+                moveText = "O-O"; //nhap thanh
+            }
+            else
             {
                 string sep = (targetPiece != null) ? "x" : "-";
-                moveText = SquareName(fromRow, fromCol) + sep + SquareName(ToRow, ToCol) + promoText;
+                moveText = pieceIcon + SquareName(fromRow, fromCol) + sep + SquareName(ToRow, ToCol) + promoText;
             }
-            string who = (turn == PieceColor.White) ? "White" : "Black";
-            lstHistory.Items.Add($"{who}: {moveNumber}. {moveText}");
-            lstHistory.TopIndex = lstHistory.Items.Count - 1;
+            // ghi nuoc di vao dvgHistory
+            if (turn == PieceColor.White)
+            {
+                dgvHistory.Rows.Add(moveText, ""); //luot trang di, tao hang moi dien vao cot trang
+            }
+            else
+            {
+                //luot den di
+                if (dgvHistory.Rows.Count > 0)
+                {
+                    int lastRow = dgvHistory.Rows.Count - 1;
+                    dgvHistory.Rows[lastRow].Cells[1].Value = moveText;
+                }
+            }
+
+            //Tu dong cuon xuong nuoc di moi nhat duoi cung
+            if (dgvHistory.Rows.Count > 0)
+            {
+                dgvHistory.FirstDisplayedScrollingRowIndex = dgvHistory.Rows.Count - 1;
+            }
             //am thanh
 
             AssetManager.GetSound("Move")?.Play();
@@ -273,7 +326,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             turn = PieceColor.White;
             moveNumber = 1;
             gameOver = false;
-            lstHistory.Items.Clear();
+            //lstHistory.Items.Clear();
 
             SetUpBoard();
             ColorBoard();
@@ -297,18 +350,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             Text = "Cờ vua - Lượt: " + name;
             if (GameRules.IsInCheck(board, turn))
                 Text = Text + " - CHIẾU!";
-        }
-
-        private string PieceLetter(PieceType type)
-        {
-            switch (type)
-            {
-                case PieceType.Queen: return "Q";
-                case PieceType.Rook: return "R";
-                case PieceType.Bishop: return "B";
-                case PieceType.Knight: return "N";
-                default: return "";
-            }
         }
         // Tô màu so le bàn cờ 
         private void ColorBoard()
@@ -444,6 +485,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
 
         private void lblWhiteTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTime_Click(object sender, EventArgs e)
         {
 
         }

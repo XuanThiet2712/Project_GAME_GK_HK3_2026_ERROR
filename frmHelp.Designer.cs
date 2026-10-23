@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmHelp";
+            this.SuspendLayout();
+            // 
+            // frmHelp
+            // 
+            this.ClientSize = new System.Drawing.Size(409, 253);
+            this.Name = "frmHelp";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlBoard;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblHuongDan;
+        private System.Windows.Forms.Button btnBack;
     }
 }

@@ -36,6 +36,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
+            this.lblPlayer1 = new System.Windows.Forms.Label();
+            this.lblPlayer2 = new System.Windows.Forms.Label();
+            this.txtPlayer2 = new System.Windows.Forms.TextBox();
+            this.txtPlayer1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,15 +47,16 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(266, 43);
+            this.lblTitle.Location = new System.Drawing.Point(269, 30);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(123, 21);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Chọn thời gian";
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // btn10
             // 
-            this.btn10.Location = new System.Drawing.Point(157, 118);
+            this.btn10.Location = new System.Drawing.Point(157, 70);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(75, 23);
             this.btn10.TabIndex = 1;
@@ -61,7 +66,7 @@
             // 
             // btn15
             // 
-            this.btn15.Location = new System.Drawing.Point(292, 118);
+            this.btn15.Location = new System.Drawing.Point(286, 70);
             this.btn15.Name = "btn15";
             this.btn15.Size = new System.Drawing.Size(75, 23);
             this.btn15.TabIndex = 2;
@@ -71,7 +76,7 @@
             // 
             // btn20
             // 
-            this.btn20.Location = new System.Drawing.Point(422, 118);
+            this.btn20.Location = new System.Drawing.Point(411, 70);
             this.btn20.Name = "btn20";
             this.btn20.Size = new System.Drawing.Size(75, 23);
             this.btn20.TabIndex = 3;
@@ -81,7 +86,7 @@
             // 
             // numMinutes
             // 
-            this.numMinutes.Location = new System.Drawing.Point(157, 182);
+            this.numMinutes.Location = new System.Drawing.Point(157, 143);
             this.numMinutes.Minimum = new decimal(new int[] {
             1,
             0,
@@ -100,7 +105,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(488, 189);
+            this.label1.Location = new System.Drawing.Point(477, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 5;
@@ -108,7 +113,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(189, 233);
+            this.btnBack.Location = new System.Drawing.Point(189, 253);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(93, 23);
             this.btnBack.TabIndex = 6;
@@ -118,7 +123,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(378, 232);
+            this.btnStart.Location = new System.Drawing.Point(379, 252);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(94, 24);
             this.btnStart.TabIndex = 7;
@@ -126,11 +131,50 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // lblPlayer1
+            // 
+            this.lblPlayer1.AutoSize = true;
+            this.lblPlayer1.Location = new System.Drawing.Point(154, 191);
+            this.lblPlayer1.Name = "lblPlayer1";
+            this.lblPlayer1.Size = new System.Drawing.Size(80, 13);
+            this.lblPlayer1.TabIndex = 8;
+            this.lblPlayer1.Text = "Player 1 - Đen :";
+            // 
+            // lblPlayer2
+            // 
+            this.lblPlayer2.AutoSize = true;
+            this.lblPlayer2.Location = new System.Drawing.Point(154, 223);
+            this.lblPlayer2.Name = "lblPlayer2";
+            this.lblPlayer2.Size = new System.Drawing.Size(88, 13);
+            this.lblPlayer2.TabIndex = 9;
+            this.lblPlayer2.Text = "Player 2 - Trắng :";
+            // 
+            // txtPlayer2
+            // 
+            this.txtPlayer2.Location = new System.Drawing.Point(255, 216);
+            this.txtPlayer2.MaxLength = 30;
+            this.txtPlayer2.Name = "txtPlayer2";
+            this.txtPlayer2.Size = new System.Drawing.Size(106, 20);
+            this.txtPlayer2.TabIndex = 1;
+            this.txtPlayer2.TextChanged += new System.EventHandler(this.txtPlayer2_TextChanged);
+            // 
+            // txtPlayer1
+            // 
+            this.txtPlayer1.Location = new System.Drawing.Point(255, 190);
+            this.txtPlayer1.MaxLength = 30;
+            this.txtPlayer1.Name = "txtPlayer1";
+            this.txtPlayer1.Size = new System.Drawing.Size(106, 20);
+            this.txtPlayer1.TabIndex = 0;
+            // 
             // frmTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtPlayer1);
+            this.Controls.Add(this.txtPlayer2);
+            this.Controls.Add(this.lblPlayer2);
+            this.Controls.Add(this.lblPlayer1);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
@@ -141,6 +185,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "frmTime";
             this.Text = "frmTime";
+            this.Load += new System.EventHandler(this.frmTime_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,5 +202,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Label lblPlayer1;
+        private System.Windows.Forms.Label lblPlayer2;
+        private System.Windows.Forms.TextBox txtPlayer2;
+        private System.Windows.Forms.TextBox txtPlayer1;
     }
 }

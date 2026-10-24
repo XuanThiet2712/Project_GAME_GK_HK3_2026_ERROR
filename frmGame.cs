@@ -10,6 +10,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
     public partial class frmGame : Form
     {
         private Timer gameTimer = new Timer();
+        private string player1Name = "";
+        private string player2Name = "";
         private Stopwatch stopwatch = new Stopwatch();
         PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
@@ -47,6 +49,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             chessTimer.Start();
             UpdateClockDisplay();
             this.FormClosed += (sender, e) => { gameTimer.Dispose(); chessTimer.Dispose(); };
+        }
+        public frmGame(int minutes, string player1, string player2)
+           : this(minutes) // khoi tao constructor cu
+        {
+            player1Name = player1; 
+            player2Name = player2; 
+            lblPlayerWhite.Text = player2Name; 
+            lblPlayerBlack.Text = player1Name;
         }
 
         private void ShowPieces()

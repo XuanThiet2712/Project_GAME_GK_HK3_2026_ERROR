@@ -31,11 +31,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     return;
 
                 int minutes = f.SelectedMinutes;
+                string player1 = f.Player1Name;
+                string player2 = f.Player2Name;
 
                 this.Hide();
                 try
                 {
-                    using (frmGame game = new frmGame(minutes))
+                    using (frmGame game = new frmGame(minutes, player1, player2))
                     {
                         game.ShowDialog();
                     }

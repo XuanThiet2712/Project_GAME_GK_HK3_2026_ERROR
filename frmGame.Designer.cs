@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlBoard = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblPlayerWhite = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPlayerBlack = new System.Windows.Forms.Label();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
             this.colWhite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBlack = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,15 +51,15 @@
             this.pnlBoard.TabIndex = 0;
             this.pnlBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBoard_Paint);
             // 
-            // label2
+            // lblPlayerWhite
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 615);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Player 2: ";
+            this.lblPlayerWhite.AutoSize = true;
+            this.lblPlayerWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerWhite.Location = new System.Drawing.Point(24, 615);
+            this.lblPlayerWhite.Name = "lblPlayerWhite";
+            this.lblPlayerWhite.Size = new System.Drawing.Size(78, 17);
+            this.lblPlayerWhite.TabIndex = 3;
+            this.lblPlayerWhite.Text = "Player 2: ";
             // 
             // flowLayoutPanel1
             // 
@@ -69,15 +69,15 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(9, 7);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // label1
+            // lblPlayerBlack
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Player 1: ";
+            this.lblPlayerBlack.AutoSize = true;
+            this.lblPlayerBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerBlack.Location = new System.Drawing.Point(24, 21);
+            this.lblPlayerBlack.Name = "lblPlayerBlack";
+            this.lblPlayerBlack.Size = new System.Drawing.Size(78, 17);
+            this.lblPlayerBlack.TabIndex = 0;
+            this.lblPlayerBlack.Text = "Player 1: ";
             // 
             // dgvHistory
             // 
@@ -131,7 +131,7 @@
             this.lblBlackTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBlackTime.Location = new System.Drawing.Point(512, 22);
             this.lblBlackTime.Name = "lblBlackTime";
-            this.lblBlackTime.Size = new System.Drawing.Size(55, 20);
+            this.lblBlackTime.Size = new System.Drawing.Size(43, 16);
             this.lblBlackTime.TabIndex = 9;
             this.lblBlackTime.Text = "10:00";
             this.lblBlackTime.Click += new System.EventHandler(this.lblBlackTime_Click);
@@ -143,21 +143,21 @@
             this.lblWhiteTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWhiteTime.Location = new System.Drawing.Point(512, 616);
             this.lblWhiteTime.Name = "lblWhiteTime";
-            this.lblWhiteTime.Size = new System.Drawing.Size(55, 20);
+            this.lblWhiteTime.Size = new System.Drawing.Size(43, 16);
             this.lblWhiteTime.TabIndex = 10;
             this.lblWhiteTime.Text = "10:00";
             // 
             // frmGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 653);
             this.Controls.Add(this.lblWhiteTime);
             this.Controls.Add(this.lblBlackTime);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblPlayerWhite);
             this.Controls.Add(this.picSelectedPiece);
             this.Controls.Add(this.dgvHistory);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPlayerBlack);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.pnlBoard);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -176,8 +176,8 @@
 
         private System.Windows.Forms.Panel pnlBoard;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblPlayerBlack;
+        private System.Windows.Forms.Label lblPlayerWhite;
         private System.Windows.Forms.DataGridView dgvHistory;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWhite;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBlack;

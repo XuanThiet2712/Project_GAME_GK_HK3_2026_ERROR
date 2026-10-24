@@ -17,6 +17,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             InitializeComponent();
         }
         public int SelectedMinutes { get; private set; } = 10;
+        public string Player1Name { get; private set; } = ""; // tên đen
+
+        public string Player2Name { get; private set; } = ""; // tên trắng
         private void Button3_Click(object sender, EventArgs e)
         {
             numMinutes.Value = 20;
@@ -39,6 +42,27 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            // Lấy tên người chơi
+            string player1 = txtPlayer1.Text.Trim();
+            string player2 = txtPlayer2.Text.Trim();
+            //ktra lỗi nhập tên
+            if (string.IsNullOrWhiteSpace(player1) ||
+                string.IsNullOrWhiteSpace(player2))
+            {
+                MessageBox.Show(
+                    "Vui lòng nhập tên đầy đủ của cả hai người chơi!",
+                    "Thiếu thông tin",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            // Lưu lại tên
+            Player1Name = player1;
+            Player2Name = player2;
+
+            // Lấy thời gian
             SelectedMinutes = (int)numMinutes.Value;
             DialogResult = DialogResult.OK;
             Close();
@@ -48,6 +72,26 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        private void frmTime_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPlayer2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

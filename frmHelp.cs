@@ -13,7 +13,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         Point? selected = null;   // x hang , y cot, null ch chon o nao
 
         int step = 0;
-        int tongSteps = 6;
+        int tongsteps = 6;
 
         public frmHelp()
         {
@@ -24,9 +24,16 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         }
 
+        private void lblHuongDan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
         private void ShowStep()
         {
-            board = new Piece[8, 8];      
+            board = new Piece[8, 8];
             string text = "";
             int r = 0, c = 0;             // ô của quân đang được giới thiệu
 
@@ -46,7 +53,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     Put(2, 4, PieceType.Pawn, PieceColor.Black);       // quân địch ăn được
                     break;
                 case 2:
-                    text = "MÃ: đi hình chữ L và là quân duy nhất nhảy qua được quân khác.";
+                    text = "MÃ: đi hình chữ L quanh nó và là quân duy nhất nhảy qua được quân khác.";
                     r = 7; c = 1;
                     Put(r, c, PieceType.Knight, PieceColor.White);
                     Put(6, 1, PieceType.Pawn, PieceColor.White);
@@ -64,7 +71,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     Put(r, c, PieceType.Queen, PieceColor.White);
                     break;
                 case 5:
-                    text = "VUA: đi 1 ô mọi hướng. Vua bị chiếu hết thì thua ván cờ.";
+                    text = "VUA: đi 1 ô ở mọi hướng xung quanh. Vua bị chiếu hết thì thua ván cờ.";
                     r = 4; c = 4;
                     Put(r, c, PieceType.King, PieceColor.White);
                     break;
@@ -74,7 +81,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             ShowPieces();
             lblHuongDan.Text = text;
             btnBack.Enabled = (step > 0);
-            btnNext.Text = ((step == tongSteps - 1)) ? "Đóng" : "Tiếp";
+            btnNext.Text = ((step == tongsteps - 1)) ? "Đóng" : "Tiếp";
         }
 
         private void Put(int row, int col, PieceType type, PieceColor color)
@@ -88,7 +95,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private void CreateCells()
         {
-            int size = pnlBoard.Width / 8; 
+            int size = pnlBoard.Width / 8;
             for (int r = 0; r < 8; r++)
             {
                 for (int c = 0; c < 8; c++)
@@ -96,9 +103,9 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     PictureBox cell = new PictureBox();
                     cell.Size = new Size(size, size);
                     cell.Location = new Point(c * size, r * size);
-                    cell.Tag = new Point(r, c); 
+                    cell.Tag = new Point(r, c);
                     cell.BorderStyle = BorderStyle.FixedSingle;
-             
+
                     cell.SizeMode = PictureBoxSizeMode.Zoom;
                     pnlBoard.Controls.Add(cell);
                     cells[r, c] = cell;
@@ -116,13 +123,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             {
                 for (int c = 0; c < 8; c++)
                 {
-               
+
                     if ((r + c) % 2 == 0)
                         cells[r, c].BackColor = Color.White;
                     else
                         cells[r, c].BackColor = Color.Gray;
 
-           
+
                     if (MoveRules.IsValidMove(board, pr, pc, r, c))
                     {
                         if (board[r, c] == null)
@@ -133,7 +140,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 }
             }
 
-            cells[pr, pc].BackColor = Color.Yellow;     
+            cells[pr, pc].BackColor = Color.Yellow;
         }
 
 
@@ -164,7 +171,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (step < tongSteps - 1)
+            if (step < tongsteps - 1)
             {
                 step++;
                 ShowStep();

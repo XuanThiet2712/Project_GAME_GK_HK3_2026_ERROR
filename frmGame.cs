@@ -38,7 +38,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             SetUpBoard();
             ShowPieces(); // hiện quân
             UpdateTitle();
-            StartGameTimer(); // Đồng hồ tổng thời gian của trận (giao diện cũ)
             timeLimit = TimeSpan.FromMinutes(minutes);   // Thời gian được chọn từ frmTime
 
             // Cập nhật timer
@@ -193,28 +192,27 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 board[ToRow, ToCol] = new Piece(f.Selected, movingPiece.Color);
                 promoText = "=" + f.Selected.ToString().ToUpper();
             }
-            //hien thi icon quan bi an len lable
-            if (targetPiece != null)
-            {
-                string capturedIcon = GetPieceIcon(targetPiece.Type, targetPiece.Color); //lay ki hieu cua quan bi an
 
-                if (turn == PieceColor.White)
-                    lblWhite.Text += capturedIcon + " ";
-                else
-                    lblBlack.Text += capturedIcon + " ";
-            }
-
-            //lay ki hieu cua quan co dang di chuyen
+            //lich su nuoc di 
             string pieceIcon = GetPieceIcon(movingPiece.Type, movingPiece.Color);
 
             if (isCastle)
             {
-                moveText = "O-O";
+                moveText = "O-O"; // =nhap thanh
             }
             else
             {
-                string sep = (targetPiece != null) ? "x" : "-";
-                moveText = pieceIcon + SquareName(fromRow, fromCol) + sep + SquareName(ToRow, ToCol) + promoText;
+                if (targetPiece != null)
+                {
+                    string targetIcon = GetPieceIcon(targetPiece.Type, targetPiece.Color); // Icon quân bị ăn
+                    //nuoc di co an quan: icon quan di + o hien tai + x + o den + icon quan an
+                    moveText = pieceIcon + SquareName(fromRow, fromCol) + "x" + SquareName(ToRow, ToCol) + targetIcon + promoText;
+                }
+                else
+                {
+                    //nuoc di khong an quan
+                    moveText = pieceIcon + SquareName(fromRow, fromCol) + "-" + SquareName(ToRow, ToCol) + promoText;
+                }
             }
 
             //ghi nuoc di vao dgv
@@ -332,15 +330,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void RestartGame()
         {
-            ResetGameTimer();
+           
             board = new Piece[8, 8];
             selected = null;
             turn = PieceColor.White;
             moveNumber = 1;
             gameOver = false;
             dgvHistory.Rows.Clear();           //xoa lich su nuoc di
-            lblWhite.Text = "";                 //xoa icon quan trang bi an
-            lblBlack.Text = "";                  //xoa icon quan den bi an
             if (picSelectedPiece != null)        //xoa anh quan co dang hien thi
                 picSelectedPiece.Image = null;
 
@@ -432,42 +428,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
                 board[0, c] = new Piece(backRank[c], PieceColor.Black);  // hang sau quan den
                 board[1, c] = new Piece(PieceType.Pawn, PieceColor.Black);// hang dau quan den
-            }
-        }
-        // bắt đầu đếm giờ
-        private void StartGameTimer()
-        {
-            stopwatch.Start();
-
-            gameTimer.Interval = 1000;
-            gameTimer.Tick += GameTimer_Tick;
-            gameTimer.Start();
-        }
-        // chạy mỗi giây
-        private void GameTimer_Tick(object sender, EventArgs e)
-        {
-            TimeSpan time = stopwatch.Elapsed; // tong thoi gian
-
-            lblTime.Text = string.Format(
-                "Time: {0:00}:{1:00}:{2:00}",
-                (int)time.TotalHours,
-                time.Minutes,
-                time.Seconds
-            );
-        }
-        //reset thoi gian khi qua van moi
-        private void ResetGameTimer()
-        {
-            stopwatch.Reset(); //xoa thoi gian ve khong
-            stopwatch.Start(); //bat dau ghi lai tu 0
-
-            //cap nhat Time: 00:00:00
-            lblTime.Text = "Time: 00:00:00";
-
-            //Neu gameTimer chua chay thi bat lai
-            if (!gameTimer.Enabled)
-            {
-                gameTimer.Start();
             }
         }
 

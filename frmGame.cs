@@ -144,7 +144,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             if (gameOver)
             {
-                AssetManager.GetSound("chienthang")?.Play();
+                if (AssetManager.SoundEnabled)
+                {
+                    AssetManager.GetSound("chienthang")?.Play();
+                }
                 MessageBox.Show("Game over! Ban co muon lam game moi ko");
                 return;
             }
@@ -284,7 +287,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
 
             //am thanh
-            AssetManager.GetSound("Move")?.Play();
+            // âm thanh
+            if (AssetManager.SoundEnabled)
+            {
+                AssetManager.GetSound("Move")?.Play();
+            }
             // doi luot
             if (turn == PieceColor.White)
             {
@@ -351,7 +358,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 string winner = turn == PieceColor.White ? "Đen" : "Trắng";
                 string winnerName = turn == PieceColor.White ? player1Name : player2Name;
                 SaveFinishedMatch(winnerName, "Chiếu hết");
-                AssetManager.GetSound("chienthang")?.Play();
+                // âm thanh
+                if (AssetManager.SoundEnabled)
+                {
+                    AssetManager.GetSound("chienthang")?.Play();
+                }
                 message = $"Chiếu hết! Bên {winner} thắng.";
             }
             else
@@ -590,6 +601,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             UpdateClockDisplay(); // Cập nhật hai Label
             CheckTimeout();
+        }
+
+        private void chkAmthanh_CheckedChanged(object sender, EventArgs e)
+        {
+            AssetManager.SoundEnabled = chkAmthanh.Checked;
         }
     }
 }

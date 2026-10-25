@@ -42,7 +42,7 @@
             this.timerChess = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chkAmthanh = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedPiece)).BeginInit();
@@ -63,7 +63,7 @@
             this.lblPlayerWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerWhite.Location = new System.Drawing.Point(24, 615);
             this.lblPlayerWhite.Name = "lblPlayerWhite";
-            this.lblPlayerWhite.Size = new System.Drawing.Size(88, 20);
+            this.lblPlayerWhite.Size = new System.Drawing.Size(90, 20);
             this.lblPlayerWhite.TabIndex = 3;
             this.lblPlayerWhite.Text = "Player 2: ";
             // 
@@ -81,7 +81,7 @@
             this.lblPlayerBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerBlack.Location = new System.Drawing.Point(24, 21);
             this.lblPlayerBlack.Name = "lblPlayerBlack";
-            this.lblPlayerBlack.Size = new System.Drawing.Size(88, 20);
+            this.lblPlayerBlack.Size = new System.Drawing.Size(90, 20);
             this.lblPlayerBlack.TabIndex = 0;
             this.lblPlayerBlack.Text = "Player 1: ";
             // 
@@ -98,7 +98,7 @@
             this.colWhite,
             this.colBlack});
             this.dgvHistory.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvHistory.Location = new System.Drawing.Point(650, 106);
+            this.dgvHistory.Location = new System.Drawing.Point(630, 75);
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.ReadOnly = true;
             this.dgvHistory.RowHeadersVisible = false;
@@ -124,9 +124,9 @@
             // 
             // picSelectedPiece
             // 
-            this.picSelectedPiece.Location = new System.Drawing.Point(716, 349);
+            this.picSelectedPiece.Location = new System.Drawing.Point(704, 318);
             this.picSelectedPiece.Name = "picSelectedPiece";
-            this.picSelectedPiece.Size = new System.Drawing.Size(134, 107);
+            this.picSelectedPiece.Size = new System.Drawing.Size(134, 130);
             this.picSelectedPiece.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSelectedPiece.TabIndex = 8;
             this.picSelectedPiece.TabStop = false;
@@ -160,7 +160,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(593, 485);
+            this.button1.Location = new System.Drawing.Point(585, 476);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 86);
             this.button1.TabIndex = 11;
@@ -169,28 +169,32 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(750, 480);
+            this.button2.Location = new System.Drawing.Point(803, 476);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 91);
+            this.button2.Size = new System.Drawing.Size(150, 86);
             this.button2.TabIndex = 12;
             this.button2.Text = "Game mới";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkAmthanh
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(822, 21);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(98, 20);
-            this.checkBox2.TabIndex = 14;
-            this.checkBox2.Text = "Âm Thanh";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkAmthanh.AllowDrop = true;
+            this.chkAmthanh.AutoSize = true;
+            this.chkAmthanh.Checked = true;
+            this.chkAmthanh.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAmthanh.Location = new System.Drawing.Point(822, 21);
+            this.chkAmthanh.Name = "chkAmthanh";
+            this.chkAmthanh.Size = new System.Drawing.Size(98, 20);
+            this.chkAmthanh.TabIndex = 14;
+            this.chkAmthanh.Text = "Âm Thanh";
+            this.chkAmthanh.UseVisualStyleBackColor = true;
+            this.chkAmthanh.CheckedChanged += new System.EventHandler(this.chkAmthanh_CheckedChanged);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(716, 568);
+            this.button3.Location = new System.Drawing.Point(704, 568);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 58);
+            this.button3.Size = new System.Drawing.Size(146, 79);
             this.button3.TabIndex = 15;
             this.button3.Text = "Quay lại Menu";
             this.button3.UseVisualStyleBackColor = true;
@@ -201,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 653);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.chkAmthanh);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblWhiteTime);
@@ -239,7 +243,7 @@
         private System.Windows.Forms.Timer timerChess;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chkAmthanh;
         private System.Windows.Forms.Button button3;
     }
 }

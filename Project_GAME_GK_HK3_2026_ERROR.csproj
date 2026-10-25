@@ -170,6 +170,7 @@
   <ItemGroup>
     <None Include="images\promotion.png" />
     <Content Include="images\sàn gỗ.jpg" />
+    <Content Include="images\time.jpg" />
     <Content Include="Sound\chienthang.wav" />
     <Content Include="Sound\Move.wav" />
   </ItemGroup>

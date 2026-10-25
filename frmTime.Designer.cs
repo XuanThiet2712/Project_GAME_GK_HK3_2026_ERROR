@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTime));
             this.lblTitle = new System.Windows.Forms.Label();
             this.btn10 = new System.Windows.Forms.Button();
             this.btn15 = new System.Windows.Forms.Button();
@@ -49,19 +50,21 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(109, 9);
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTitle.Location = new System.Drawing.Point(138, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(152, 28);
+            this.lblTitle.Size = new System.Drawing.Size(181, 28);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Chọn thời gian";
+            this.lblTitle.Text = "CHỌN THỜI GIAN";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // btn10
             // 
             this.btn10.Location = new System.Drawing.Point(35, 55);
-            this.btn10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn10.Margin = new System.Windows.Forms.Padding(4);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(100, 28);
             this.btn10.TabIndex = 1;
@@ -72,7 +75,7 @@
             // btn15
             // 
             this.btn15.Location = new System.Drawing.Point(183, 55);
-            this.btn15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn15.Margin = new System.Windows.Forms.Padding(4);
             this.btn15.Name = "btn15";
             this.btn15.Size = new System.Drawing.Size(100, 28);
             this.btn15.TabIndex = 2;
@@ -83,7 +86,7 @@
             // btn20
             // 
             this.btn20.Location = new System.Drawing.Point(334, 55);
-            this.btn20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn20.Margin = new System.Windows.Forms.Padding(4);
             this.btn20.Name = "btn20";
             this.btn20.Size = new System.Drawing.Size(100, 28);
             this.btn20.TabIndex = 3;
@@ -94,7 +97,7 @@
             // numMinutes
             // 
             this.numMinutes.Location = new System.Drawing.Point(35, 105);
-            this.numMinutes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numMinutes.Margin = new System.Windows.Forms.Padding(4);
             this.numMinutes.Minimum = new decimal(new int[] {
             1,
             0,
@@ -113,6 +116,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(205, 107);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -122,50 +126,63 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(42, 218);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnBack.Location = new System.Drawing.Point(42, 241);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(124, 28);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Quay lại";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnStart
             // 
+            this.btnStart.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Location = new System.Drawing.Point(309, 135);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(125, 111);
             this.btnStart.TabIndex = 7;
             this.btnStart.Text = "Bắt đầu chơi";
-            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // lblPlayer1
             // 
             this.lblPlayer1.AutoSize = true;
-            this.lblPlayer1.Location = new System.Drawing.Point(39, 144);
+            this.lblPlayer1.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblPlayer1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPlayer1.Location = new System.Drawing.Point(18, 154);
             this.lblPlayer1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer1.Name = "lblPlayer1";
-            this.lblPlayer1.Size = new System.Drawing.Size(96, 16);
+            this.lblPlayer1.Size = new System.Drawing.Size(112, 16);
             this.lblPlayer1.TabIndex = 8;
             this.lblPlayer1.Text = "Player 1 - Đen :";
+            this.lblPlayer1.Click += new System.EventHandler(this.lblPlayer1_Click);
             // 
             // lblPlayer2
             // 
             this.lblPlayer2.AutoSize = true;
-            this.lblPlayer2.Location = new System.Drawing.Point(39, 178);
+            this.lblPlayer2.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblPlayer2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPlayer2.Location = new System.Drawing.Point(9, 198);
             this.lblPlayer2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(108, 16);
+            this.lblPlayer2.Size = new System.Drawing.Size(126, 16);
             this.lblPlayer2.TabIndex = 9;
             this.lblPlayer2.Text = "Player 2 - Trắng :";
             // 
             // txtPlayer2
             // 
-            this.txtPlayer2.Location = new System.Drawing.Point(143, 172);
-            this.txtPlayer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPlayer2.Location = new System.Drawing.Point(143, 192);
+            this.txtPlayer2.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer2.MaxLength = 30;
             this.txtPlayer2.Name = "txtPlayer2";
             this.txtPlayer2.Size = new System.Drawing.Size(140, 22);
@@ -174,8 +191,8 @@
             // 
             // txtPlayer1
             // 
-            this.txtPlayer1.Location = new System.Drawing.Point(143, 135);
-            this.txtPlayer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPlayer1.Location = new System.Drawing.Point(143, 148);
+            this.txtPlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer1.MaxLength = 30;
             this.txtPlayer1.Name = "txtPlayer1";
             this.txtPlayer1.Size = new System.Drawing.Size(140, 22);
@@ -189,7 +206,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 292);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(466, 329);
             this.Controls.Add(this.txtPlayer1);
             this.Controls.Add(this.txtPlayer2);
             this.Controls.Add(this.lblPlayer2);
@@ -202,7 +221,7 @@
             this.Controls.Add(this.btn15);
             this.Controls.Add(this.btn10);
             this.Controls.Add(this.lblTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTime";
             this.Text = "frmTime";
             this.Load += new System.EventHandler(this.frmTime_Load);

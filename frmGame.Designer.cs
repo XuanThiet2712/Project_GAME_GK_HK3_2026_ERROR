@@ -40,6 +40,10 @@
             this.lblBlackTime = new System.Windows.Forms.Label();
             this.lblWhiteTime = new System.Windows.Forms.Label();
             this.timerChess = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedPiece)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +63,7 @@
             this.lblPlayerWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerWhite.Location = new System.Drawing.Point(24, 615);
             this.lblPlayerWhite.Name = "lblPlayerWhite";
-            this.lblPlayerWhite.Size = new System.Drawing.Size(78, 17);
+            this.lblPlayerWhite.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerWhite.TabIndex = 3;
             this.lblPlayerWhite.Text = "Player 2: ";
             // 
@@ -77,7 +81,7 @@
             this.lblPlayerBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerBlack.Location = new System.Drawing.Point(24, 21);
             this.lblPlayerBlack.Name = "lblPlayerBlack";
-            this.lblPlayerBlack.Size = new System.Drawing.Size(78, 17);
+            this.lblPlayerBlack.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerBlack.TabIndex = 0;
             this.lblPlayerBlack.Text = "Player 1: ";
             // 
@@ -120,7 +124,7 @@
             // 
             // picSelectedPiece
             // 
-            this.picSelectedPiece.Location = new System.Drawing.Point(709, 385);
+            this.picSelectedPiece.Location = new System.Drawing.Point(716, 349);
             this.picSelectedPiece.Name = "picSelectedPiece";
             this.picSelectedPiece.Size = new System.Drawing.Size(134, 107);
             this.picSelectedPiece.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,7 +137,7 @@
             this.lblBlackTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBlackTime.Location = new System.Drawing.Point(512, 22);
             this.lblBlackTime.Name = "lblBlackTime";
-            this.lblBlackTime.Size = new System.Drawing.Size(43, 16);
+            this.lblBlackTime.Size = new System.Drawing.Size(55, 20);
             this.lblBlackTime.TabIndex = 9;
             this.lblBlackTime.Text = "10:00";
             this.lblBlackTime.Click += new System.EventHandler(this.lblBlackTime_Click);
@@ -145,7 +149,7 @@
             this.lblWhiteTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWhiteTime.Location = new System.Drawing.Point(512, 616);
             this.lblWhiteTime.Name = "lblWhiteTime";
-            this.lblWhiteTime.Size = new System.Drawing.Size(43, 16);
+            this.lblWhiteTime.Size = new System.Drawing.Size(55, 20);
             this.lblWhiteTime.TabIndex = 10;
             this.lblWhiteTime.Text = "10:00";
             // 
@@ -154,11 +158,52 @@
             this.timerChess.Interval = 1000;
             this.timerChess.Tick += new System.EventHandler(this.timerChess_Tick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(593, 485);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 86);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Đầu Hàng";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(750, 480);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(124, 91);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Game mới";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(822, 21);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(98, 20);
+            this.checkBox2.TabIndex = 14;
+            this.checkBox2.Text = "Âm Thanh";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(716, 568);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(146, 58);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Quay lại Menu";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // frmGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 653);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblWhiteTime);
             this.Controls.Add(this.lblBlackTime);
             this.Controls.Add(this.lblPlayerWhite);
@@ -192,5 +237,9 @@
         private System.Windows.Forms.Label lblBlackTime;
         private System.Windows.Forms.Label lblWhiteTime;
         private System.Windows.Forms.Timer timerChess;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button3;
     }
 }

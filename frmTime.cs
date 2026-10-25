@@ -42,22 +42,30 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             // Lấy tên người chơi
             string player1 = txtPlayer1.Text.Trim();
             string player2 = txtPlayer2.Text.Trim();
             //ktra lỗi nhập tên
-            if (string.IsNullOrWhiteSpace(player1) ||
-                string.IsNullOrWhiteSpace(player2))
+            bool check = false ; 
+            if (string.IsNullOrWhiteSpace(player1))
             {
-                MessageBox.Show(
-                    "Vui lòng nhập tên đầy đủ của cả hai người chơi!",
-                    "Thiếu thông tin",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-                return;
+                errorProvider1.SetError(txtPlayer1, "Ten khong duoc de trong");
+                //MessageBox.Show(
+                //    "Vui lòng nhập tên đầy đủ của cả hai người chơi!",
+                //    "Thiếu thông tin",
+                //    MessageBoxButtons.OK,
+                //    MessageBoxIcon.Warning
+                //);
+                check = true; 
+            }
+            if (string.IsNullOrWhiteSpace(player2))
+            {
+                errorProvider1.SetError(txtPlayer2, "Ten không được để trống");
+                check = true;
             }
 
+            if (check) return;
             // Lưu lại tên
             Player1Name = player1;
             Player2Name = player2;

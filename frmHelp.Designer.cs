@@ -40,17 +40,18 @@
             this.pnlBoard.AutoSize = true;
             this.pnlBoard.Location = new System.Drawing.Point(12, 50);
             this.pnlBoard.Name = "pnlBoard";
-            this.pnlBoard.Size = new System.Drawing.Size(360, 343);
+            this.pnlBoard.Size = new System.Drawing.Size(360, 360);
             this.pnlBoard.TabIndex = 0;
             // 
             // lblHuongDan
             // 
-            this.lblHuongDan.AutoSize = true;
-            this.lblHuongDan.Location = new System.Drawing.Point(378, 142);
+            this.lblHuongDan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHuongDan.Location = new System.Drawing.Point(378, 50);
             this.lblHuongDan.Name = "lblHuongDan";
-            this.lblHuongDan.Size = new System.Drawing.Size(40, 16);
+            this.lblHuongDan.Size = new System.Drawing.Size(338, 181);
             this.lblHuongDan.TabIndex = 1;
             this.lblHuongDan.Text = "mô tả";
+            this.lblHuongDan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblHuongDan.Click += new System.EventHandler(this.lblHuongDan_Click);
             // 
             // btnNext
@@ -59,7 +60,7 @@
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Location = new System.Drawing.Point(392, 199);
+            this.btnNext.Location = new System.Drawing.Point(392, 279);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(111, 59);
             this.btnNext.TabIndex = 2;
@@ -73,7 +74,7 @@
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Location = new System.Drawing.Point(556, 199);
+            this.btnBack.Location = new System.Drawing.Point(547, 279);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(117, 59);
             this.btnBack.TabIndex = 3;

@@ -49,11 +49,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 try
                 {
                     string path = SoundFolder + soundName + ".wav";
-                    if (!File.Exists(path))
-                    {
-                        // Thử tìm theo đường dẫn StartupPath nếu không thấy ở đường dẫn tương đối
-                        path = Path.Combine(Application.StartupPath, "sounds", soundName + ".wav");
-                    }
+                    //if (!File.Exists(path))
+                    //{
+                    //    // Thử tìm theo đường dẫn StartupPath nếu không thấy ở đường dẫn tương đối
+                    //    path = Path.Combine(Application.StartupPath, "sounds", soundName + ".wav");
+                    //}
 
                     if (File.Exists(path))
                     {

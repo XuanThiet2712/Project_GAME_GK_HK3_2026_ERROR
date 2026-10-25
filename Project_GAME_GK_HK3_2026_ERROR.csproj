@@ -99,6 +99,8 @@
     </Compile>
     <Compile Include="Logic\GameRules.cs" />
     <Compile Include="Logic\MoveRules.cs" />
+    <Compile Include="MatchRecord.cs" />
+    <Compile Include="MatchStorage.cs" />
     <Compile Include="Models\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPromotion.resx">
       <DependentUpon>frmPromotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScores.resx">
+      <DependentUpon>frmScores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTime.resx">
       <DependentUpon>frmTime.cs</DependentUpon>

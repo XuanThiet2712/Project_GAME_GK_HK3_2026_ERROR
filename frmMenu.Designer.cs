@@ -33,6 +33,7 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnHowToPlay = new System.Windows.Forms.Button();
+            this.btnMatchHistory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnplay
@@ -78,7 +79,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnExit.Location = new System.Drawing.Point(121, 277);
+            this.btnExit.Location = new System.Drawing.Point(121, 365);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(112, 64);
             this.btnExit.TabIndex = 2;
@@ -97,6 +98,23 @@
             this.btnHowToPlay.UseVisualStyleBackColor = true;
             this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
             // 
+            // btnMatchHistory
+            // 
+            this.btnMatchHistory.BackColor = System.Drawing.Color.Peru;
+            this.btnMatchHistory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnMatchHistory.FlatAppearance.BorderSize = 0;
+            this.btnMatchHistory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Tan;
+            this.btnMatchHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMatchHistory.Font = new System.Drawing.Font("Cooper Black", 10.2F);
+            this.btnMatchHistory.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMatchHistory.Location = new System.Drawing.Point(121, 273);
+            this.btnMatchHistory.Name = "btnMatchHistory";
+            this.btnMatchHistory.Size = new System.Drawing.Size(112, 60);
+            this.btnMatchHistory.TabIndex = 4;
+            this.btnMatchHistory.Text = "Match history";
+            this.btnMatchHistory.UseVisualStyleBackColor = false;
+            this.btnMatchHistory.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +122,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(361, 441);
+            this.Controls.Add(this.btnMatchHistory);
             this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSettings);
@@ -121,5 +140,6 @@
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnHowToPlay;
+        private System.Windows.Forms.Button btnMatchHistory;
     }
 }

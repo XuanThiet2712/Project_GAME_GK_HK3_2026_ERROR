@@ -12,10 +12,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?","Xác nhận",
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question);
-            if (result == DialogResult.Yes){ 
+            if (result == DialogResult.Yes)
+            {
                 Application.Exit(); // dong chuong trinh
             }
         }
@@ -51,7 +52,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đang phát triển!!! Chờ nhiều chút nha","Thông báo",
+            MessageBox.Show("Đang phát triển!!! Chờ nhiều chút nha", "Thông báo",
             MessageBoxButtons.OK,
             MessageBoxIcon.Information);
         }
@@ -65,6 +66,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             }
 
             //MessageBox.Show("Hướng Dẫn", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (frmScores history = new frmScores()) // tao cua so tran dau
+            {
+                history.ShowDialog();
+            }
         }
     }
 }

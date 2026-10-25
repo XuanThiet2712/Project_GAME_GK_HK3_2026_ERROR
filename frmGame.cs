@@ -55,8 +55,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             player1Name = player1; 
             player2Name = player2; 
-            lblPlayerWhite.Text = player2Name; 
-            lblPlayerBlack.Text = player1Name;
+            lblPlayerBlack.Text = player1Name; 
+            lblPlayerWhite.Text = player2Name;
         }
 
         private void ShowPieces()
@@ -77,6 +77,49 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     }
                 }
             }
+        }
+        private string CaptureFinalBoard()
+        {
+            // Sử dụng StringBuilder để ghép các ký tự
+            System.Text.StringBuilder result =
+                new System.Text.StringBuilder();
+
+            // Duyệt hàng
+            for (int r = 0; r < 8; r++)
+            {
+                // Duyệt từng cột
+                for (int c = 0; c < 8; c++)
+                {
+                    Piece piece = board[r, c]; // Lấy quân cờ tại ô
+
+                    if (piece == null)
+                    {
+                        result.Append('.'); // Ô trống
+                        continue;
+                    }
+
+                    char symbol = '.'; // Ký tự mặc định
+
+                    // Chuyển quân thành ký tự
+                    switch (piece.Type)
+                    {
+                        case PieceType.Pawn: symbol = 'P'; break;
+                        case PieceType.Rook: symbol = 'R'; break;
+                        case PieceType.Knight: symbol = 'N'; break;
+                        case PieceType.Bishop: symbol = 'B'; break;
+                        case PieceType.Queen: symbol = 'Q'; break;
+                        case PieceType.King: symbol = 'K'; break;
+                    }
+
+                    // quân đen la chữ thường
+                    if (piece.Color == PieceColor.Black)
+                        symbol = char.ToLowerInvariant(symbol);
+
+                    result.Append(symbol); 
+                }
+            }
+
+            return result.ToString();
         }
 
 
@@ -322,11 +365,14 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             if (status == GameStatus.Checkmate)
             {
                 string winner = turn == PieceColor.White ? "Đen" : "Trắng";
+                string winnerName = turn == PieceColor.White ? player1Name : player2Name;
+                SaveFinishedMatch(winnerName, "Chiếu hết");
                 AssetManager.GetSound("chienthang")?.Play();
                 message = $"Chiếu hết! Bên {winner} thắng.";
             }
             else
             {
+                SaveFinishedMatch("Hòa", "Hòa cờ");
                 message = "Hòa cờ! Bên tới lượt không còn nước đi hợp lệ.";
             }
 
@@ -505,6 +551,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             gameOver = true;
             StopClocks();
+            string winnerName = winner == "Trắng" ? player1Name : player2Name;
 
             selected = null;
             picSelectedPiece.Image = null;
@@ -552,6 +599,36 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             UpdateClockDisplay();
             CheckTimeout();
+        }
+        // thông tin dữ liệu
+        private void SaveFinishedMatch(string winner, string reason)
+        {
+            MatchRecord match = new MatchRecord
+            {
+                PlayedAt = DateTime.Now,       
+                Player1 = player1Name,       
+                Player2 = player2Name,        
+                Winner = winner,               
+                Reason = reason,
+                DurationSeconds = (int)(
+                    whiteWatch.Elapsed.TotalSeconds + // Thời gian Trắng đã dùng
+                    blackWatch.Elapsed.TotalSeconds   // Thời gian Đen đã dùng
+                ),
+                FinalBoard = CaptureFinalBoard() 
+            };
+
+            try
+            {
+                MatchStorage.Save(match); // Lưu vào file XML
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Không thể lưu lịch sử: " + ex.Message,
+                    "Lỗi lưu dữ liệu",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -3,16 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
-
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
     public partial class frmGame : Form
     {
-        private Timer gameTimer = new Timer();
         private string player1Name = "";
         private string player2Name = "";
-        private Stopwatch stopwatch = new Stopwatch();
         PictureBox[,] cells = new PictureBox[8, 8];   //khai bao mang 2 chieu 64 ô
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
 
@@ -22,14 +18,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         PieceColor turn = PieceColor.White;
         int moveNumber = 1; // so nuoc dang di
         bool gameOver = false; // kiem tra game ket thuc
-        TimeSpan timeLimit;  // Thời gian tối đa của mỗi bên
-
-        // đo thời gian đã dùng
-        Stopwatch whiteWatch = new Stopwatch();
-        Stopwatch blackWatch = new Stopwatch();
-
-        // Timer cập nhật
-        System.Windows.Forms.Timer chessTimer = new System.Windows.Forms.Timer();
+        private int initialSeconds; // Tổng số giây được cấp ban đầu cho mỗi bên
+        private int whiteSeconds; // Số giây còn lại của bên Trắng (Player 2)
+        private int blackSeconds; // Số giây còn lại của bên Đen (Player 1)
+        private int elapsedSeconds; // Tổng số giây đã đếm trong ván để lưu lịch sử
         public frmGame() : this(10) { } // Giữ khả năng mở bằng Designer và mặc định 10 phút
 
         public frmGame(int minutes)
@@ -40,16 +32,19 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             SetUpBoard();
             ShowPieces(); // hiện quân
             UpdateTitle();
-            timeLimit = TimeSpan.FromMinutes(minutes);   // Thời gian được chọn từ frmTime
-
-            // Cập nhật timer
-            chessTimer.Interval = 100;
-            chessTimer.Tick += ChessTimer_Tick;
-            whiteWatch.Start();
-            chessTimer.Start();
+            initialSeconds = minutes * 60;
+            // Thời gian ban đầu
+            whiteSeconds = initialSeconds;
+            blackSeconds = initialSeconds;
+            // Chx sử dụng time
+            elapsedSeconds = 0;
+            // Hiển thị
             UpdateClockDisplay();
-            this.FormClosed += (sender, e) => { gameTimer.Dispose(); chessTimer.Dispose(); };
+            // Bắt đầu
+            timerChess.Start();
+
         }
+        
         public frmGame(int minutes, string player1, string player2)
            : this(minutes) // khoi tao constructor cu
         {
@@ -290,27 +285,16 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             //am thanh
             AssetManager.GetSound("Move")?.Play();
-            // dung dong ho
-            whiteWatch.Stop();
-            blackWatch.Stop();
-
-
             // doi luot
             if (turn == PieceColor.White)
             {
-                turn = PieceColor.Black;
+                turn = PieceColor.Black; 
             }
             else
             {
-                turn = PieceColor.White;
-                moveNumber++;
+                turn = PieceColor.White; 
+                moveNumber++; 
             }
-
-            // bat dau dong ho ben kia
-            if (turn == PieceColor.White)
-                whiteWatch.Start();
-            else
-                blackWatch.Start();
 
             //check trang thai game
             CheckGameState();
@@ -400,13 +384,12 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             ColorBoard();
             ShowPieces();
             UpdateTitle();
-            // Reset thời gian về ban đầu
-            whiteWatch.Reset();
-            blackWatch.Reset();
-            whiteWatch.Start();
-            chessTimer.Start();
-
-            UpdateClockDisplay();
+            timerChess.Stop(); 
+            whiteSeconds = initialSeconds; 
+            blackSeconds = initialSeconds; 
+            elapsedSeconds = 0; 
+            UpdateClockDisplay(); 
+            timerChess.Start(); 
         }
 
         private string SquareName(int row, int col)
@@ -419,7 +402,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             string name = (turn == PieceColor.White) ? "Trắng" : "Đen";
             Text = "Cờ vua - Lượt: " + name;
             if (GameRules.IsInCheck(board, turn))
-                Text = Text + " - CHIẾU!";
+                Text = Text + " - CHIẾU!"; 
         }
         // Tô màu so le bàn cờ 
         private void ColorBoard()
@@ -496,53 +479,20 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
 
         }
-        private TimeSpan GetRemainingTime(Stopwatch watch) // time con lai
-        {
-            TimeSpan remaining = timeLimit - watch.Elapsed;
-
-            if (remaining < TimeSpan.Zero)
-                return TimeSpan.Zero;
-
-            return remaining;
-        }
-        private string FormatTime(TimeSpan time) // phut -> giay
-        {
-            int totalSeconds =
-                (int)Math.Ceiling(time.TotalSeconds);
-
-            return string.Format(
-                "{0:00}:{1:00}",
-                totalSeconds / 60,
-                totalSeconds % 60
-            );
-        }
-        private void UpdateClockDisplay() // mau
-        {
-            lblWhiteTime.Text = FormatTime(
-                GetRemainingTime(whiteWatch)
-            );
-
-            lblBlackTime.Text = FormatTime(
-                GetRemainingTime(blackWatch)
-            );
-
+        private void UpdateClockDisplay()
+        { 
+            lblWhiteTime.Text =
+                $"{whiteSeconds / 60:00}:{whiteSeconds % 60:00}";
+            lblBlackTime.Text =
+                $"{blackSeconds / 60:00}:{blackSeconds % 60:00}";
             lblWhiteTime.ForeColor =
-                turn == PieceColor.White
-                ? Color.Green
-                : Color.Black;
-
+                turn == PieceColor.White ? Color.Green : Color.Black;
             lblBlackTime.ForeColor =
-                turn == PieceColor.Black
-                ? Color.Green
-                : Color.Black;
+                turn == PieceColor.Black ? Color.Green : Color.Black;
         }
         private void StopClocks()
         {
-            whiteWatch.Stop();
-            blackWatch.Stop();
-            chessTimer.Stop();
-            stopwatch.Stop(); // Dừng thời gian trận khi kết thúc
-            gameTimer.Stop();
+            timerChess.Stop();
         }
         private void EndGameByTime(string winner) // het gio = thua
         {
@@ -551,7 +501,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             gameOver = true;
             StopClocks();
-            string winnerName = winner == "Trắng" ? player1Name : player2Name;
+            string winnerName = winner == "Trắng" ? player2Name : player1Name;
 
             selected = null;
             picSelectedPiece.Image = null;
@@ -571,34 +521,22 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             else
                 this.Close();
         }
-        private bool CheckTimeout() // ktra time
+        private bool CheckTimeout()
         {
             if (gameOver)
                 return true;
-
-            if (turn == PieceColor.White &&
-                GetRemainingTime(whiteWatch) == TimeSpan.Zero)
+            if (turn == PieceColor.White && whiteSeconds <= 0)
             {
-                EndGameByTime("Đen");
+                EndGameByTime("Đen"); 
+                return true;
+            }
+            if (turn == PieceColor.Black && blackSeconds <= 0)
+            {
+                EndGameByTime("Trắng"); 
                 return true;
             }
 
-            if (turn == PieceColor.Black &&
-                GetRemainingTime(blackWatch) == TimeSpan.Zero)
-            {
-                EndGameByTime("Trắng");
-                return true;
-            }
-
-            return false;
-        }
-        private void ChessTimer_Tick(object sender, EventArgs e) // timer tick
-        {
-            if (gameOver)
-                return;
-
-            UpdateClockDisplay();
-            CheckTimeout();
+            return false; 
         }
         // thông tin dữ liệu
         private void SaveFinishedMatch(string winner, string reason)
@@ -610,10 +548,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 Player2 = player2Name,        
                 Winner = winner,               
                 Reason = reason,
-                DurationSeconds = (int)(
-                    whiteWatch.Elapsed.TotalSeconds + // Thời gian Trắng đã dùng
-                    blackWatch.Elapsed.TotalSeconds   // Thời gian Đen đã dùng
-                ),
+                DurationSeconds = elapsedSeconds,
                 FinalBoard = CaptureFinalBoard() 
             };
 
@@ -629,6 +564,32 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
+        }
+
+        private void timerChess_Tick(object sender, EventArgs e)
+        {
+            if (gameOver)
+            {
+                timerChess.Stop();
+                return;
+            }
+            if (turn == PieceColor.White)
+            {
+                whiteSeconds--; 
+            }
+            else
+            {
+                blackSeconds--; 
+            }
+
+            elapsedSeconds++; // Thời lượng
+            if (whiteSeconds < 0)
+                whiteSeconds = 0;
+            if (blackSeconds < 0)
+                blackSeconds = 0;
+
+            UpdateClockDisplay(); // Cập nhật hai Label
+            CheckTimeout();
         }
     }
 }

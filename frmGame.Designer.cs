@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlBoard = new System.Windows.Forms.Panel();
             this.lblPlayerWhite = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -38,6 +39,7 @@
             this.picSelectedPiece = new System.Windows.Forms.PictureBox();
             this.lblBlackTime = new System.Windows.Forms.Label();
             this.lblWhiteTime = new System.Windows.Forms.Label();
+            this.timerChess = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedPiece)).BeginInit();
             this.SuspendLayout();
@@ -147,6 +149,11 @@
             this.lblWhiteTime.TabIndex = 10;
             this.lblWhiteTime.Text = "10:00";
             // 
+            // timerChess
+            // 
+            this.timerChess.Interval = 1000;
+            this.timerChess.Tick += new System.EventHandler(this.timerChess_Tick);
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -184,5 +191,6 @@
         private System.Windows.Forms.PictureBox picSelectedPiece;
         private System.Windows.Forms.Label lblBlackTime;
         private System.Windows.Forms.Label lblWhiteTime;
+        private System.Windows.Forms.Timer timerChess;
     }
 }

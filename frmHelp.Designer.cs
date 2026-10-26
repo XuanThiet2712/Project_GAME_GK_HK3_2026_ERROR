@@ -39,7 +39,7 @@
             // pnlBoard
             // 
             this.pnlBoard.AutoSize = true;
-            this.pnlBoard.Location = new System.Drawing.Point(14, 63);
+            this.pnlBoard.Location = new System.Drawing.Point(12, 12);
             this.pnlBoard.Name = "pnlBoard";
             this.pnlBoard.Size = new System.Drawing.Size(318, 301);
             this.pnlBoard.TabIndex = 0;
@@ -65,7 +65,7 @@
             this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(361, 392);
+            this.btnNext.Location = new System.Drawing.Point(27, 325);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(130, 45);
             this.btnNext.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(538, 392);
+            this.btnBack.Location = new System.Drawing.Point(174, 325);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(130, 45);
             this.btnBack.TabIndex = 3;
@@ -108,7 +108,7 @@
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(747, 449);
+            this.ClientSize = new System.Drawing.Size(747, 386);
             this.Controls.Add(this.lblNhom);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnNext);

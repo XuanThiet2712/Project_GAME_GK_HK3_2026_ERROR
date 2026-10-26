@@ -63,7 +63,7 @@
             this.lblPlayerWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerWhite.Location = new System.Drawing.Point(24, 615);
             this.lblPlayerWhite.Name = "lblPlayerWhite";
-            this.lblPlayerWhite.Size = new System.Drawing.Size(88, 20);
+            this.lblPlayerWhite.Size = new System.Drawing.Size(90, 20);
             this.lblPlayerWhite.TabIndex = 3;
             this.lblPlayerWhite.Text = "Player 2: ";
             // 
@@ -81,7 +81,7 @@
             this.lblPlayerBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerBlack.Location = new System.Drawing.Point(24, 21);
             this.lblPlayerBlack.Name = "lblPlayerBlack";
-            this.lblPlayerBlack.Size = new System.Drawing.Size(88, 20);
+            this.lblPlayerBlack.Size = new System.Drawing.Size(90, 20);
             this.lblPlayerBlack.TabIndex = 0;
             this.lblPlayerBlack.Text = "Player 1: ";
             // 
@@ -92,7 +92,7 @@
             this.dgvHistory.AllowUserToResizeColumns = false;
             this.dgvHistory.AllowUserToResizeRows = false;
             this.dgvHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvHistory.BackgroundColor = System.Drawing.Color.Goldenrod;
+            this.dgvHistory.BackgroundColor = System.Drawing.Color.OldLace;
             this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colWhite,
@@ -160,22 +160,25 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(574, 496);
+            this.button1.BackColor = System.Drawing.Color.DarkGray;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(630, 500);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 46);
             this.button1.TabIndex = 11;
             this.button1.Text = "Đầu Hàng";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnGameMoi
             // 
-            this.btnGameMoi.Location = new System.Drawing.Point(704, 496);
+            this.btnGameMoi.BackColor = System.Drawing.Color.DarkGray;
+            this.btnGameMoi.Location = new System.Drawing.Point(790, 500);
             this.btnGameMoi.Name = "btnGameMoi";
-            this.btnGameMoi.Size = new System.Drawing.Size(101, 46);
+            this.btnGameMoi.Size = new System.Drawing.Size(110, 46);
             this.btnGameMoi.TabIndex = 12;
             this.btnGameMoi.Text = "Game mới";
-            this.btnGameMoi.UseVisualStyleBackColor = true;
+            this.btnGameMoi.UseVisualStyleBackColor = false;
             this.btnGameMoi.Click += new System.EventHandler(this.btnGameMoi_Click);
             // 
             // chkAmthanh
@@ -194,12 +197,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(822, 504);
+            this.button3.BackColor = System.Drawing.Color.DarkGray;
+            this.button3.Location = new System.Drawing.Point(832, 571);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 38);
+            this.button3.Size = new System.Drawing.Size(120, 35);
             this.button3.TabIndex = 15;
             this.button3.Text = "Quay lại Menu";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // frmGame

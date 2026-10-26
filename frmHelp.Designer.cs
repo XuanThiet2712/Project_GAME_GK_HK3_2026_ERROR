@@ -46,12 +46,12 @@
             // 
             // lblHuongDan
             // 
-            this.lblHuongDan.BackColor = System.Drawing.Color.Transparent;
+            this.lblHuongDan.BackColor = System.Drawing.Color.White;
             this.lblHuongDan.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHuongDan.ForeColor = System.Drawing.Color.LightYellow;
-            this.lblHuongDan.Location = new System.Drawing.Point(404, 220);
+            this.lblHuongDan.ForeColor = System.Drawing.Color.Black;
+            this.lblHuongDan.Location = new System.Drawing.Point(355, 203);
             this.lblHuongDan.Name = "lblHuongDan";
-            this.lblHuongDan.Size = new System.Drawing.Size(299, 109);
+            this.lblHuongDan.Size = new System.Drawing.Size(362, 167);
             this.lblHuongDan.TabIndex = 1;
             this.lblHuongDan.Text = "mô tả";
             this.lblHuongDan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -65,7 +65,7 @@
             this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(410, 365);
+            this.btnNext.Location = new System.Drawing.Point(361, 392);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(130, 45);
             this.btnNext.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(586, 365);
+            this.btnBack.Location = new System.Drawing.Point(538, 392);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(130, 45);
             this.btnBack.TabIndex = 3;
@@ -90,17 +90,18 @@
             // 
             // lblNhom
             // 
-            this.lblNhom.AutoSize = true;
-            this.lblNhom.BackColor = System.Drawing.Color.Transparent;
+            this.lblNhom.BackColor = System.Drawing.Color.White;
             this.lblNhom.Font = new System.Drawing.Font("Palatino Linotype", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhom.ForeColor = System.Drawing.Color.LightYellow;
+            this.lblNhom.ForeColor = System.Drawing.Color.Black;
             this.lblNhom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblNhom.Location = new System.Drawing.Point(329, 70);
+            this.lblNhom.Location = new System.Drawing.Point(359, 9);
             this.lblNhom.Name = "lblNhom";
-            this.lblNhom.Size = new System.Drawing.Size(531, 186);
+            this.lblNhom.Size = new System.Drawing.Size(362, 167);
             this.lblNhom.TabIndex = 4;
-            this.lblNhom.Text = resources.GetString("lblNhom.Text");
-            this.lblNhom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNhom.Text = "Lớp: 2611COMP101901 \nNhóm thực hiện: ERROR\r\nNguyễn Xuân Thiết - 51.01.104.096\r\nHu" +
+    "ỳnh Hải Kiên - 51.01.104.051\r\nTrần Hoàng Anh Khoa - 51.01.104.047\r\nNguyễn Thái K" +
+    "ha - 51.01.104.040";
+            this.lblNhom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblNhom.Click += new System.EventHandler(this.lblNhom_Click);
             // 
             // frmHelp

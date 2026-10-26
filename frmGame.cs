@@ -22,6 +22,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         private int whiteSeconds; // Số giây còn lại của bên Trắng (Player 2)
         private int blackSeconds; // Số giây còn lại của bên Đen (Player 1)
         private int elapsedSeconds; // Tổng số giây đã đếm trong ván để lưu lịch sử
+
+        private bool gg = false;// check dau hang
         public frmGame() : this(10) { } // Giữ khả năng mở bằng Designer và mặc định 10 phút
 
         public frmGame(int minutes)
@@ -75,9 +77,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private string CaptureFinalBoard()
         {
-            // Sử dụng StringBuilder để ghép các ký tự
-            System.Text.StringBuilder result =
-                new System.Text.StringBuilder();
+            
+            System.Text.StringBuilder result = new System.Text.StringBuilder();
 
             // Duyệt hàng
             for (int r = 0; r < 8; r++)
@@ -302,6 +303,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 turn = PieceColor.White; 
                 moveNumber++; 
             }
+            //
+            UpdateTitle();
 
             //check trang thai game
             CheckGameState();
@@ -342,10 +345,15 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private void CheckGameState()
         {
-            GameStatus status = GameRules.GetStatus(board, turn);
-            if (status != GameStatus.Checkmate && status != GameStatus.Stalemate)
-                return; // Chưa kết thúc ván
 
+
+            //if (!gg)
+            //{
+                GameStatus status = GameRules.GetStatus(board, turn);
+                if (status != GameStatus.Checkmate && status != GameStatus.Stalemate)
+                    return; // Chưa kết thúc ván
+            //}
+              
             gameOver = true;
             selected = null;
             StopClocks(); // Dừng cả hai đồng hồ cờ và đồng hồ tổng trận
@@ -355,8 +363,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             string message;
             if (status == GameStatus.Checkmate)
             {
-                string winner = turn == PieceColor.White ? "Đen" : "Trắng";
-                string winnerName = turn == PieceColor.White ? player1Name : player2Name;
+                string winner = (turn == PieceColor.White ? "Đen" : "Trắng");
+                string winnerName = (turn == PieceColor.White ? player1Name : player2Name);
                 SaveFinishedMatch(winnerName, "Chiếu hết");
                 // âm thanh
                 if (AssetManager.SoundEnabled)
@@ -606,6 +614,31 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         private void chkAmthanh_CheckedChanged(object sender, EventArgs e)
         {
             AssetManager.SoundEnabled = chkAmthanh.Checked;
+        }
+
+        private void btnGameMoi_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn Restart lại Game !",
+                "Thông báo",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            RestartGame();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //if (Text.Contains("Trắng"))
+            //{
+
+            //}
+            MessageBox.Show("Xin lỗi tính năng này đang phát triển :(( ");
         }
     }
 }

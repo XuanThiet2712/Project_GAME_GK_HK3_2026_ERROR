@@ -8,6 +8,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
         Check,   // vua dang bi chieu nhung van con duong thoat ...
         Checkmate, // vua dang bi chieu va khong con duong thoat
         Stalemate, // hoa co 
+
+        Surrender, // dau hang
     }
     public static class GameRules
     {

@@ -41,7 +41,7 @@
             this.lblWhiteTime = new System.Windows.Forms.Label();
             this.timerChess = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnGameMoi = new System.Windows.Forms.Button();
             this.chkAmthanh = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
@@ -63,7 +63,7 @@
             this.lblPlayerWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerWhite.Location = new System.Drawing.Point(24, 615);
             this.lblPlayerWhite.Name = "lblPlayerWhite";
-            this.lblPlayerWhite.Size = new System.Drawing.Size(90, 20);
+            this.lblPlayerWhite.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerWhite.TabIndex = 3;
             this.lblPlayerWhite.Text = "Player 2: ";
             // 
@@ -81,7 +81,7 @@
             this.lblPlayerBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerBlack.Location = new System.Drawing.Point(24, 21);
             this.lblPlayerBlack.Name = "lblPlayerBlack";
-            this.lblPlayerBlack.Size = new System.Drawing.Size(90, 20);
+            this.lblPlayerBlack.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerBlack.TabIndex = 0;
             this.lblPlayerBlack.Text = "Player 1: ";
             // 
@@ -160,21 +160,23 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(585, 476);
+            this.button1.Location = new System.Drawing.Point(574, 496);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 86);
+            this.button1.Size = new System.Drawing.Size(110, 46);
             this.button1.TabIndex = 11;
             this.button1.Text = "Đầu Hàng";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnGameMoi
             // 
-            this.button2.Location = new System.Drawing.Point(803, 476);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 86);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Game mới";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGameMoi.Location = new System.Drawing.Point(704, 496);
+            this.btnGameMoi.Name = "btnGameMoi";
+            this.btnGameMoi.Size = new System.Drawing.Size(101, 46);
+            this.btnGameMoi.TabIndex = 12;
+            this.btnGameMoi.Text = "Game mới";
+            this.btnGameMoi.UseVisualStyleBackColor = true;
+            this.btnGameMoi.Click += new System.EventHandler(this.btnGameMoi_Click);
             // 
             // chkAmthanh
             // 
@@ -192,12 +194,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(704, 568);
+            this.button3.Location = new System.Drawing.Point(822, 504);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 79);
+            this.button3.Size = new System.Drawing.Size(122, 38);
             this.button3.TabIndex = 15;
             this.button3.Text = "Quay lại Menu";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // frmGame
             // 
@@ -206,7 +209,7 @@
             this.ClientSize = new System.Drawing.Size(976, 653);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.chkAmthanh);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnGameMoi);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblWhiteTime);
             this.Controls.Add(this.lblBlackTime);
@@ -242,7 +245,7 @@
         private System.Windows.Forms.Label lblWhiteTime;
         private System.Windows.Forms.Timer timerChess;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGameMoi;
         private System.Windows.Forms.CheckBox chkAmthanh;
         private System.Windows.Forms.Button button3;
     }

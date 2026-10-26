@@ -42,9 +42,10 @@
             this.chkNhacmenu.Checked = true;
             this.chkNhacmenu.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkNhacmenu.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.chkNhacmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.chkNhacmenu.Location = new System.Drawing.Point(31, 65);
             this.chkNhacmenu.Name = "chkNhacmenu";
-            this.chkNhacmenu.Size = new System.Drawing.Size(86, 20);
+            this.chkNhacmenu.Size = new System.Drawing.Size(101, 22);
             this.chkNhacmenu.TabIndex = 0;
             this.chkNhacmenu.Text = "Nhạc nền";
             this.chkNhacmenu.UseVisualStyleBackColor = false;
@@ -56,9 +57,10 @@
             this.chkNhacco.BackColor = System.Drawing.Color.Transparent;
             this.chkNhacco.Checked = true;
             this.chkNhacco.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNhacco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.chkNhacco.Location = new System.Drawing.Point(31, 106);
             this.chkNhacco.Name = "chkNhacco";
-            this.chkNhacco.Size = new System.Drawing.Size(115, 20);
+            this.chkNhacco.Size = new System.Drawing.Size(136, 22);
             this.chkNhacco.TabIndex = 1;
             this.chkNhacco.Text = "Tiếng đánh cờ";
             this.chkNhacco.UseVisualStyleBackColor = false;

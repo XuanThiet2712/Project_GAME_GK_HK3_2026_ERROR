@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="images\nenscores.jpg" />
     <Content Include="images\nensettings.png" />
     <Content Include="Sound\nhacnen.wav" />
     <None Include="images\promotion.png" />

@@ -39,17 +39,17 @@
             // pnlBoard
             // 
             this.pnlBoard.AutoSize = true;
-            this.pnlBoard.Location = new System.Drawing.Point(12, 50);
+            this.pnlBoard.Location = new System.Drawing.Point(14, 63);
             this.pnlBoard.Name = "pnlBoard";
-            this.pnlBoard.Size = new System.Drawing.Size(360, 360);
+            this.pnlBoard.Size = new System.Drawing.Size(318, 301);
             this.pnlBoard.TabIndex = 0;
             // 
             // lblHuongDan
             // 
             this.lblHuongDan.BackColor = System.Drawing.Color.Transparent;
-            this.lblHuongDan.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHuongDan.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHuongDan.ForeColor = System.Drawing.Color.LightYellow;
-            this.lblHuongDan.Location = new System.Drawing.Point(417, 181);
+            this.lblHuongDan.Location = new System.Drawing.Point(404, 220);
             this.lblHuongDan.Name = "lblHuongDan";
             this.lblHuongDan.Size = new System.Drawing.Size(299, 109);
             this.lblHuongDan.TabIndex = 1;
@@ -92,12 +92,12 @@
             // 
             this.lblNhom.AutoSize = true;
             this.lblNhom.BackColor = System.Drawing.Color.Transparent;
-            this.lblNhom.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNhom.Font = new System.Drawing.Font("Palatino Linotype", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNhom.ForeColor = System.Drawing.Color.LightYellow;
-            this.lblNhom.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.lblNhom.Location = new System.Drawing.Point(392, 43);
+            this.lblNhom.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblNhom.Location = new System.Drawing.Point(329, 70);
             this.lblNhom.Name = "lblNhom";
-            this.lblNhom.Size = new System.Drawing.Size(387, 138);
+            this.lblNhom.Size = new System.Drawing.Size(531, 186);
             this.lblNhom.TabIndex = 4;
             this.lblNhom.Text = resources.GetString("lblNhom.Text");
             this.lblNhom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

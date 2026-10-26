@@ -126,12 +126,14 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnBack.Location = new System.Drawing.Point(42, 241);
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(35, 276);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(124, 28);
+            this.btnBack.Size = new System.Drawing.Size(152, 40);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Quay lại";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -156,12 +158,12 @@
             // 
             this.lblPlayer1.AutoSize = true;
             this.lblPlayer1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.lblPlayer1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPlayer1.Location = new System.Drawing.Point(18, 154);
+            this.lblPlayer1.Location = new System.Drawing.Point(10, 161);
             this.lblPlayer1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer1.Name = "lblPlayer1";
-            this.lblPlayer1.Size = new System.Drawing.Size(112, 16);
+            this.lblPlayer1.Size = new System.Drawing.Size(125, 18);
             this.lblPlayer1.TabIndex = 8;
             this.lblPlayer1.Text = "Player 1 - Đen :";
             this.lblPlayer1.Click += new System.EventHandler(this.lblPlayer1_Click);
@@ -170,18 +172,18 @@
             // 
             this.lblPlayer2.AutoSize = true;
             this.lblPlayer2.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.lblPlayer2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPlayer2.Location = new System.Drawing.Point(9, 198);
+            this.lblPlayer2.Location = new System.Drawing.Point(-3, 215);
             this.lblPlayer2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(126, 16);
+            this.lblPlayer2.Size = new System.Drawing.Size(138, 18);
             this.lblPlayer2.TabIndex = 9;
             this.lblPlayer2.Text = "Player 2 - Trắng :";
             // 
             // txtPlayer2
             // 
-            this.txtPlayer2.Location = new System.Drawing.Point(143, 192);
+            this.txtPlayer2.Location = new System.Drawing.Point(152, 211);
             this.txtPlayer2.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer2.MaxLength = 30;
             this.txtPlayer2.Name = "txtPlayer2";
@@ -191,7 +193,7 @@
             // 
             // txtPlayer1
             // 
-            this.txtPlayer1.Location = new System.Drawing.Point(143, 148);
+            this.txtPlayer1.Location = new System.Drawing.Point(152, 157);
             this.txtPlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer1.MaxLength = 30;
             this.txtPlayer1.Name = "txtPlayer1";
@@ -208,7 +210,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(466, 329);
+            this.ClientSize = new System.Drawing.Size(469, 348);
             this.Controls.Add(this.txtPlayer1);
             this.Controls.Add(this.txtPlayer2);
             this.Controls.Add(this.lblPlayer2);

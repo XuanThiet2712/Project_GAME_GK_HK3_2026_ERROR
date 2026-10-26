@@ -14,11 +14,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         public static string ImageFolder { get; set; } = @"../../images/";
 
-        //public static string SoundFolder { get; set; } = @"../../sounds/";
-        //public static bool SoundEnabled { get; set; } = true;
         public static string SoundFolder { get; set; } = @"../../sound/";
-        public static bool SoundEnabled { get; set; } = true;
-
+        public static bool NhacmenuEnabled { get; set; } = true;
+        public static bool NhaccoEnabled { get; set; } = true;
+        
 
         public static Image GetImage(PieceType ptype, PieceColor pcolor)
         {

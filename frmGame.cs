@@ -29,6 +29,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         public frmGame(int minutes)
         {
             InitializeComponent();
+            chkAmthanh.Checked = AssetManager.NhaccoEnabled;//đồng bộ âm thanh
             CreateCells();
             ColorBoard();
             SetUpBoard();
@@ -145,7 +146,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             if (gameOver)
             {
-                if (AssetManager.SoundEnabled)
+                if (AssetManager.NhaccoEnabled)
                 {
                     AssetManager.GetSound("chienthang")?.Play();
                 }
@@ -289,7 +290,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             //am thanh
             // âm thanh
-            if (AssetManager.SoundEnabled)
+            if (AssetManager.NhaccoEnabled)
             {
                 AssetManager.GetSound("Move")?.Play();
             }
@@ -367,7 +368,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 string winnerName = (turn == PieceColor.White ? player1Name : player2Name);
                 SaveFinishedMatch(winnerName, "Chiếu hết");
                 // âm thanh
-                if (AssetManager.SoundEnabled)
+                if (AssetManager.NhaccoEnabled)
                 {
                     AssetManager.GetSound("chienthang")?.Play();
                 }
@@ -613,7 +614,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void chkAmthanh_CheckedChanged(object sender, EventArgs e)
         {
-            AssetManager.SoundEnabled = chkAmthanh.Checked;
+            AssetManager.NhaccoEnabled = chkAmthanh.Checked;
         }
 
         private void btnGameMoi_Click(object sender, EventArgs e)

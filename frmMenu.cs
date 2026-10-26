@@ -22,7 +22,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            if (AssetManager.SoundEnabled)
+            if (AssetManager.NhacmenuEnabled)
             {
                 AssetManager.GetSound("nhacnen")?.PlayLooping();
             }
@@ -37,7 +37,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 int minutes = f.SelectedMinutes;
                 string player1 = f.Player1Name;
                 string player2 = f.Player2Name;
-
+                AssetManager.GetSound("nhacnen")?.Stop();
                 this.Hide();
                 try
                 {
@@ -52,17 +52,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 }
             }
             //khi chơi thì tắt nhạc nền
-            AssetManager.GetSound("nhacnen")?.Stop();
-            this.Hide();
-            using (frmGame game = new frmGame())
-            {
-                game.ShowDialog();
-            }
-
-            this.Show();
-
-            // thoát ra thì bật lên lại
-            if (AssetManager.SoundEnabled)
+            if (AssetManager.NhacmenuEnabled)
             {
                 AssetManager.GetSound("nhacnen")?.PlayLooping();
             }
@@ -70,9 +60,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đang phát triển!!! Chờ nhiều chút nha", "Thông báo",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Information);
+            using (frmSettings settings = new frmSettings())
+            {
+                settings.StartPosition = FormStartPosition.CenterParent;
+                settings.ShowDialog();
+            }
         }
         private void btnHowToPlay_Click(object sender, EventArgs e)
         {

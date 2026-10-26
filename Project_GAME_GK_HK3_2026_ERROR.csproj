@@ -85,6 +85,12 @@
       <DependentUpon>frmScores.cs</DependentUpon>
     </Compile>
     <Compile Include="AssetManager.cs" />
+    <Compile Include="FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmScores.resx">
       <DependentUpon>frmScores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTime.resx">
       <DependentUpon>frmTime.cs</DependentUpon>
@@ -159,6 +168,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="images\nensettings.png" />
     <Content Include="Sound\nhacnen.wav" />
     <None Include="images\promotion.png" />
     <Content Include="images\sàn gỗ.jpg" />

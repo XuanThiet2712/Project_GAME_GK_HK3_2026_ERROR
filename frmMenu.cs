@@ -22,7 +22,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private void frmMenu_Load(object sender, EventArgs e)
         {
-
+            if (AssetManager.SoundEnabled)
+            {
+                AssetManager.GetSound("nhacnen")?.PlayLooping();
+            }
         }
         private void btnplay_Click(object sender, EventArgs e)
         {
@@ -47,6 +50,21 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 {
                     this.Show();
                 }
+            }
+            //khi chơi thì tắt nhạc nền
+            AssetManager.GetSound("nhacnen")?.Stop();
+            this.Hide();
+            using (frmGame game = new frmGame())
+            {
+                game.ShowDialog();
+            }
+
+            this.Show();
+
+            // thoát ra thì bật lên lại
+            if (AssetManager.SoundEnabled)
+            {
+                AssetManager.GetSound("nhacnen")?.PlayLooping();
             }
         }
 

@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Sound\nhacnen.wav" />
     <None Include="images\promotion.png" />
     <Content Include="images\sàn gỗ.jpg" />
     <Content Include="images\time.jpg" />

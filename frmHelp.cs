@@ -91,7 +91,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void frmHelp_Load(object sender, System.EventArgs e)
         {
-
+           
         }
         private void CreateCells()
         {
@@ -190,6 +190,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 step--;
                 ShowStep();
             }
+        }
+
+        private void lblNhom_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

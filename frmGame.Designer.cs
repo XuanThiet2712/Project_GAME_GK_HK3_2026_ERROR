@@ -63,7 +63,7 @@
             this.lblPlayerWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerWhite.Location = new System.Drawing.Point(24, 615);
             this.lblPlayerWhite.Name = "lblPlayerWhite";
-            this.lblPlayerWhite.Size = new System.Drawing.Size(90, 20);
+            this.lblPlayerWhite.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerWhite.TabIndex = 3;
             this.lblPlayerWhite.Text = "Player 2: ";
             // 
@@ -81,7 +81,7 @@
             this.lblPlayerBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerBlack.Location = new System.Drawing.Point(24, 21);
             this.lblPlayerBlack.Name = "lblPlayerBlack";
-            this.lblPlayerBlack.Size = new System.Drawing.Size(90, 20);
+            this.lblPlayerBlack.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerBlack.TabIndex = 0;
             this.lblPlayerBlack.Text = "Player 1: ";
             // 
@@ -124,6 +124,7 @@
             // 
             // picSelectedPiece
             // 
+            this.picSelectedPiece.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picSelectedPiece.Location = new System.Drawing.Point(704, 318);
             this.picSelectedPiece.Name = "picSelectedPiece";
             this.picSelectedPiece.Size = new System.Drawing.Size(134, 130);

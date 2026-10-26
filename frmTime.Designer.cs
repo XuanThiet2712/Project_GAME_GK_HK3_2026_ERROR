@@ -166,12 +166,12 @@
             // 
             this.lblPlayer1.AutoSize = true;
             this.lblPlayer1.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayer1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblPlayer1.Location = new System.Drawing.Point(2, 161);
             this.lblPlayer1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer1.Name = "lblPlayer1";
-            this.lblPlayer1.Size = new System.Drawing.Size(120, 18);
+            this.lblPlayer1.Size = new System.Drawing.Size(133, 20);
             this.lblPlayer1.TabIndex = 8;
             this.lblPlayer1.Text = "Player 1 - Đen:";
             this.lblPlayer1.Click += new System.EventHandler(this.lblPlayer1_Click);
@@ -180,18 +180,18 @@
             // 
             this.lblPlayer2.AutoSize = true;
             this.lblPlayer2.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayer2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblPlayer2.Location = new System.Drawing.Point(2, 215);
             this.lblPlayer2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(133, 18);
+            this.lblPlayer2.Size = new System.Drawing.Size(148, 20);
             this.lblPlayer2.TabIndex = 9;
             this.lblPlayer2.Text = "Player 2 - Trắng:";
             // 
             // txtPlayer2
             // 
-            this.txtPlayer2.Location = new System.Drawing.Point(145, 211);
+            this.txtPlayer2.Location = new System.Drawing.Point(150, 213);
             this.txtPlayer2.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer2.MaxLength = 30;
             this.txtPlayer2.Name = "txtPlayer2";
@@ -201,7 +201,7 @@
             // 
             // txtPlayer1
             // 
-            this.txtPlayer1.Location = new System.Drawing.Point(142, 157);
+            this.txtPlayer1.Location = new System.Drawing.Point(150, 159);
             this.txtPlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer1.MaxLength = 30;
             this.txtPlayer1.Name = "txtPlayer1";

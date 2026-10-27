@@ -29,30 +29,20 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
         private void btnplay_Click(object sender, EventArgs e)
         {
-            using (frmTime f = new frmTime())
+            this.Hide();
+            try
             {
-                if (f.ShowDialog() != DialogResult.OK)
-                    return;
-
-                // Mở trận đấu với thời gian và tên người chơi đã chọn
-
-                AssetManager.GetSound("nhacnen")?.Stop();
-                this.Hide();
-                try
+                using (frmTime time = new frmTime())
                 {
-                    using (frmGame game = new frmGame(f.SelectedMinutes, f.Player1Name, f.Player2Name))
-                    {
-                        game.ShowDialog();
-                    }
-                }
-                finally
-                {
-                    this.Show();
-                    if (AssetManager.NhacmenuEnabled)
-                        AssetManager.GetSound("nhacnen")?.PlayLooping();
+                    time.ShowDialog();
                 }
             }
-
+            finally
+            {
+                this.Show();
+                if (AssetManager.NhacmenuEnabled)
+                    AssetManager.GetSound("nhacnen")?.PlayLooping();
+            }
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

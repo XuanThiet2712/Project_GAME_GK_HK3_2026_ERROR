@@ -1,7 +1,0 @@
-DA SUA TU BAN ZIP (1):
-- frmScores: DataGridView duy nhat, 6 cot, khong co ban co cuoi tran.
-- frmMenu: chi mo frmGame mot lan voi ten va thoi gian da chon.
-- GIU NGUYEN frmTime, timerChess, frmGame va MatchStorage.
-- File thanhtichs.txt duoc ghi trong thu muc chua file EXE (thuong la bin\Debug).
-- Chi luu khi van dau ket thuc do chieu het, hoa, hoac het gio.
-- Mo .sln trong Visual Studio, Build > Rebuild Solution, choi den khi het gio de thu.

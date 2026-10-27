@@ -529,7 +529,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             };
             try
             {
-                MatchStorage.Save(match); // Lưu tối đa 5 trận vào TXT
+                MatchStorage.Save(match); // Lưu trận vào TXT, không giới hạn
             }
             catch (Exception ex)
             {

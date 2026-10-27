@@ -64,7 +64,7 @@
             this.lblPlayerWhite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerWhite.Location = new System.Drawing.Point(24, 615);
             this.lblPlayerWhite.Name = "lblPlayerWhite";
-            this.lblPlayerWhite.Size = new System.Drawing.Size(90, 20);
+            this.lblPlayerWhite.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerWhite.TabIndex = 3;
             this.lblPlayerWhite.Text = "Player 2: ";
             // 
@@ -82,7 +82,7 @@
             this.lblPlayerBlack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerBlack.Location = new System.Drawing.Point(24, 21);
             this.lblPlayerBlack.Name = "lblPlayerBlack";
-            this.lblPlayerBlack.Size = new System.Drawing.Size(90, 20);
+            this.lblPlayerBlack.Size = new System.Drawing.Size(88, 20);
             this.lblPlayerBlack.TabIndex = 0;
             this.lblPlayerBlack.Text = "Player 1: ";
             // 
@@ -229,6 +229,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmGame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGame";
             this.Load += new System.EventHandler(this.frmGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();

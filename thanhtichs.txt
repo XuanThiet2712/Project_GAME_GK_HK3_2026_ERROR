@@ -14,3 +14,4 @@
 27/10/2026 19:36:48|test|test|test|Đối thủ GG|11
 27/10/2026 19:43:31|máy|máy|máy|Đối thủ GG|13
 27/10/2026 19:54:16|Player 1|Player 2|Player 2|Đối thủ GG|21
+27/10/2026 20:26:39|Player 1|Player 2|Player 1|Đối thủ GG|1

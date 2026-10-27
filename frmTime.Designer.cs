@@ -59,7 +59,6 @@
             this.lblTitle.Size = new System.Drawing.Size(181, 28);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "CHỌN THỜI GIAN";
-            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // btn10
             // 
@@ -115,7 +114,6 @@
             0,
             0,
             0});
-            this.numMinutes.ValueChanged += new System.EventHandler(this.numMinutes_ValueChanged);
             // 
             // label1
             // 
@@ -128,7 +126,6 @@
             this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "phút / người";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnBack
             // 
@@ -173,7 +170,6 @@
             this.lblPlayer1.Size = new System.Drawing.Size(171, 22);
             this.lblPlayer1.TabIndex = 8;
             this.lblPlayer1.Text = "Player 1 - Đen";
-            this.lblPlayer1.Click += new System.EventHandler(this.lblPlayer1_Click);
             // 
             // lblPlayer2
             // 
@@ -186,7 +182,6 @@
             this.lblPlayer2.Size = new System.Drawing.Size(173, 22);
             this.lblPlayer2.TabIndex = 9;
             this.lblPlayer2.Text = "Player 2 - Trắng";
-            this.lblPlayer2.Click += new System.EventHandler(this.lblPlayer2_Click);
             // 
             // txtPlayer2
             // 
@@ -197,7 +192,6 @@
             this.txtPlayer2.Size = new System.Drawing.Size(129, 22);
             this.txtPlayer2.TabIndex = 1;
             this.txtPlayer2.Text = "Player 2";
-            this.txtPlayer2.TextChanged += new System.EventHandler(this.txtPlayer2_TextChanged);
             // 
             // txtPlayer1
             // 
@@ -208,7 +202,6 @@
             this.txtPlayer1.Size = new System.Drawing.Size(129, 22);
             this.txtPlayer1.TabIndex = 0;
             this.txtPlayer1.Text = "Player 1 ";
-            this.txtPlayer1.TextChanged += new System.EventHandler(this.txtPlayer1_TextChanged);
             // 
             // errorProvider1
             // 
@@ -238,7 +231,6 @@
             this.Name = "frmTime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTime";
-            this.Load += new System.EventHandler(this.frmTime_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

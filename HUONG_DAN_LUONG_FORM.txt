@@ -1,0 +1,11 @@
+DA SUA LUONG MO FORM: frmMenu -> frmTime -> frmGame
+
+1. frmMenu.cs - btnplay_Click: chi mo frmTime.
+2. frmTime.cs - btnStart_Click: kiem tra ten, lay so phut, mo frmGame(minutes, player1, player2).
+3. Dong frmGame se dong frmTime, quay lai frmMenu.
+4. Nhan Back tai frmTime se quay lai frmMenu.
+5. Khong thay doi frmGame, Timer, frmScores hay MatchStorage.
+6. frmTime.Designer.cs: bo lien ket nhung su kien rong khong su dung.
+
+Mo file .sln trong Visual Studio va Build -> Rebuild Solution.
+File ZIP khong bao gom .git, .vs, bin, obj de tranh loi build va khong ghi de lich su Git cua nhom.

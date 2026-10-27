@@ -53,9 +53,10 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTitle.Location = new System.Drawing.Point(104, 7);
+            this.lblTitle.Location = new System.Drawing.Point(139, 9);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(143, 21);
+            this.lblTitle.Size = new System.Drawing.Size(181, 28);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "CHỌN THỜI GIAN";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
@@ -63,9 +64,10 @@
             // btn10
             // 
             this.btn10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn10.Location = new System.Drawing.Point(23, 40);
+            this.btn10.Location = new System.Drawing.Point(31, 49);
+            this.btn10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn10.Name = "btn10";
-            this.btn10.Size = new System.Drawing.Size(50, 23);
+            this.btn10.Size = new System.Drawing.Size(67, 28);
             this.btn10.TabIndex = 1;
             this.btn10.Text = "10 phút";
             this.btn10.UseVisualStyleBackColor = true;
@@ -74,9 +76,10 @@
             // btn15
             // 
             this.btn15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn15.Location = new System.Drawing.Point(104, 40);
+            this.btn15.Location = new System.Drawing.Point(139, 49);
+            this.btn15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn15.Name = "btn15";
-            this.btn15.Size = new System.Drawing.Size(50, 23);
+            this.btn15.Size = new System.Drawing.Size(67, 28);
             this.btn15.TabIndex = 2;
             this.btn15.Text = "15 phút";
             this.btn15.UseVisualStyleBackColor = true;
@@ -85,9 +88,10 @@
             // btn20
             // 
             this.btn20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn20.Location = new System.Drawing.Point(183, 40);
+            this.btn20.Location = new System.Drawing.Point(244, 49);
+            this.btn20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn20.Name = "btn20";
-            this.btn20.Size = new System.Drawing.Size(50, 23);
+            this.btn20.Size = new System.Drawing.Size(67, 28);
             this.btn20.TabIndex = 3;
             this.btn20.Text = "20 phút";
             this.btn20.UseVisualStyleBackColor = true;
@@ -96,14 +100,15 @@
             // numMinutes
             // 
             this.numMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numMinutes.Location = new System.Drawing.Point(46, 78);
+            this.numMinutes.Location = new System.Drawing.Point(61, 96);
+            this.numMinutes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numMinutes.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numMinutes.Name = "numMinutes";
-            this.numMinutes.Size = new System.Drawing.Size(86, 19);
+            this.numMinutes.Size = new System.Drawing.Size(115, 22);
             this.numMinutes.TabIndex = 4;
             this.numMinutes.Value = new decimal(new int[] {
             10,
@@ -117,9 +122,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(144, 81);
+            this.label1.Location = new System.Drawing.Point(192, 100);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "phút / người";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -131,9 +137,10 @@
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(10, 220);
+            this.btnBack.Location = new System.Drawing.Point(13, 271);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(82, 40);
+            this.btnBack.Size = new System.Drawing.Size(109, 49);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Quay lại";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -146,9 +153,10 @@
             this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(110, 220);
+            this.btnStart.Location = new System.Drawing.Point(147, 271);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(95, 40);
+            this.btnStart.Size = new System.Drawing.Size(127, 49);
             this.btnStart.TabIndex = 7;
             this.btnStart.Text = "BẮT ĐẦU";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -159,9 +167,10 @@
             this.lblPlayer1.BackColor = System.Drawing.Color.Transparent;
             this.lblPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayer1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPlayer1.Location = new System.Drawing.Point(2, 131);
+            this.lblPlayer1.Location = new System.Drawing.Point(3, 161);
+            this.lblPlayer1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer1.Name = "lblPlayer1";
-            this.lblPlayer1.Size = new System.Drawing.Size(128, 18);
+            this.lblPlayer1.Size = new System.Drawing.Size(171, 22);
             this.lblPlayer1.TabIndex = 8;
             this.lblPlayer1.Text = "Player 1 - Đen";
             this.lblPlayer1.Click += new System.EventHandler(this.lblPlayer1_Click);
@@ -171,27 +180,31 @@
             this.lblPlayer2.BackColor = System.Drawing.Color.Transparent;
             this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayer2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPlayer2.Location = new System.Drawing.Point(2, 175);
+            this.lblPlayer2.Location = new System.Drawing.Point(3, 215);
+            this.lblPlayer2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(128, 18);
+            this.lblPlayer2.Size = new System.Drawing.Size(173, 22);
             this.lblPlayer2.TabIndex = 9;
             this.lblPlayer2.Text = "Player 2 - Trắng";
+            this.lblPlayer2.Click += new System.EventHandler(this.lblPlayer2_Click);
             // 
             // txtPlayer2
             // 
-            this.txtPlayer2.Location = new System.Drawing.Point(136, 175);
+            this.txtPlayer2.Location = new System.Drawing.Point(181, 215);
+            this.txtPlayer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPlayer2.MaxLength = 30;
             this.txtPlayer2.Name = "txtPlayer2";
-            this.txtPlayer2.Size = new System.Drawing.Size(98, 20);
+            this.txtPlayer2.Size = new System.Drawing.Size(129, 22);
             this.txtPlayer2.TabIndex = 1;
             this.txtPlayer2.TextChanged += new System.EventHandler(this.txtPlayer2_TextChanged);
             // 
             // txtPlayer1
             // 
-            this.txtPlayer1.Location = new System.Drawing.Point(136, 131);
+            this.txtPlayer1.Location = new System.Drawing.Point(181, 161);
+            this.txtPlayer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPlayer1.MaxLength = 30;
             this.txtPlayer1.Name = "txtPlayer1";
-            this.txtPlayer1.Size = new System.Drawing.Size(98, 20);
+            this.txtPlayer1.Size = new System.Drawing.Size(129, 22);
             this.txtPlayer1.TabIndex = 0;
             // 
             // errorProvider1
@@ -200,11 +213,11 @@
             // 
             // frmTime
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(352, 283);
+            this.ClientSize = new System.Drawing.Size(469, 348);
             this.Controls.Add(this.txtPlayer1);
             this.Controls.Add(this.txtPlayer2);
             this.Controls.Add(this.lblPlayer2);
@@ -217,6 +230,8 @@
             this.Controls.Add(this.btn15);
             this.Controls.Add(this.btn10);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmTime";
             this.Text = "frmTime";
             this.Load += new System.EventHandler(this.frmTime_Load);

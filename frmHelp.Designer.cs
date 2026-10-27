@@ -114,6 +114,7 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblHuongDan);
             this.Controls.Add(this.pnlBoard);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHelp";
             this.Text = "Hướng Dẫn";
             this.ResumeLayout(false);

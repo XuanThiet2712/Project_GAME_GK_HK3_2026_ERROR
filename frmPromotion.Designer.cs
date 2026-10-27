@@ -111,6 +111,7 @@
             this.picQueen.Location = new System.Drawing.Point(263, 89);
             this.picQueen.Name = "picQueen";
             this.picQueen.Size = new System.Drawing.Size(135, 136);
+            this.picQueen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picQueen.TabIndex = 4;
             this.picQueen.TabStop = false;
             // 

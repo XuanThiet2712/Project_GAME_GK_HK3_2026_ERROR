@@ -59,7 +59,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             using (frmSettings settings = new frmSettings())
             {
-                settings.StartPosition = FormStartPosition.CenterParent;
                 settings.ShowDialog();
             }
         }
@@ -67,8 +66,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             using (frmHelp helpForm = new frmHelp())
             {
-                // Thiết lập để Form hướng dẫn hiện ra ở giữa màn hình cho đẹp
-                helpForm.StartPosition = FormStartPosition.CenterParent;
                 helpForm.ShowDialog();
             }
 

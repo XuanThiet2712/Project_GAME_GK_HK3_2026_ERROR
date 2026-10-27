@@ -79,7 +79,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             btnRook.Image = new Bitmap(imgRook, new Size(32, 32));
             //hieu chinh picture mac dinh hien thi la Hau
             picQueen.Image = AssetManager.GetImage(PieceType.Queen, currentColor);
-            picQueen.SizeMode = PictureBoxSizeMode.Zoom; // zoom de anh khong bi meo
         }
     }
 }

@@ -1,77 +1,67 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+using System.Windows.Forms;
 
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
     public static class MatchStorage
     {
-        private const int MaxMatches = 5;
+        public static string FilePath = Path.Combine(
+            Application.StartupPath, "thanhtichs.txt");
 
-        // Thư mục dữ liệu riêng 
-        private static readonly string Folder =
-            Path.Combine(
-                Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData),
-                "ChessGame");
-
-        // Đường dẫn file lưu lịch sử
-        private static readonly string FilePath =
-            Path.Combine(Folder, "matches.xml");
-
-        // Đọc danh sách trận đã lưu
         public static List<MatchRecord> Load()
         {
-            if (!File.Exists(FilePath))
-                return new List<MatchRecord>();
+            List<MatchRecord> list = new List<MatchRecord>();
+            if (!File.Exists(FilePath)) return list; // Chưa có lịch sử
 
-            // chuyển XML thành danh sách 
-            XmlSerializer serializer =
-                new XmlSerializer(typeof(List<MatchRecord>));
-
-            // Mở file để đọc
-            using (FileStream stream =
-                new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+            foreach (string line in File.ReadAllLines(FilePath))
             {
-                return (List<MatchRecord>)serializer.Deserialize(stream);
+                string[] a = line.Split('|');
+                if (a.Length != 6) continue; // Bỏ qua dòng lỗi
+
+                int seconds;
+                if (!int.TryParse(a[5], out seconds)) continue;
+
+                list.Add(new MatchRecord
+                {
+                    Date = a[0], Player1 = a[1], Player2 = a[2],
+                    Winner = a[3], Reason = a[4], Seconds = seconds
+                });
             }
+            return list;
         }
 
-        // Lưu thêm một trận đấu mới
         public static void Save(MatchRecord match)
         {
-            // Đọc danh sách
-            List<MatchRecord> matches = Load();
-            matches.Add(match);
-            if (matches.Count > MaxMatches)
+            List<MatchRecord> list = Load(); 
+            list.Add(match);                  
+            while (list.Count > 5) list.RemoveAt(0); 
+
+            List<string> lines = new List<string>();
+            foreach (MatchRecord m in list)
             {
-                matches = matches
-                    .Skip(matches.Count - MaxMatches)
-                    .ToList();
+                // Thay ký tự phân cách / xuống dòng để file không bị lệch cột
+                string date = Clean(m.Date);
+                string p1 = Clean(m.Player1);
+                string p2 = Clean(m.Player2);
+                string winner = Clean(m.Winner);
+                string reason = Clean(m.Reason);
+                lines.Add(date + "|" + p1 + "|" + p2 + "|" + winner + "|" + reason + "|" + m.Seconds);
             }
+            File.WriteAllLines(FilePath, lines); // Ghi lại tối đa 5 trận
+        }
 
-            Directory.CreateDirectory(Folder);
+        private static string Clean(string text)
+        {
+            if (text == null)
+                return "";
 
-            // chuyển danh sách thành XML
-            XmlSerializer serializer =
-                new XmlSerializer(typeof(List<MatchRecord>));
-            string tempFile = FilePath + ".tmp";
+            text = text.Replace("|", " ");
+            text = text.Replace("\r", " ");
+            text = text.Replace("\n", " ");
 
-            using (FileStream stream =
-                new FileStream(tempFile, FileMode.Create, FileAccess.Write))
-            {
-                serializer.Serialize(stream, matches);
-                // Ghi toàn bộ danh sách mới xuống file tạm
-            }
-
-            if (File.Exists(FilePath))
-                File.Replace(tempFile, FilePath, null);
-            else
-                File.Move(tempFile, FilePath);
+            return text;
         }
     }
 }

@@ -34,14 +34,13 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 if (f.ShowDialog() != DialogResult.OK)
                     return;
 
-                int minutes = f.SelectedMinutes;
-                string player1 = f.Player1Name;
-                string player2 = f.Player2Name;
+                // Mở trận đấu với thời gian và tên người chơi đã chọn
+
                 AssetManager.GetSound("nhacnen")?.Stop();
                 this.Hide();
                 try
                 {
-                    using (frmGame game = new frmGame(minutes, player1, player2))
+                    using (frmGame game = new frmGame(f.SelectedMinutes, f.Player1Name, f.Player2Name))
                     {
                         game.ShowDialog();
                     }
@@ -49,13 +48,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 finally
                 {
                     this.Show();
+                    if (AssetManager.NhacmenuEnabled)
+                        AssetManager.GetSound("nhacnen")?.PlayLooping();
                 }
             }
-            //khi chơi thì tắt nhạc nền
-            if (AssetManager.NhacmenuEnabled)
-            {
-                AssetManager.GetSound("nhacnen")?.PlayLooping();
-            }
+
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

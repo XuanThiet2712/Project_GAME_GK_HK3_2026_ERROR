@@ -1,138 +1,136 @@
-﻿namespace Project_GAME_GK_HK3_2026_ERROR
+namespace Project_GAME_GK_HK3_2026_ERROR
 {
     partial class frmScores
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScores));
-            this.lblHistoryTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.dgvMatches = new System.Windows.Forms.DataGridView();
-            this.pnlReplayBoard = new System.Windows.Forms.Panel();
-            this.lblMatchInfo = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblHistoryTitle
+            // lblTitle
             // 
-            this.lblHistoryTitle.AutoSize = true;
-            this.lblHistoryTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblHistoryTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.lblHistoryTitle.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblHistoryTitle.Location = new System.Drawing.Point(600, 25);
-            this.lblHistoryTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHistoryTitle.Name = "lblHistoryTitle";
-            this.lblHistoryTitle.Size = new System.Drawing.Size(210, 35);
-            this.lblHistoryTitle.TabIndex = 0;
-            this.lblHistoryTitle.Text = "Lịch sử trận đấu ";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(18, 14);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(215, 30);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "LỊCH SỬ TRẬN ĐẤU";
             // 
             // dgvMatches
             // 
             this.dgvMatches.AllowUserToAddRows = false;
+            this.dgvMatches.AllowUserToDeleteRows = false;
+            this.dgvMatches.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMatches.Location = new System.Drawing.Point(600, 74);
-            this.dgvMatches.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvMatches.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.dgvMatches.Location = new System.Drawing.Point(19, 71);
+            this.dgvMatches.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvMatches.MultiSelect = false;
             this.dgvMatches.Name = "dgvMatches";
             this.dgvMatches.ReadOnly = true;
-            this.dgvMatches.RowHeadersWidth = 51;
+            this.dgvMatches.RowHeadersVisible = false;
             this.dgvMatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMatches.Size = new System.Drawing.Size(735, 320);
-            this.dgvMatches.TabIndex = 1;
-            this.dgvMatches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatches_CellContentClick);
-            this.dgvMatches.SelectionChanged += new System.EventHandler(this.dgvMatches_SelectionChanged);
+            this.dgvMatches.Size = new System.Drawing.Size(690, 207);
+            this.dgvMatches.TabIndex = 2;
             // 
-            // pnlReplayBoard
+            // dataGridViewTextBoxColumn1
             // 
-            this.pnlReplayBoard.Location = new System.Drawing.Point(25, 74);
-            this.pnlReplayBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.pnlReplayBoard.Name = "pnlReplayBoard";
-            this.pnlReplayBoard.Size = new System.Drawing.Size(533, 492);
-            this.pnlReplayBoard.TabIndex = 2;
-            this.pnlReplayBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlReplayBoard_Paint);
+            this.dataGridViewTextBoxColumn1.HeaderText = "Kết thúc lúc";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // lblMatchInfo
+            // dataGridViewTextBoxColumn2
             // 
-            this.lblMatchInfo.AutoSize = true;
-            this.lblMatchInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblMatchInfo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatchInfo.Location = new System.Drawing.Point(600, 412);
-            this.lblMatchInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMatchInfo.Name = "lblMatchInfo";
-            this.lblMatchInfo.Size = new System.Drawing.Size(65, 25);
-            this.lblMatchInfo.TabIndex = 3;
-            this.lblMatchInfo.Text = "label1";
-            this.lblMatchInfo.Click += new System.EventHandler(this.lblMatchInfo_Click);
+            this.dataGridViewTextBoxColumn2.HeaderText = "Player 1 (Đen)";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Player 2 (Trắng)";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Người thắng";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Kết quả";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Thời lượng";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.BurlyWood;
-            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBack.Location = new System.Drawing.Point(1234, 543);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Location = new System.Drawing.Point(619, 296);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(168, 84);
-            this.btnBack.TabIndex = 4;
-            this.btnBack.Text = "Quay lại";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Size = new System.Drawing.Size(90, 28);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "QUAY LẠI";
+            this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmScores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1445, 654);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblMatchInfo);
-            this.Controls.Add(this.pnlReplayBoard);
+            this.ClientSize = new System.Drawing.Size(728, 341);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvMatches);
-            this.Controls.Add(this.lblHistoryTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.btnBack);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmScores";
-            this.Text = "frmScores";
-            this.Load += new System.EventHandler(this.frmScores_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Lịch sử trận đấu";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        #endregion
-
-        private System.Windows.Forms.Label lblHistoryTitle;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.DataGridView dgvMatches;
-        private System.Windows.Forms.Panel pnlReplayBoard;
-        private System.Windows.Forms.Label lblMatchInfo;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

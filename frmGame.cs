@@ -76,51 +76,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 }
             }
         }
-        private string CaptureFinalBoard()
-        {
-            
-            System.Text.StringBuilder result = new System.Text.StringBuilder();
-
-            // Duyệt hàng
-            for (int r = 0; r < 8; r++)
-            {
-                // Duyệt từng cột
-                for (int c = 0; c < 8; c++)
-                {
-                    Piece piece = board[r, c]; // Lấy quân cờ tại ô
-
-                    if (piece == null)
-                    {
-                        result.Append('.'); // Ô trống
-                        continue;
-                    }
-
-                    char symbol = '.'; // Ký tự mặc định
-
-                    // Chuyển quân thành ký tự
-                    switch (piece.Type)
-                    {
-                        case PieceType.Pawn: symbol = 'P'; break;
-                        case PieceType.Rook: symbol = 'R'; break;
-                        case PieceType.Knight: symbol = 'N'; break;
-                        case PieceType.Bishop: symbol = 'B'; break;
-                        case PieceType.Queen: symbol = 'Q'; break;
-                        case PieceType.King: symbol = 'K'; break;
-                    }
-
-                    // quân đen la chữ thường
-                    if (piece.Color == PieceColor.Black)
-                        symbol = char.ToLowerInvariant(symbol);
-
-                    result.Append(symbol); 
-                }
-            }
-
-            return result.ToString();
-        }
-
-
-
         // tajo 64 oo vuong
         private void CreateCells()
         {
@@ -522,6 +477,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             gameOver = true;
             StopClocks();
             string winnerName = winner == "Trắng" ? player2Name : player1Name;
+            SaveFinishedMatch(winnerName, "Hết giờ"); // Lưu trận trước khi chơi lại
 
             selected = null;
             picSelectedPiece.Image = null;
@@ -563,26 +519,20 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             MatchRecord match = new MatchRecord
             {
-                PlayedAt = DateTime.Now,       
-                Player1 = player1Name,       
-                Player2 = player2Name,        
-                Winner = winner,               
-                Reason = reason,
-                DurationSeconds = elapsedSeconds,
-                FinalBoard = CaptureFinalBoard() 
+                Date = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), // Giờ kết thúc
+                Player1 = player1Name, // Đen
+                Player2 = player2Name, // Trắng
+                Winner = winner,       // Người thắng hoặc Hòa
+                Reason = reason,       // Chiếu hết / Hết giờ / Hòa
+                Seconds = elapsedSeconds // Tổng số giây đếm bằng Timer
             };
-
             try
             {
-                MatchStorage.Save(match); // Lưu vào file XML
+                MatchStorage.Save(match); // Lưu tối đa 5 trận vào TXT
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Không thể lưu lịch sử: " + ex.Message,
-                    "Lỗi lưu dữ liệu",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Không thể lưu thành tích: " + ex.Message);
             }
         }
 

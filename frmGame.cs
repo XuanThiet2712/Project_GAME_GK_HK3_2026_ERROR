@@ -479,17 +479,23 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             gameOver = true;
             StopClocks();
-            string winnerName = (playerGG == PieceColor.White ? player2Name : player1Name);
-            SaveFinishedMatch(winnerName, "Đối thủ GG"); 
+            string winnerName = (playerGG == PieceColor.White ? player1Name : player2Name);
+            string loserName = (playerGG == PieceColor.White) ? player2Name : player1Name;
+            SaveFinishedMatch(winnerName, "Đối thủ GG");
+            
 
             selected = null;
             picSelectedPiece.Image = null;
 
             UpdateClockDisplay();
             ColorBoard();
+            if (AssetManager.NhaccoEnabled)// âm thanh khi vuwa hiện tb ct
+            {
+                AssetManager.GetSound("chienthang")?.Play();
+            }
 
             DialogResult result = MessageBox.Show(
-                $"Bên đối thủ đầu hàng!\nBên {playerGG} thắng \n\nBạn có muốn chơi lại không?",
+                $"Bên đối thủ đầu hàng!\nBên {winnerName} thắng \n\nBạn có muốn chơi lại không?",
                 "Kết thúc ván đấu",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Information
@@ -621,10 +627,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
             ////}
             //MessageBox.Show("Xin lỗi tính năng này đang phát triển :(( ");
-
-            DialogResult result = MessageBox.Show(
-                $"Bạn chắc chắn muốn đầu hàng \n Nếu đầu hàng bạn ({turn.ToString()}) sẽ thua đấy",
-                "Thông báo",
+            string colorLose = (turn == PieceColor.White) ? "White" : "Black";
+            DialogResult result = MessageBox.Show($"Bạn chắc chắn muốn đầu hàng \n Nếu đầu hàng bạn ({colorLose}) sẽ thua đấy","Thông báo",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 

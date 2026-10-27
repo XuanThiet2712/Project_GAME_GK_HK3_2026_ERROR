@@ -4,3 +4,13 @@
 27/10/2026 17:29:08|Player 1|Player 2|Player 2|Đối thủ GG|0
 27/10/2026 17:30:20|Player 1|Player 2|Player 2|Đối thủ GG|0
 27/10/2026 17:30:29|Player 1|Player 2|Player 2|Đối thủ GG|1
+27/10/2026 19:17:43|Player 1|Player 2|Player 2|Đối thủ GG|29
+27/10/2026 19:25:13|Player 1|Player 2|Player 1|Đối thủ GG|17
+27/10/2026 19:30:06|Player 1|Player 2|Player 1|Đối thủ GG|12
+27/10/2026 19:30:56|Player 1|Player 2|Player 2|Đối thủ GG|6
+27/10/2026 19:31:17|Player 1|Player 2|Player 1|Đối thủ GG|8
+27/10/2026 19:32:39|Player 1|Player 2|Player 1|Đối thủ GG|8
+27/10/2026 19:33:52|Player 1|Player 2|Player 1|Đối thủ GG|8
+27/10/2026 19:36:48|test|test|test|Đối thủ GG|11
+27/10/2026 19:43:31|máy|máy|máy|Đối thủ GG|13
+27/10/2026 19:54:16|Player 1|Player 2|Player 2|Đối thủ GG|21

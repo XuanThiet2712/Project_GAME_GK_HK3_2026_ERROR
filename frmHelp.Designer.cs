@@ -65,7 +65,7 @@
             this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(27, 325);
+            this.btnNext.Location = new System.Drawing.Point(185, 329);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(130, 45);
             this.btnNext.TabIndex = 2;
@@ -80,7 +80,7 @@
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(174, 325);
+            this.btnBack.Location = new System.Drawing.Point(26, 329);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(130, 45);
             this.btnBack.TabIndex = 3;
@@ -109,8 +109,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(747, 386);
-            this.Controls.Add(this.lblNhom);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.lblNhom);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblHuongDan);
             this.Controls.Add(this.pnlBoard);
@@ -118,6 +118,7 @@
             this.Name = "frmHelp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hướng Dẫn";
+            this.Load += new System.EventHandler(this.frmHelp_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

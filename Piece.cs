@@ -7,12 +7,17 @@
         Knight,
         Bishop,
         Queen,
-        King
+        King,
+        
+        None
+            
     }
     public enum PieceColor
     {
         White,
-        Black
+        Black,
+
+        None
     }
 
     public class Piece

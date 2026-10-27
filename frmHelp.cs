@@ -12,8 +12,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         Piece[,] board = new Piece[8, 8]; // khai bao quan co 
         Point? selected = null;   // x hang , y cot, null ch chon o nao
 
+        bool nhapthanh = false;
+        bool hoaco = false;
         int step = 0;
-        int tongsteps = 6;
+        int tongsteps = 12;
 
         public frmHelp()
         {
@@ -36,45 +38,94 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             board = new Piece[8, 8];
             string text = "";
             int r = 0, c = 0;             // ô của quân đang được giới thiệu
-
+            nhapthanh = false;
+            hoaco = false;
             switch (step)
             {
                 case 0:
+                    text = "Ô màu vàng là quân bạn đang chọn, Ô màu xanh lá là ô có thể đi được, Ô màu đỏ là ô ăn quân, Bạn chỉ có thể ăn quân khác màu.";
+                    r = 6; c = 6;
+                    Put(r, c, PieceType.Queen, PieceColor.White);
+                    Put(6, 3, PieceType.Rook, PieceColor.Black);
+                    Put(2, 2, PieceType.Knight, PieceColor.White);
+                    break;
+                case 1:
                     text = "TỐT: đi thẳng 1 ô (nước đầu được đi 2 ô), ăn quân chéo phía trước.";
                     r = 6; c = 4;
                     Put(r, c, PieceType.Pawn, PieceColor.White);
                     Put(5, 5, PieceType.Pawn, PieceColor.Black);       // quân để thấy ăn chéo
                     break;
-                case 1:
+                case 2:
                     text = "XE: đi thẳng theo hàng ngang hoặc cột dọc, không nhảy qua quân khác.";
                     r = 4; c = 4;
                     Put(r, c, PieceType.Rook, PieceColor.White);
                     Put(4, 7, PieceType.Pawn, PieceColor.White);       // quân mình chắn đường
                     Put(2, 4, PieceType.Pawn, PieceColor.Black);       // quân địch ăn được
                     break;
-                case 2:
+                case 3:
                     text = "MÃ: đi hình chữ L quanh nó và là quân duy nhất nhảy qua được quân khác.";
                     r = 7; c = 1;
                     Put(r, c, PieceType.Knight, PieceColor.White);
                     Put(6, 1, PieceType.Pawn, PieceColor.White);
                     Put(6, 2, PieceType.Pawn, PieceColor.White);
                     break;
-                case 3:
+                case 4:
                     text = "TƯỢNG: đi chéo bao nhiêu ô cũng được, không nhảy qua quân khác.";
                     r = 4; c = 4;
                     Put(r, c, PieceType.Bishop, PieceColor.White);
                     Put(2, 6, PieceType.Pawn, PieceColor.Black);
                     break;
-                case 4:
+                case 5:
                     text = "HẬU: mạnh nhất, đi như Xe cộng Tượng (thẳng và chéo).";
                     r = 4; c = 3;
                     Put(r, c, PieceType.Queen, PieceColor.White);
                     break;
-                case 5:
+                case 6:
                     text = "VUA: đi 1 ô ở mọi hướng xung quanh. Vua bị chiếu hết thì thua ván cờ.";
                     r = 4; c = 4;
                     Put(r, c, PieceType.King, PieceColor.White);
                     break;
+                case 7:
+                    nhapthanh = true; 
+                    text = "NHẬP THÀNH: Khi VUA và 1 trong 2 con XE của bạn không di chuyển và không có 1 khoảng trống giữa 2 con thì VUA có thể đi sang 2 ô như hình.";
+                    r = 7; c = 4;
+                    Put(r, c, PieceType.King, PieceColor.White);
+                    Put(7, 7, PieceType.Rook, PieceColor.White);
+                    Put(7, 0, PieceType.Rook, PieceColor.White);
+                    break;
+                case 8:
+                    text = "Nếu bạn di chuyển Vua sang 2 ô bên trái hoặc phải thì con XE sẽ di chuyển sang bên cạnh theo hướng tương ứng.";
+                    r = 7; c = 2;
+                    Put(r, c, PieceType.King, PieceColor.White);
+                    Put(r, 3, PieceType.Rook, PieceColor.White);
+                    Put(r, 7, PieceType.Rook, PieceColor.White);
+                    break;
+                case 9:
+                    text = "Bạn sẽ chiến thắng khi chiếu tướng khiến con VUA đối phương không còn nước đi nào để thoát !";
+                    r = 1; c = 5;
+                    Put(r, c, PieceType.Queen, PieceColor.White);
+                    Put(0, c, PieceType.King, PieceColor.Black);
+                    Put(2, 5, PieceType.King, PieceColor.White);
+                    break;
+                case 10:
+                    hoaco = true; 
+                    text = "Bạn sẽ hoà cờ nếu đối thủ không bị chiếu nhưng nước đi tiếp theo không còn nước nào hết !";
+                    r = 7; c = 7;
+                    Put(r, c, PieceType.King, PieceColor.White);
+                    Put(6, c, PieceType.Pawn, PieceColor.Black);
+                    Put(5, 6, PieceType.King, PieceColor.Black);
+
+                    break;
+                case 11:
+                    text = "Vua đang bị chiếu thì sẽ KHÔNG NHẬP THÀNH ĐƯỢC !";
+                    text = "NHẬP THÀNH: Khi VUA và 1 trong 2 con XE của bạn không di chuyển và không có 1 khoảng trống giữa 2 con thì VUA có thể đi sang 2 ô như hình.";
+                    r = 7; c = 4;
+                    Put(r, c, PieceType.King, PieceColor.White);
+                    Put(7, 7, PieceType.Rook, PieceColor.White);
+                    Put(4, 4, PieceType.Rook, PieceColor.Black);
+                    Put(7, 0, PieceType.Rook, PieceColor.White);
+                    break;
+
             }
 
             ColorBoard(r, c);
@@ -129,15 +180,26 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     else
                         cells[r, c].BackColor = Color.Gray;
 
-
+                    if (hoaco) continue;
                     if (MoveRules.IsValidMove(board, pr, pc, r, c))
                     {
+                        
                         if (board[r, c] == null)
                             cells[r, c].BackColor = Color.LightGreen;
                         else
+                        {
                             cells[r, c].BackColor = Color.Red;
+                        }
+                           
                     }
+                    
                 }
+
+            }
+            if (nhapthanh)
+            {
+                cells[7, 6].BackColor = Color.LightGreen;
+                cells[7, 2].BackColor = Color.LightGreen;
             }
 
             cells[pr, pc].BackColor = Color.Yellow;
@@ -193,6 +255,11 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
 
         private void lblNhom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmHelp_Load_1(object sender, EventArgs e)
         {
 
         }

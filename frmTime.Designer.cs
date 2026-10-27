@@ -205,6 +205,8 @@
             this.txtPlayer1.Name = "txtPlayer1";
             this.txtPlayer1.Size = new System.Drawing.Size(129, 22);
             this.txtPlayer1.TabIndex = 0;
+            this.txtPlayer1.Text = "d";
+            this.txtPlayer1.TextChanged += new System.EventHandler(this.txtPlayer1_TextChanged);
             // 
             // errorProvider1
             // 

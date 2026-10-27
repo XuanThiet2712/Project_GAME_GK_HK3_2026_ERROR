@@ -111,5 +111,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
 
         }
+
+        private void txtPlayer1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

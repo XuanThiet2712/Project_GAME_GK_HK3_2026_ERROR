@@ -111,6 +111,7 @@
             this.Name = "frmSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSettings";
+            this.Load += new System.EventHandler(this.frmSettings_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

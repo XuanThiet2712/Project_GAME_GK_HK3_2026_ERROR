@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 namespace Project_GAME_GK_HK3_2026_ERROR
 {
@@ -470,6 +471,35 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             timerChess.Stop();
         }
+
+        private void DauHang(PieceColor playerGG)
+        {
+            if (gameOver)
+                return;
+
+            gameOver = true;
+            StopClocks();
+            string winnerName = (playerGG == PieceColor.White ? player2Name : player1Name);
+            SaveFinishedMatch(winnerName, "Đối thủ GG"); 
+
+            selected = null;
+            picSelectedPiece.Image = null;
+
+            UpdateClockDisplay();
+            ColorBoard();
+
+            DialogResult result = MessageBox.Show(
+                $"Bên đối thủ đầu hàng!\nBên {playerGG} thắng \n\nBạn có muốn chơi lại không?",
+                "Kết thúc ván đấu",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information
+            );
+
+            if (result == DialogResult.Yes)
+                RestartGame();
+            else
+                this.Close();
+        }
         private void EndGameByTime(string winner) // het gio = thua
         {
             if (gameOver)
@@ -586,11 +616,26 @@ namespace Project_GAME_GK_HK3_2026_ERROR
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (Text.Contains("Trắng"))
-            //{
+            ////if (Text.Contains("Trắng"))
+            ////{
 
-            //}
-            MessageBox.Show("Xin lỗi tính năng này đang phát triển :(( ");
+            ////}
+            //MessageBox.Show("Xin lỗi tính năng này đang phát triển :(( ");
+
+            DialogResult result = MessageBox.Show(
+                $"Bạn chắc chắn muốn đầu hàng \n Nếu đầu hàng bạn ({turn.ToString()}) sẽ thua đấy",
+                "Thông báo",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if(result == DialogResult.Yes)
+            {
+                DauHang(turn);
+                if (AssetManager.NhaccoEnabled)
+                {
+                    AssetManager.GetSound("chienthang")?.Play();
+                }
+            }
         }
     }
 }

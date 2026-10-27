@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="images\logo.ico" />
     <Content Include="images\nenscores.jpg" />
     <Content Include="images\nensettings.png" />
     <Content Include="Sound\nhacnen.wav" />

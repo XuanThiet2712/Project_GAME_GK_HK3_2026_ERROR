@@ -40,6 +40,7 @@
             // 
             this.btnQueen.AllowDrop = true;
             this.btnQueen.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnQueen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQueen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQueen.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQueen.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -56,6 +57,7 @@
             // btnKnight
             // 
             this.btnKnight.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnKnight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnKnight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKnight.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKnight.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -72,6 +74,7 @@
             // btnRook
             // 
             this.btnRook.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnRook.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRook.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRook.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -88,6 +91,7 @@
             // btnBishop
             // 
             this.btnBishop.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnBishop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBishop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBishop.Font = new System.Drawing.Font("Mistral", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBishop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;

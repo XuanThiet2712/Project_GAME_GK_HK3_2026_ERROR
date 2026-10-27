@@ -90,6 +90,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     cell.Tag = new Point(r, c); // lưu trữ vị trí ô trong Tag
                     cell.BorderStyle = BorderStyle.FixedSingle;
                     cell.Click += Cell_Click;
+                    cell.Cursor = Cursors.Hand;
                     cell.SizeMode = PictureBoxSizeMode.Zoom;
                     pnlBoard.Controls.Add(cell);
                     cells[r, c] = cell;

@@ -53,7 +53,7 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTitle.Location = new System.Drawing.Point(138, 9);
+            this.lblTitle.Location = new System.Drawing.Point(139, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(181, 28);
@@ -67,7 +67,7 @@
             this.btn10.Location = new System.Drawing.Point(31, 49);
             this.btn10.Margin = new System.Windows.Forms.Padding(4);
             this.btn10.Name = "btn10";
-            this.btn10.Size = new System.Drawing.Size(66, 28);
+            this.btn10.Size = new System.Drawing.Size(67, 28);
             this.btn10.TabIndex = 1;
             this.btn10.Text = "10 phút";
             this.btn10.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.btn15.Location = new System.Drawing.Point(139, 49);
             this.btn15.Margin = new System.Windows.Forms.Padding(4);
             this.btn15.Name = "btn15";
-            this.btn15.Size = new System.Drawing.Size(66, 28);
+            this.btn15.Size = new System.Drawing.Size(67, 28);
             this.btn15.TabIndex = 2;
             this.btn15.Text = "15 phút";
             this.btn15.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             this.btn20.Location = new System.Drawing.Point(244, 49);
             this.btn20.Margin = new System.Windows.Forms.Padding(4);
             this.btn20.Name = "btn20";
-            this.btn20.Size = new System.Drawing.Size(66, 28);
+            this.btn20.Size = new System.Drawing.Size(67, 28);
             this.btn20.TabIndex = 3;
             this.btn20.Text = "20 phút";
             this.btn20.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // numMinutes
             // 
             this.numMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numMinutes.Location = new System.Drawing.Point(62, 96);
+            this.numMinutes.Location = new System.Drawing.Point(61, 96);
             this.numMinutes.Margin = new System.Windows.Forms.Padding(4);
             this.numMinutes.Minimum = new decimal(new int[] {
             1,
@@ -137,10 +137,10 @@
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(14, 271);
+            this.btnBack.Location = new System.Drawing.Point(13, 271);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(110, 49);
+            this.btnBack.Size = new System.Drawing.Size(109, 49);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Quay lại";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -153,10 +153,10 @@
             this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(146, 271);
+            this.btnStart.Location = new System.Drawing.Point(147, 271);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(125, 49);
+            this.btnStart.Size = new System.Drawing.Size(127, 49);
             this.btnStart.TabIndex = 7;
             this.btnStart.Text = "BẮT ĐẦU";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -167,12 +167,12 @@
             this.lblPlayer1.BackColor = System.Drawing.Color.Transparent;
             this.lblPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayer1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblPlayer1.Location = new System.Drawing.Point(2, 161);
+            this.lblPlayer1.Location = new System.Drawing.Point(3, 161);
             this.lblPlayer1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer1.Name = "lblPlayer1";
             this.lblPlayer1.Size = new System.Drawing.Size(171, 22);
             this.lblPlayer1.TabIndex = 8;
-            this.lblPlayer1.Text = "Player 1 - Đen:";
+            this.lblPlayer1.Text = "Player 1 - Đen";
             this.lblPlayer1.Click += new System.EventHandler(this.lblPlayer1_Click);
             // 
             // lblPlayer2
@@ -180,32 +180,34 @@
             this.lblPlayer2.BackColor = System.Drawing.Color.Transparent;
             this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayer2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPlayer2.Location = new System.Drawing.Point(2, 215);
+            this.lblPlayer2.Location = new System.Drawing.Point(3, 215);
             this.lblPlayer2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(171, 22);
+            this.lblPlayer2.Size = new System.Drawing.Size(173, 22);
             this.lblPlayer2.TabIndex = 9;
-            this.lblPlayer2.Text = "Player 2 - Trắng:";
+            this.lblPlayer2.Text = "Player 2 - Trắng";
+            this.lblPlayer2.Click += new System.EventHandler(this.lblPlayer2_Click);
             // 
             // txtPlayer2
             // 
-            this.txtPlayer2.Location = new System.Drawing.Point(153, 215);
+            this.txtPlayer2.Location = new System.Drawing.Point(181, 215);
             this.txtPlayer2.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer2.MaxLength = 30;
             this.txtPlayer2.Name = "txtPlayer2";
             this.txtPlayer2.Size = new System.Drawing.Size(129, 22);
             this.txtPlayer2.TabIndex = 1;
+            this.txtPlayer2.Text = "Player 2";
             this.txtPlayer2.TextChanged += new System.EventHandler(this.txtPlayer2_TextChanged);
             // 
             // txtPlayer1
             // 
-            this.txtPlayer1.Location = new System.Drawing.Point(153, 161);
+            this.txtPlayer1.Location = new System.Drawing.Point(181, 161);
             this.txtPlayer1.Margin = new System.Windows.Forms.Padding(4);
             this.txtPlayer1.MaxLength = 30;
             this.txtPlayer1.Name = "txtPlayer1";
             this.txtPlayer1.Size = new System.Drawing.Size(129, 22);
             this.txtPlayer1.TabIndex = 0;
-            this.txtPlayer1.Text = "d";
+            this.txtPlayer1.Text = "Player 1 ";
             this.txtPlayer1.TextChanged += new System.EventHandler(this.txtPlayer1_TextChanged);
             // 
             // errorProvider1
@@ -231,6 +233,7 @@
             this.Controls.Add(this.btn15);
             this.Controls.Add(this.btn10);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTime";
             this.Text = "frmTime";

@@ -46,7 +46,7 @@
             this.btnplay.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnplay.ForeColor = System.Drawing.Color.Black;
             this.btnplay.Location = new System.Drawing.Point(180, 281);
-            this.btnplay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnplay.Margin = new System.Windows.Forms.Padding(4);
             this.btnplay.Name = "btnplay";
             this.btnplay.Size = new System.Drawing.Size(120, 50);
             this.btnplay.TabIndex = 0;
@@ -64,7 +64,7 @@
             this.btnSettings.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.Black;
             this.btnSettings.Location = new System.Drawing.Point(180, 355);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(120, 50);
             this.btnSettings.TabIndex = 1;
@@ -82,7 +82,7 @@
             this.btnExit.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Black;
             this.btnExit.Location = new System.Drawing.Point(388, 501);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(80, 29);
             this.btnExit.TabIndex = 2;
@@ -97,7 +97,7 @@
             this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHowToPlay.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHowToPlay.Location = new System.Drawing.Point(13, 13);
-            this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(4);
             this.btnHowToPlay.Name = "btnHowToPlay";
             this.btnHowToPlay.Size = new System.Drawing.Size(133, 30);
             this.btnHowToPlay.TabIndex = 3;
@@ -115,7 +115,7 @@
             this.btnMatchHistory.Font = new System.Drawing.Font("Cooper Black", 10.2F);
             this.btnMatchHistory.ForeColor = System.Drawing.Color.Black;
             this.btnMatchHistory.Location = new System.Drawing.Point(180, 433);
-            this.btnMatchHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMatchHistory.Margin = new System.Windows.Forms.Padding(4);
             this.btnMatchHistory.Name = "btnMatchHistory";
             this.btnMatchHistory.Size = new System.Drawing.Size(120, 50);
             this.btnMatchHistory.TabIndex = 4;
@@ -135,7 +135,8 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnplay);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMenu";
             this.Text = "frmMenu";
             this.Load += new System.EventHandler(this.frmMenu_Load);

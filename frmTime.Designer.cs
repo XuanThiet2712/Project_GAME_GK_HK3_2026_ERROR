@@ -231,7 +231,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmTime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmTime";
+            this.Text = "Setup trước khi chơi";
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

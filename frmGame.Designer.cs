@@ -230,7 +230,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmGame";
+            this.Text = "Game ";
             this.Load += new System.EventHandler(this.frmGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedPiece)).EndInit();

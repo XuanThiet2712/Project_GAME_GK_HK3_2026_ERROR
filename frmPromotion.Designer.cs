@@ -132,7 +132,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmPromotion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmPromotion";
+            this.Text = "Phong Tốt";
             this.Load += new System.EventHandler(this.frmPromotion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picQueen)).EndInit();
             this.ResumeLayout(false);

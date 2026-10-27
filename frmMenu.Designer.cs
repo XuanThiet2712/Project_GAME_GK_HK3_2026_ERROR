@@ -138,7 +138,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMenu";
-            this.Text = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

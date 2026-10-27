@@ -42,6 +42,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
                     {
                         if (MoveRules.IsValidMove(board, r, c, kingRow, kingCol))
                         {
+                            if (AssetManager.NhaccoEnabled)
+                            {
+                                AssetManager.GetSound("chieutuong")?.Play();
+                            }
                             return true; // vua dang bi chieu
                         }
                     }

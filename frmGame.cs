@@ -20,8 +20,8 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         int moveNumber = 1; // so nuoc dang di
         bool gameOver = false; // kiem tra game ket thuc
         private int initialSeconds; // Tổng số giây được cấp ban đầu cho mỗi bên
-        private int whiteSeconds; // Số giây còn lại của bên Trắng (Player 2)
-        private int blackSeconds; // Số giây còn lại của bên Đen (Player 1)
+        private int whiteSeconds; // Số giây còn lại của bên Trắng 
+        private int blackSeconds; // Số giây còn lại của bên Đen 
         private int elapsedSeconds; // Tổng số giây đã đếm trong ván để lưu lịch sử
 
         private bool gg = false;// check dau hang
@@ -165,6 +165,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             Piece movingPiece = board[fromRow, fromCol]; // quan se di 
             Piece targetPiece = board[ToRow, ToCol]; // quan bi an
             string moveText = "";
+            
             if (GameRules.LeavesKingInCheck(board, fromRow, fromCol, ToRow, ToCol))
             {
                 MessageBox.Show("Nước đi này sẽ khiến vị Vua của bạn bị tiêu diệt, vui lòng chọn nước khác !");

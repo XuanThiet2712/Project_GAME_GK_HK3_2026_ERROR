@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\MY COMPUTER\AppData\Local\Temp\vs3660.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\USER\AppData\Local\Temp\vs1057.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\MY COMPUTER\AppData\Local\Temp\vs3660.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\USER\AppData\Local\Temp\vs1057.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -157,6 +157,7 @@
     <Content Include="images\logo.ico" />
     <Content Include="images\nenscores.jpg" />
     <Content Include="images\nensettings.png" />
+    <Content Include="Sound\chieutuong.wav" />
     <Content Include="Sound\nhacnen.wav" />
     <None Include="images\promotion.png" />
     <Content Include="images\sàn gỗ.jpg" />

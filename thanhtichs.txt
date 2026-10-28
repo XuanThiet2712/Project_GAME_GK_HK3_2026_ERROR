@@ -2,16 +2,26 @@
 27/10/2026 14:43:30|test1|test2|test2|Chiếu hết|25
 27/10/2026 14:50:01|Player 1|Player 2|Player 2|Chiếu hết|23
 27/10/2026 17:29:08|Player 1|Player 2|Player 2|Đối thủ GG|0
-27/10/2026 17:30:20|Player 1|Player 2|Player 2|Đối thủ GG|0
-27/10/2026 17:30:29|Player 1|Player 2|Player 2|Đối thủ GG|1
-27/10/2026 19:17:43|Player 1|Player 2|Player 2|Đối thủ GG|29
-27/10/2026 19:25:13|Player 1|Player 2|Player 1|Đối thủ GG|17
-27/10/2026 19:30:06|Player 1|Player 2|Player 1|Đối thủ GG|12
-27/10/2026 19:30:56|Player 1|Player 2|Player 2|Đối thủ GG|6
-27/10/2026 19:31:17|Player 1|Player 2|Player 1|Đối thủ GG|8
-27/10/2026 19:32:39|Player 1|Player 2|Player 1|Đối thủ GG|8
-27/10/2026 19:33:52|Player 1|Player 2|Player 1|Đối thủ GG|8
 27/10/2026 19:36:48|test|test|test|Đối thủ GG|11
 27/10/2026 19:43:31|máy|máy|máy|Đối thủ GG|13
-27/10/2026 19:54:16|Player 1|Player 2|Player 2|Đối thủ GG|21
 27/10/2026 20:26:39|Player 1|Player 2|Player 1|Đối thủ GG|1
+27/10/2026 22:36:57|A|B|A|Đối thủ GG|35
+27/10/2026 22:42:41|Lan|Hoa|Hoa|Chiếu hết|42
+27/10/2026 22:43:12|Lan|Hoa|Lan|Đối thủ GG|24
+27/10/2026 23:41:07|B|A|A|Chiếu hết|14
+27/10/2026 23:41:26|B|A|A|Đối thủ GG|13
+27/10/2026 23:48:49|Sơn|Bình|Bình|Chiếu hết|15
+27/10/2026 23:49:18|Sơn|Bình|Sơn|Đối thủ GG|21
+27/10/2026 23:52:52|CV|CB|CB|Chiếu hết|13
+27/10/2026 23:53:40|CV|CB|CB|Đối thủ GG|7
+28/10/2026 00:33:46|X|Y|Y|Chiếu hết|18
+28/10/2026 00:34:20|X|Y|X|Đối thủ GG|24
+28/10/2026 00:37:18|ABC|X|X|Chiếu hết|36
+28/10/2026 00:44:07|AX|BV|BV|Chiếu hết|52
+28/10/2026 00:47:57|VC|Player 2|Player 2|Chiếu hết|39
+28/10/2026 00:49:02|VC|Player 2|VC|Đối thủ GG|54
+28/10/2026 00:50:16|Player 1|Player 2|Player 2|Đối thủ GG|11
+28/10/2026 00:59:41|haha|Player 2|Player 2|Chiếu hết|29
+28/10/2026 01:00:01|haha|Player 2|Player 2|Đối thủ GG|11
+28/10/2026 01:09:13|Player 8|Player 2|Player 2|Chiếu hết|59
+28/10/2026 01:10:06|Player 8|Player 2|Player 8|Đối thủ GG|40

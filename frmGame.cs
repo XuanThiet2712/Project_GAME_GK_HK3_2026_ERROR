@@ -642,5 +642,21 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                 }
             }
         }
+
+        private void dgvHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frmGame_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn thoát khỏi trò chơi !",
+                "Thông báo",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            Application.Exit();
+        }
     }
 }

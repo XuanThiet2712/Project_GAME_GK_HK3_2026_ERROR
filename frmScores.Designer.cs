@@ -131,6 +131,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             this.Name = "frmScores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lịch sử trận đấu";
+            this.Load += new System.EventHandler(this.frmScores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatches)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

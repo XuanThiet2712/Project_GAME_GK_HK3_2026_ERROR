@@ -566,7 +566,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
             };
             try
             {
-                MatchStorage.Save(match); // Lưu trận vào TXT, không giới hạn
+                MatchStorage.Save(match); // Lưu trận vào TXT
             }
             catch (Exception ex)
             {

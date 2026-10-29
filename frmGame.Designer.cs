@@ -35,8 +35,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblPlayerBlack = new System.Windows.Forms.Label();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
-            this.colWhite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBlack = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picSelectedPiece = new System.Windows.Forms.PictureBox();
             this.lblBlackTime = new System.Windows.Forms.Label();
             this.lblWhiteTime = new System.Windows.Forms.Label();
@@ -45,6 +43,8 @@
             this.btnGameMoi = new System.Windows.Forms.Button();
             this.chkAmthanh = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.colBlack = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWhite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedPiece)).BeginInit();
             this.SuspendLayout();
@@ -109,20 +109,6 @@
             this.dgvHistory.Size = new System.Drawing.Size(270, 212);
             this.dgvHistory.TabIndex = 7;
             this.dgvHistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistory_CellContentClick);
-            // 
-            // colWhite
-            // 
-            this.colWhite.HeaderText = "White";
-            this.colWhite.MinimumWidth = 6;
-            this.colWhite.Name = "colWhite";
-            this.colWhite.ReadOnly = true;
-            // 
-            // colBlack
-            // 
-            this.colBlack.HeaderText = "Black";
-            this.colBlack.MinimumWidth = 6;
-            this.colBlack.Name = "colBlack";
-            this.colBlack.ReadOnly = true;
             // 
             // picSelectedPiece
             // 
@@ -209,6 +195,20 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // colBlack
+            // 
+            this.colBlack.HeaderText = "Black";
+            this.colBlack.MinimumWidth = 6;
+            this.colBlack.Name = "colBlack";
+            this.colBlack.ReadOnly = true;
+            // 
+            // colWhite
+            // 
+            this.colWhite.HeaderText = "White";
+            this.colWhite.MinimumWidth = 6;
+            this.colWhite.Name = "colWhite";
+            this.colWhite.ReadOnly = true;
+            // 
             // frmGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -248,8 +248,6 @@
         private System.Windows.Forms.Label lblPlayerBlack;
         private System.Windows.Forms.Label lblPlayerWhite;
         private System.Windows.Forms.DataGridView dgvHistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWhite;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBlack;
         private System.Windows.Forms.PictureBox picSelectedPiece;
         private System.Windows.Forms.Label lblBlackTime;
         private System.Windows.Forms.Label lblWhiteTime;
@@ -258,5 +256,7 @@
         private System.Windows.Forms.Button btnGameMoi;
         private System.Windows.Forms.CheckBox chkAmthanh;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWhite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBlack;
     }
 }

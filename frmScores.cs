@@ -36,5 +36,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             Close();
         }
+
+        private void frmScores_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

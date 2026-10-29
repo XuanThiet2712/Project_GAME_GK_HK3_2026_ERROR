@@ -25,3 +25,8 @@
 28/10/2026 01:00:01|haha|Player 2|Player 2|Đối thủ GG|11
 28/10/2026 01:09:13|Player 8|Player 2|Player 2|Chiếu hết|59
 28/10/2026 01:10:06|Player 8|Player 2|Player 8|Đối thủ GG|40
+29/10/2026 20:56:29|Player 1|Player 2|Player 2|Chiếu hết|19
+29/10/2026 20:56:46|Player 1|Player 2|Player 2|Chiếu hết|13
+29/10/2026 21:46:21|A|B|B|Chiếu hết|16
+29/10/2026 21:47:16|A|B|B|Đối thủ GG|43
+30/10/2026 00:42:41|Player 1|Player 2|Player 2|Chiếu hết|54

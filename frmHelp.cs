@@ -118,7 +118,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                     break;
                 case 11:
                     text = "Vua đang bị chiếu thì sẽ KHÔNG NHẬP THÀNH ĐƯỢC !";
-                    text = "NHẬP THÀNH: Khi VUA và 1 trong 2 con XE của bạn không di chuyển và không có 1 khoảng trống giữa 2 con thì VUA có thể đi sang 2 ô như hình.";
                     r = 7; c = 4;
                     Put(r, c, PieceType.King, PieceColor.White);
                     Put(7, 7, PieceType.Rook, PieceColor.White);
@@ -165,9 +164,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         }
 
 
-
-
-
         private void ColorBoard(int pr, int pc)
         {
             for (int r = 0; r < 8; r++)
@@ -181,7 +177,7 @@ namespace Project_GAME_GK_HK3_2026_ERROR
                         cells[r, c].BackColor = Color.Gray;
 
                     if (hoaco) continue;
-                    if (MoveRules.IsValidMove(board, pr, pc, r, c))
+                    if (GameRules.IsLegalMove(board, pr, pc, r, c))
                     {
                         
                         if (board[r, c] == null)

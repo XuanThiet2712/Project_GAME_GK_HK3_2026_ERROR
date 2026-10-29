@@ -60,5 +60,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR
         {
             this.Close(); 
         }
+
+        private void frmTime_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

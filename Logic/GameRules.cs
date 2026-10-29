@@ -42,10 +42,6 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
                     {
                         if (MoveRules.IsValidMove(board, r, c, kingRow, kingCol))
                         {
-                            if (AssetManager.NhaccoEnabled)
-                            {
-                                AssetManager.GetSound("chieutuong")?.Play();
-                            }
                             return true; // vua dang bi chieu
                         }
                     }
@@ -166,6 +162,10 @@ namespace Project_GAME_GK_HK3_2026_ERROR.Logic
             bool inCheck = IsInCheck(board, sideToMove);
             // xem vua co dnag bi chieu ko
             bool hasMove = HasAnyLegalMoves(board, sideToMove);
+            if (AssetManager.NhaccoEnabled && inCheck)
+            {
+                AssetManager.GetSound("chieutuong")?.Play();
+            }
             //xem doi phuong con nuoc di hop le ko
             if (!hasMove && inCheck) return GameStatus.Checkmate;
             if (!hasMove && !inCheck) return GameStatus.Stalemate;

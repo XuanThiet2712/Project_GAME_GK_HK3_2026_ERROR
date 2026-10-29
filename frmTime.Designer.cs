@@ -232,6 +232,7 @@
             this.Name = "frmTime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Setup trước khi chơi";
+            this.Load += new System.EventHandler(this.frmTime_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
